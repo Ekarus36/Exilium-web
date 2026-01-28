@@ -1,0 +1,12 @@
+{
+  "title": "@sveltejs/vite-plugin-svelte-inspector",
+  "metadata": {},
+  "atAGlance": "",
+  "commonKnowledge": "",
+  "secretKnowledge": "",
+  "seeAlso": [],
+  "rawContent": "# @sveltejs/vite-plugin-svelte-inspector\n\nA [Svelte](https://svelte.dev) inspector plugin for [Vite](https://vitejs.dev).\n\n## Usage\n\nThis plugin is automatically installed as a dependency of [@sveltejs/vite-plugin-svelte](https://www.npmjs.com/package/@sveltejs/vite-plugin-svelte).\n\nYou can enable it in `svelte.config.js` by adding the `vitePlugin.inspector` option.\n\n```js\n// svelte.config.js\nexport default {\n  vitePlugin: {\n    inspector: true\n  }\n};\n```\n\nNow simply press `alt-x` (`option-x` on MacOS) on a page served by the Vite dev server to activate inspect mode. Click on a highlighted element to jump to its source code in your editor.\n\nAlso check out the [docs](https://github.com/sveltejs/vite-plugin-svelte/blob/main/docs/inspector.md) for customization options.\n\n## License\n\n[MIT](./LICENSE)\n",
+  "sourcePath": "dnd-tracker/node_modules/@sveltejs/vite-plugin-svelte-inspector/README.md",
+  "slug": "sveltejsvite-plugin-svelte-inspector",
+  "category": "misc"
+}

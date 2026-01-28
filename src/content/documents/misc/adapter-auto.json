@@ -1,0 +1,12 @@
+{
+  "title": "adapter-auto",
+  "metadata": {},
+  "atAGlance": "",
+  "commonKnowledge": "",
+  "secretKnowledge": "",
+  "seeAlso": [],
+  "rawContent": "# adapter-auto\n\nAutomatically chooses the SvelteKit adapter for your current environment, if possible.\n\n## Docs\n\n[Docs](https://svelte.dev/docs/kit/adapter-auto)\n\n## Changelog\n\n[The Changelog for this package is available on GitHub](https://github.com/sveltejs/kit/blob/main/packages/adapter-auto/CHANGELOG.md).\n",
+  "sourcePath": "dnd-tracker/node_modules/@sveltejs/adapter-auto/README.md",
+  "slug": "adapter-auto",
+  "category": "misc"
+}

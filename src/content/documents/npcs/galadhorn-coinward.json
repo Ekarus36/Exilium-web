@@ -1,0 +1,19 @@
+{
+  "title": "Galadhorn Coinward",
+  "metadata": {
+    "Age": "380 years",
+    "Race": "High Elf, Male",
+    "Role": "Treasury Master, Faendril's Deputy",
+    "Reports To": "First Steward Faendril",
+    "Location": "Granite Tower, Counting Halls"
+  },
+  "epigraph": "The Empire runs on goods, not glory. I count the goods.",
+  "atAGlance": "",
+  "commonKnowledge": "",
+  "secretKnowledge": "",
+  "seeAlso": [],
+  "rawContent": "# Galadhorn Coinward\n\n**Second Steward** | Granite Tower (Circle of Stewards)\n\n> *\"The Empire runs on goods, not glory. I count the goods.\"*\n\n| | |\n|---|---|\n| **Age** | 380 years |\n| **Race** | High Elf, Male |\n| **Role** | Treasury Master, Faendril's Deputy |\n| **Reports To** | First Steward Faendril |\n| **Location** | Granite Tower, Counting Halls |\n\n---\n\n## Overview\n\nGaladhorn Coinward manages the Imperial treasury—tracking reserves, authorizing expenditures, and ensuring the provision system flows smoothly. He's the elf who actually knows where the money is and where it goes. Less visionary than Faendril, more precise.\n\n---\n\n## Personality & Approach\n\nNumbers-focused, detail-oriented, slightly dull in conversation. Comes alive when discussing economics. Can tell you the trade balance with any enclave from memory. Considers inaccurate accounting a moral failing. Trustworthy precisely because he finds corruption mathematically offensive.\n\n---\n\n## Key Facts\n\n- Manages gold reserves accumulated over 1,500 years\n- Personally audits major transactions\n- Developed the current provision tracking system\n- Has never approved a fraudulent expense (that he knows of)\n\n---\n\n## Secret (DM Only)\n\nHe's noticed irregularities in House Caemorn's accounts—not fraud, but unusual patterns suggesting investments outside the Empire. He hasn't reported this because he can't prove anything yet. He's patient. Numbers eventually tell the truth.\n\n---\n\n## Connections\n\n- **Faendril**: Superior - Trusted with treasury access\n- **Lady Saelindra Caemorn**: Professional - Handles House banking arrangements\n- **Faelindor Goldweave**: Colleague - Master of Coin, manages daily operations\n",
+  "sourcePath": "06-NPCs/Thelassian/Galadhorn Coinward.md",
+  "slug": "galadhorn-coinward",
+  "category": "npcs"
+}

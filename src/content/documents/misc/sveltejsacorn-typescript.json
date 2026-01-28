@@ -1,0 +1,12 @@
+{
+  "title": "@sveltejs/acorn-typescript",
+  "metadata": {},
+  "atAGlance": "",
+  "commonKnowledge": "",
+  "secretKnowledge": "",
+  "seeAlso": [],
+  "rawContent": "# @sveltejs/acorn-typescript\n\n[![License](https://img.shields.io/npm/l/svelte.svg)](LICENSE.md) [![Chat](https://img.shields.io/discord/457912077277855764?label=chat&logo=discord)](https://svelte.dev/chat)\n\nThis is a plugin for [Acorn](http://marijnhaverbeke.nl/acorn/) - a tiny, fast JavaScript parser, written completely in JavaScript.\n\nIt was created as an experimental alternative, faster [TypeScript](https://www.typescriptlang.org/) parser. It will help you to parse\nTypeScript using Acorn.\n\n## Usage\n\nTo get started, import the plugin and use Acorn's extension mechanism to register it. You have to enable `options.locations` while using `@sveltejs/acorn-typescript`.\n\n```typescript\nimport { Parser } from 'acorn';\nimport { tsPlugin } from '@sveltejs/acorn-typescript';\n\nconst node = Parser.extend(tsPlugin()).parse(\n\t`\nconst a = 1\ntype A = number\nexport {\n  a,\n  type A as B\n}\n`,\n\t{\n\t\tsourceType: 'module',\n\t\tecmaVersion: 'latest',\n\t\tlocations: true\n\t}\n);\n```\n\nIf you want to enable parsing within a TypeScript ambient context, where certain syntax have different rules (like `.d.ts` files and inside [declare module blocks](https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html)):\n\n```typescript\nimport { Parser } from 'acorn';\nimport { tsPlugin } from '@sveltejs/acorn-typescript';\n\nconst node = Parser.extend(tsPlugin({ dts: true })).parse(\n\t`\nconst a = 1\ntype A = number\nexport {\n  a,\n  type A as B\n}\n`,\n\t{\n\t\tsourceType: 'module',\n\t\tecmaVersion: 'latest',\n\t\tlocations: true\n\t}\n);\n```\n\n## SUPPORTED\n\n- Typescript normal syntax\n- Support to parse TypeScript [Decorators](https://www.typescriptlang.org/docs/handbook/decorators.html)\n- Support to parse JSX & TSX\n\n## CHANGELOG\n\n[click](./CHANGELOG.md)\n\n## Acknowledgments\n\nWe want to thank [TyrealHu](https://github.com/TyrealHu) for his original work on this project. He maintained [`acorn-typescript`](https://github.com/TyrealHu/acorn-typescript) until early 2024.\n",
+  "sourcePath": "dnd-tracker/node_modules/@sveltejs/acorn-typescript/README.md",
+  "slug": "sveltejsacorn-typescript",
+  "category": "misc"
+}

@@ -1,0 +1,12 @@
+{
+  "title": "@sveltejs/adapter-static",
+  "metadata": {},
+  "atAGlance": "",
+  "commonKnowledge": "",
+  "secretKnowledge": "",
+  "seeAlso": [],
+  "rawContent": "# @sveltejs/adapter-static\n\n[Adapter](https://svelte.dev/docs/kit/adapters) for SvelteKit apps that prerenders your entire site as a collection of static files. It's also possible to create an SPA with it by specifying a fallback page which renders an empty shell. If you'd like to prerender only some pages and not create an SPA for those left out, you will need to use a different adapter together with [the `prerender` option](https://svelte.dev/docs/kit/page-options#prerender).\n\n## Docs\n\n[Docs](https://svelte.dev/docs/kit/adapter-static)\n\n## Changelog\n\n[The Changelog for this package is available on GitHub](https://github.com/sveltejs/kit/blob/main/packages/adapter-static/CHANGELOG.md).\n\n## License\n\n[MIT](LICENSE)\n",
+  "sourcePath": "dnd-tracker/node_modules/@sveltejs/adapter-static/README.md",
+  "slug": "sveltejsadapter-static",
+  "category": "misc"
+}

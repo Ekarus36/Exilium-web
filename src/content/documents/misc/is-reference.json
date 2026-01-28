@@ -1,0 +1,12 @@
+{
+  "title": "is-reference",
+  "metadata": {},
+  "atAGlance": "",
+  "commonKnowledge": "",
+  "secretKnowledge": "",
+  "seeAlso": [],
+  "rawContent": "# is-reference\n\nUtility for determining whether an AST node is a reference.\n\n`foo` is a reference in these cases:\n\n```js\nconsole.log(foo);\nvar foo;\nfunction foo() {}\nfunction bar(foo) {}\nexport { foo as x };\n```\n\n`foo` is *not* a reference in these cases:\n\n```js\nvar obj = { foo: 1 };\nconsole.log(obj.foo);\nexport { x as foo };\n```\n\nIn all cases, `foo` is an `Identifier` node, but the two kinds must be treated differently for the purposes of scope analysis etc. (The examples are non-exhaustive.)\n\n\n## Installation\n\n```bash\nnpm install is-reference\n```\n\n\n## Usage\n\nExample using [Acorn](https://github.com/ternjs/acorn) and [estree-walker](https://github.com/Rich-Harris/estree-walker):\n\n```js\nimport { parse } from 'acorn';\nimport { walk } from 'estree-walker';\nimport is_reference from 'is-reference';\n\nconst identifiers = [];\nconst references = [];\n\nconst ast = parse(`var a = b.c;`);\n\nwalk(ast, {\n\tenter(node, parent) {\n\t\tif (node.type === 'Identifier') identifiers.push(node);\n\t\tif (is_reference(node, parent)) references.push(node);\n\t}\n});\n\nidentifiers.forEach(node => console.log(node.name)); // a, b, c\nreferences.forEach(node => console.log(node.name)); // a, b\n```\n\n\n## License\n\nMIT\n",
+  "sourcePath": "dnd-tracker/node_modules/is-reference/README.md",
+  "slug": "is-reference",
+  "category": "misc"
+}

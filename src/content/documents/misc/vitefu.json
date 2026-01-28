@@ -1,0 +1,12 @@
+{
+  "title": "vitefu",
+  "metadata": {},
+  "atAGlance": "",
+  "commonKnowledge": "",
+  "secretKnowledge": "",
+  "seeAlso": [],
+  "rawContent": "# vitefu\n\nUtilities for building frameworks with Vite.\n\n## Usage\n\nSee [src/index.d.ts](./src/index.d.ts).\n\n## License\n\nMIT\n",
+  "sourcePath": "dnd-tracker/node_modules/vitefu/README.md",
+  "slug": "vitefu",
+  "category": "misc"
+}

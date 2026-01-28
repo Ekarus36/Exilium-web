@@ -1,0 +1,12 @@
+{
+  "title": "Installation",
+  "metadata": {},
+  "atAGlance": "",
+  "commonKnowledge": "",
+  "secretKnowledge": "",
+  "seeAlso": [],
+  "rawContent": "# Installation\r\n> `npm install --save @types/estree`\r\n\r\n# Summary\r\nThis package contains type definitions for estree (https://github.com/estree/estree).\r\n\r\n# Details\r\nFiles were exported from https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/estree.\r\n\r\n### Additional Details\r\n * Last updated: Fri, 06 Jun 2025 00:04:33 GMT\r\n * Dependencies: none\r\n\r\n# Credits\r\nThese definitions were written by [RReverser](https://github.com/RReverser).\r\n",
+  "sourcePath": "dnd-tracker/node_modules/@types/estree/README.md",
+  "slug": "installation",
+  "category": "misc"
+}
