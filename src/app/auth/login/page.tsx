@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
+import { SpinnerIcon, ArrowLeftIcon } from "@/components/ui/Icons";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -34,19 +35,33 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        <div className="bg-stone-900 border border-stone-800 rounded-xl p-8">
-          <h1 className="text-2xl font-bold mb-2 text-stone-100">
-            Welcome back
-          </h1>
-          <p className="text-stone-400 mb-6">
-            Sign in to save your campaigns and creatures
-          </p>
+    <main className="min-h-screen flex items-center justify-center p-4 relative">
+      {/* Decorative background compass */}
+      <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+        <div className="text-[30rem] text-[var(--gold-dark)] opacity-[0.02] select-none">
+          ✦
+        </div>
+      </div>
 
-          <form onSubmit={handleLogin} className="space-y-4">
+      <div className="w-full max-w-md relative z-10 animate-fade-in">
+        {/* Parchment-style card */}
+        <div className="parchment-card">
+          {/* Decorative header */}
+          <div className="text-center mb-8">
+            <div className="text-[var(--gold-shadow)] text-sm tracking-[0.5em] mb-4">
+              ✧ ◆ ✧
+            </div>
+            <h1 className="font-['Cinzel',serif] text-3xl font-medium tracking-wide text-[var(--ink-brown)] mb-2">
+              Welcome Back
+            </h1>
+            <p className="font-['IM_Fell_English',serif] text-[var(--ink-sepia)] italic">
+              Sign in to chronicle your campaigns
+            </p>
+          </div>
+
+          <form onSubmit={handleLogin} className="space-y-6">
             {error && (
-              <div className="bg-red-950/50 border border-red-800 text-red-200 px-4 py-3 rounded-lg text-sm">
+              <div className="bg-[var(--vermillion)]/10 border border-[var(--vermillion-dark)] text-[var(--vermillion)] px-4 py-3 rounded text-sm font-['Crimson_Pro',serif]">
                 {error}
               </div>
             )}
@@ -54,9 +69,9 @@ export default function LoginPage() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-stone-300 mb-1"
+                className="font-['Cinzel',serif] text-xs tracking-[0.2em] uppercase text-[var(--ink-sepia)]"
               >
-                Email
+                Email Address
               </label>
               <input
                 id="email"
@@ -64,15 +79,14 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-2 bg-stone-800 border border-stone-700 rounded-lg text-stone-100 placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                placeholder="you@example.com"
+                placeholder="scribe@veraheim.com"
               />
             </div>
 
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-stone-300 mb-1"
+                className="font-['Cinzel',serif] text-xs tracking-[0.2em] uppercase text-[var(--ink-sepia)]"
               >
                 Password
               </label>
@@ -82,36 +96,54 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-4 py-2 bg-stone-800 border border-stone-700 rounded-lg text-stone-100 placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                placeholder="Enter your password"
+                placeholder="Enter your secret phrase"
               />
             </div>
 
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-2 px-4 bg-amber-600 hover:bg-amber-500 disabled:bg-amber-800 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-colors"
+              className="btn-primary w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isLoading ? "Signing in..." : "Sign in"}
+              {isLoading ? (
+                <span className="flex items-center gap-2">
+                  <SpinnerIcon size={16} />
+                  Signing In...
+                </span>
+              ) : (
+                "Enter the Archive"
+              )}
             </button>
           </form>
 
-          <p className="mt-6 text-center text-stone-400 text-sm">
-            Don&apos;t have an account?{" "}
+          {/* Divider */}
+          <div className="flex items-center gap-4 my-8">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-[var(--gold-shadow)] to-transparent" />
+            <span className="text-[var(--gold-shadow)] text-xs">✦</span>
+            <div className="flex-1 h-px bg-gradient-to-l from-transparent via-[var(--gold-shadow)] to-transparent" />
+          </div>
+
+          <p className="text-center font-['Crimson_Pro',serif] text-[var(--ink-sepia)]">
+            New to the archives?{" "}
             <Link
               href="/auth/signup"
-              className="text-amber-400 hover:text-amber-300"
+              className="text-[var(--ink-brown)] font-semibold hover:text-[var(--gold-dark)] transition-colors underline decoration-[var(--gold-shadow)] underline-offset-2"
             >
-              Sign up
+              Create an account
             </Link>
           </p>
         </div>
 
-        <p className="mt-4 text-center text-stone-500 text-sm">
-          <Link href="/" className="hover:text-stone-300">
-            Back to home
+        {/* Back link */}
+        <div className="mt-6 text-center">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-[var(--gold-dark)] hover:text-[var(--gold)] transition-colors font-['Cinzel',serif] text-sm tracking-wide"
+          >
+            <ArrowLeftIcon size={16} />
+            Return to Exilium
           </Link>
-        </p>
+        </div>
       </div>
     </main>
   );

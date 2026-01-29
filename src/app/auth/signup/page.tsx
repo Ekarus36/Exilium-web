@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
+import { SpinnerIcon, ArrowLeftIcon, CheckIcon } from "@/components/ui/Icons";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
@@ -51,36 +52,35 @@ export default function SignupPage() {
 
   if (success) {
     return (
-      <main className="min-h-screen flex items-center justify-center p-4">
-        <div className="w-full max-w-md">
-          <div className="bg-stone-900 border border-stone-800 rounded-xl p-8 text-center">
-            <div className="w-16 h-16 bg-green-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg
-                className="w-8 h-8 text-green-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
+      <main className="min-h-screen flex items-center justify-center p-4 relative">
+        {/* Background decoration */}
+        <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+          <div className="text-[30rem] text-[var(--gold-dark)] opacity-[0.02] select-none">
+            ✦
+          </div>
+        </div>
+
+        <div className="w-full max-w-md relative z-10 animate-fade-in">
+          <div className="parchment-card text-center">
+            {/* Success icon */}
+            <div className="w-20 h-20 mx-auto mb-6 rounded-full border-2 border-[var(--viridian)] bg-[var(--viridian)]/10 flex items-center justify-center">
+              <CheckIcon size={40} className="text-[var(--viridian)]" />
             </div>
-            <h1 className="text-2xl font-bold mb-2 text-stone-100">
-              Check your email
+
+            <h1 className="font-['Cinzel',serif] text-2xl font-medium tracking-wide text-[var(--ink-brown)] mb-4">
+              Check Your Courier
             </h1>
-            <p className="text-stone-400 mb-6">
-              We&apos;ve sent a confirmation link to <strong>{email}</strong>.
-              Click the link to activate your account.
+            <p className="font-['Crimson_Pro',serif] text-[var(--ink-sepia)] mb-6">
+              A confirmation scroll has been sent to{" "}
+              <strong className="text-[var(--ink-brown)]">{email}</strong>.
+              Click the seal to activate your account.
             </p>
+
             <Link
               href="/auth/login"
-              className="text-amber-400 hover:text-amber-300"
+              className="btn-secondary inline-flex"
             >
-              Back to login
+              Return to Login
             </Link>
           </div>
         </div>
@@ -89,19 +89,33 @@ export default function SignupPage() {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        <div className="bg-stone-900 border border-stone-800 rounded-xl p-8">
-          <h1 className="text-2xl font-bold mb-2 text-stone-100">
-            Create an account
-          </h1>
-          <p className="text-stone-400 mb-6">
-            Sign up to save campaigns, creatures, and encounters
-          </p>
+    <main className="min-h-screen flex items-center justify-center p-4 relative">
+      {/* Decorative background compass */}
+      <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+        <div className="text-[30rem] text-[var(--gold-dark)] opacity-[0.02] select-none">
+          ✦
+        </div>
+      </div>
 
-          <form onSubmit={handleSignup} className="space-y-4">
+      <div className="w-full max-w-md relative z-10 animate-fade-in">
+        {/* Parchment-style card */}
+        <div className="parchment-card">
+          {/* Decorative header */}
+          <div className="text-center mb-8">
+            <div className="text-[var(--gold-shadow)] text-sm tracking-[0.5em] mb-4">
+              ✧ ◆ ✧
+            </div>
+            <h1 className="font-['Cinzel',serif] text-3xl font-medium tracking-wide text-[var(--ink-brown)] mb-2">
+              Join the Archives
+            </h1>
+            <p className="font-['IM_Fell_English',serif] text-[var(--ink-sepia)] italic">
+              Create an account to preserve your chronicles
+            </p>
+          </div>
+
+          <form onSubmit={handleSignup} className="space-y-6">
             {error && (
-              <div className="bg-red-950/50 border border-red-800 text-red-200 px-4 py-3 rounded-lg text-sm">
+              <div className="bg-[var(--vermillion)]/10 border border-[var(--vermillion-dark)] text-[var(--vermillion)] px-4 py-3 rounded text-sm font-['Crimson_Pro',serif]">
                 {error}
               </div>
             )}
@@ -109,9 +123,9 @@ export default function SignupPage() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-stone-300 mb-1"
+                className="font-['Cinzel',serif] text-xs tracking-[0.2em] uppercase text-[var(--ink-sepia)]"
               >
-                Email
+                Email Address
               </label>
               <input
                 id="email"
@@ -119,17 +133,16 @@ export default function SignupPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-2 bg-stone-800 border border-stone-700 rounded-lg text-stone-100 placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                placeholder="you@example.com"
+                placeholder="scribe@veraheim.com"
               />
             </div>
 
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-stone-300 mb-1"
+                className="font-['Cinzel',serif] text-xs tracking-[0.2em] uppercase text-[var(--ink-sepia)]"
               >
-                Password
+                Secret Phrase
               </label>
               <input
                 id="password"
@@ -137,7 +150,6 @@ export default function SignupPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-4 py-2 bg-stone-800 border border-stone-700 rounded-lg text-stone-100 placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                 placeholder="At least 6 characters"
               />
             </div>
@@ -145,9 +157,9 @@ export default function SignupPage() {
             <div>
               <label
                 htmlFor="confirmPassword"
-                className="block text-sm font-medium text-stone-300 mb-1"
+                className="font-['Cinzel',serif] text-xs tracking-[0.2em] uppercase text-[var(--ink-sepia)]"
               >
-                Confirm password
+                Confirm Phrase
               </label>
               <input
                 id="confirmPassword"
@@ -155,36 +167,54 @@ export default function SignupPage() {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
-                className="w-full px-4 py-2 bg-stone-800 border border-stone-700 rounded-lg text-stone-100 placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                placeholder="Confirm your password"
+                placeholder="Repeat your secret phrase"
               />
             </div>
 
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-2 px-4 bg-amber-600 hover:bg-amber-500 disabled:bg-amber-800 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-colors"
+              className="btn-primary w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isLoading ? "Creating account..." : "Create account"}
+              {isLoading ? (
+                <span className="flex items-center gap-2">
+                  <SpinnerIcon size={16} />
+                  Creating Account...
+                </span>
+              ) : (
+                "Inscribe My Name"
+              )}
             </button>
           </form>
 
-          <p className="mt-6 text-center text-stone-400 text-sm">
+          {/* Divider */}
+          <div className="flex items-center gap-4 my-8">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-[var(--gold-shadow)] to-transparent" />
+            <span className="text-[var(--gold-shadow)] text-xs">✦</span>
+            <div className="flex-1 h-px bg-gradient-to-l from-transparent via-[var(--gold-shadow)] to-transparent" />
+          </div>
+
+          <p className="text-center font-['Crimson_Pro',serif] text-[var(--ink-sepia)]">
             Already have an account?{" "}
             <Link
               href="/auth/login"
-              className="text-amber-400 hover:text-amber-300"
+              className="text-[var(--ink-brown)] font-semibold hover:text-[var(--gold-dark)] transition-colors underline decoration-[var(--gold-shadow)] underline-offset-2"
             >
               Sign in
             </Link>
           </p>
         </div>
 
-        <p className="mt-4 text-center text-stone-500 text-sm">
-          <Link href="/" className="hover:text-stone-300">
-            Back to home
+        {/* Back link */}
+        <div className="mt-6 text-center">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-[var(--gold-dark)] hover:text-[var(--gold)] transition-colors font-['Cinzel',serif] text-sm tracking-wide"
+          >
+            <ArrowLeftIcon size={16} />
+            Return to Exilium
           </Link>
-        </p>
+        </div>
       </div>
     </main>
   );

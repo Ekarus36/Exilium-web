@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { ContentDocument } from "@/lib/content/types";
 import { MarkdownContent } from "./MarkdownContent";
+import { ChevronDownIcon } from "@/components/ui/Icons";
 
 interface ContentPageProps {
   document: ContentDocument;
@@ -170,21 +171,9 @@ function ContentSection({
           <h2 className={`text-lg font-semibold ${titleColor}`}>{title}</h2>
           <p className="text-sm text-stone-500">{subtitle}</p>
         </div>
-        <svg
-          className={`w-5 h-5 text-stone-500 transform transition-transform ${
+        <ChevronDownIcon size={20} className={`text-stone-500 transform transition-transform ${
             isExpanded ? "rotate-180" : ""
-          }`}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
+          }`} />
       </button>
 
       {isExpanded && (

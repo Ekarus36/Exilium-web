@@ -1,94 +1,102 @@
 import Link from "next/link";
+import { BookHeroIcon, EyeHeroIcon, ScrollHeroIcon, ArrowRightIcon } from "@/components/ui/Icons";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-8">
-      <div className="max-w-4xl w-full">
-        <header className="text-center mb-16">
-          <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-amber-200 to-amber-500 bg-clip-text text-transparent">
-            Exilium
+    <main className="min-h-screen flex flex-col items-center justify-center p-8 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Compass rose watermark */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] text-[40rem] select-none">
+          ✦
+        </div>
+        {/* Corner decorations */}
+        <svg className="absolute top-8 left-8 w-24 h-24 text-[var(--gold-dark)] opacity-30" viewBox="0 0 100 100">
+          <path d="M0 50 Q0 0 50 0" fill="none" stroke="currentColor" strokeWidth="1"/>
+          <path d="M10 50 Q10 10 50 10" fill="none" stroke="currentColor" strokeWidth="0.5"/>
+          <circle cx="50" cy="0" r="3" fill="currentColor"/>
+          <circle cx="0" cy="50" r="3" fill="currentColor"/>
+        </svg>
+        <svg className="absolute top-8 right-8 w-24 h-24 text-[var(--gold-dark)] opacity-30 scale-x-[-1]" viewBox="0 0 100 100">
+          <path d="M0 50 Q0 0 50 0" fill="none" stroke="currentColor" strokeWidth="1"/>
+          <path d="M10 50 Q10 10 50 10" fill="none" stroke="currentColor" strokeWidth="0.5"/>
+          <circle cx="50" cy="0" r="3" fill="currentColor"/>
+          <circle cx="0" cy="50" r="3" fill="currentColor"/>
+        </svg>
+        <svg className="absolute bottom-8 left-8 w-24 h-24 text-[var(--gold-dark)] opacity-30 scale-y-[-1]" viewBox="0 0 100 100">
+          <path d="M0 50 Q0 0 50 0" fill="none" stroke="currentColor" strokeWidth="1"/>
+          <path d="M10 50 Q10 10 50 10" fill="none" stroke="currentColor" strokeWidth="0.5"/>
+          <circle cx="50" cy="0" r="3" fill="currentColor"/>
+          <circle cx="0" cy="50" r="3" fill="currentColor"/>
+        </svg>
+        <svg className="absolute bottom-8 right-8 w-24 h-24 text-[var(--gold-dark)] opacity-30 scale-[-1]" viewBox="0 0 100 100">
+          <path d="M0 50 Q0 0 50 0" fill="none" stroke="currentColor" strokeWidth="1"/>
+          <path d="M10 50 Q10 10 50 10" fill="none" stroke="currentColor" strokeWidth="0.5"/>
+          <circle cx="50" cy="0" r="3" fill="currentColor"/>
+          <circle cx="0" cy="50" r="3" fill="currentColor"/>
+        </svg>
+      </div>
+
+      <div className="max-w-5xl w-full relative z-10">
+        {/* Header with illuminated manuscript styling */}
+        <header className="text-center mb-20 animate-fade-in">
+          {/* Decorative flourish above title */}
+          <div className="mb-6 text-[var(--gold-dark)] text-2xl tracking-[1em] opacity-60">
+            ✧ ◆ ✧
+          </div>
+
+          <h1 className="font-['Cinzel',serif] text-7xl md:text-8xl font-medium tracking-[0.15em] mb-6 shimmer-gold">
+            EXILIUM
           </h1>
-          <p className="text-xl text-stone-400">
-            A world between two empires, where Veraheim stands as the last
-            neutral sanctuary
+
+          {/* Decorative line */}
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="h-px w-24 bg-gradient-to-r from-transparent via-[var(--gold-dark)] to-transparent" />
+            <span className="text-[var(--gold)] text-lg">✦</span>
+            <div className="h-px w-24 bg-gradient-to-l from-transparent via-[var(--gold-dark)] to-transparent" />
+          </div>
+
+          <p className="font-['IM_Fell_English',serif] text-xl md:text-2xl text-[var(--parchment-aged)] italic max-w-2xl mx-auto leading-relaxed">
+            A world between two empires, where Veraheim stands as the last neutral sanctuary
           </p>
         </header>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          <SectionCard
+        {/* Navigation cards */}
+        <div className="grid md:grid-cols-3 gap-8">
+          <NavigationCard
             href="/player"
-            title="Player Content"
-            description="Explore the world of Exilium - geography, cultures, factions, and peoples. Everything a player needs to know."
-            icon={
-              <svg
-                className="w-8 h-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                />
-              </svg>
-            }
+            title="Player's Codex"
+            subtitle="Common Knowledge"
+            description="Explore the world of Exilium — geography, cultures, factions, and peoples. Everything a traveler would know."
+            icon={<BookHeroIcon />}
+            delay={1}
           />
 
-          <SectionCard
+          <NavigationCard
             href="/dm"
-            title="DM Content"
-            description="Full lore including secret knowledge, hidden factions, and mysteries. Contains spoilers!"
-            icon={
-              <svg
-                className="w-8 h-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                />
-              </svg>
-            }
-            variant="warning"
+            title="Keeper's Tome"
+            subtitle="Forbidden Lore"
+            description="Full chronicles including secret knowledge, hidden factions, and mysteries. Contains revelations!"
+            icon={<EyeHeroIcon />}
+            variant="forbidden"
+            delay={2}
           />
 
-          <SectionCard
+          <NavigationCard
             href="/tools/tracker"
-            title="DM Tools"
-            description="Initiative tracker, campaign management, and encounter builder. Works offline, saves with login."
-            icon={
-              <svg
-                className="w-8 h-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
-                />
-              </svg>
-            }
+            title="Arcane Tools"
+            subtitle="Dungeon Master"
+            description="Initiative tracker, campaign chronicles, and encounter builder. Works offline, persists with login."
+            icon={<ScrollHeroIcon />}
+            delay={3}
           />
         </div>
 
-        <footer className="mt-16 text-center text-stone-500 text-sm">
-          <p>
-            Built for the Exilium campaign. Content updates weekly.
+        {/* Footer */}
+        <footer className="mt-20 text-center animate-fade-in-delay-3">
+          <div className="divider-ornate" />
+          <p className="font-['IM_Fell_English',serif] text-[var(--gold-shadow)] text-sm italic mt-6">
+            Chronicled for the Exilium campaign · Updated weekly
           </p>
         </footer>
       </div>
@@ -96,45 +104,99 @@ export default function HomePage() {
   );
 }
 
-function SectionCard({
+function NavigationCard({
   href,
   title,
+  subtitle,
   description,
   icon,
   variant = "default",
+  delay = 0,
 }: {
   href: string;
   title: string;
+  subtitle: string;
   description: string;
   icon: React.ReactNode;
-  variant?: "default" | "warning";
+  variant?: "default" | "forbidden";
+  delay?: number;
 }) {
+  const isForbidden = variant === "forbidden";
+
   return (
     <Link
       href={href}
-      className={`group block p-6 rounded-xl border transition-all duration-200 hover:scale-[1.02] ${
-        variant === "warning"
-          ? "border-amber-800/50 bg-amber-950/20 hover:border-amber-600 hover:bg-amber-950/40"
-          : "border-stone-800 bg-stone-900/50 hover:border-stone-600 hover:bg-stone-900"
-      }`}
+      className={`
+        group block relative
+        animate-fade-in-delay-${delay}
+        transition-all duration-500 ease-out
+        hover:-translate-y-2
+      `}
     >
-      <div
-        className={`mb-4 ${
-          variant === "warning"
-            ? "text-amber-400 group-hover:text-amber-300"
-            : "text-stone-400 group-hover:text-stone-200"
-        }`}
-      >
-        {icon}
+      {/* Card container */}
+      <div className={`
+        relative p-8 rounded
+        ${isForbidden
+          ? 'bg-gradient-to-b from-[var(--study-panel)] to-[rgba(139,42,29,0.15)] border border-[var(--vermillion-dark)]/50'
+          : 'bg-[var(--study-panel)] border border-[var(--gold-shadow)]/50'
+        }
+        transition-all duration-500
+        group-hover:border-[var(--gold)]/70
+        group-hover:shadow-[0_0_40px_rgba(184,148,61,0.15)]
+      `}>
+        {/* Top decorative line */}
+        <div className={`
+          absolute top-0 left-4 right-4 h-px
+          bg-gradient-to-r from-transparent ${isForbidden ? 'via-[var(--vermillion)]' : 'via-[var(--gold)]'} to-transparent
+          opacity-50 group-hover:opacity-100 transition-opacity duration-500
+        `} />
+
+        {/* Icon */}
+        <div className={`
+          mb-6 ${isForbidden ? 'text-[var(--vermillion)]' : 'text-[var(--gold)]'}
+          opacity-70 group-hover:opacity-100
+          transition-all duration-500
+          group-hover:scale-110
+        `}>
+          {icon}
+        </div>
+
+        {/* Subtitle */}
+        <p className={`
+          font-['Cinzel',serif] text-xs tracking-[0.3em] uppercase mb-2
+          ${isForbidden ? 'text-[var(--vermillion)]/70' : 'text-[var(--gold-dark)]'}
+        `}>
+          {subtitle}
+        </p>
+
+        {/* Title */}
+        <h2 className={`
+          font-['Cinzel',serif] text-2xl font-medium tracking-wide mb-4
+          ${isForbidden ? 'text-[var(--parchment)]' : 'text-[var(--gold)]'}
+          group-hover:text-[var(--gold-bright)]
+          transition-colors duration-300
+        `}>
+          {title}
+        </h2>
+
+        {/* Description */}
+        <p className="font-['Crimson_Pro',serif] text-[var(--parchment-aged)] leading-relaxed text-base">
+          {description}
+        </p>
+
+        {/* Bottom decorative element */}
+        <div className="mt-6 flex items-center gap-2 text-[var(--gold-dark)] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <span className="font-['Cinzel',serif] text-xs tracking-widest uppercase">Enter</span>
+          <ArrowRightIcon size={16} className="transform group-hover:translate-x-1 transition-transform" />
+        </div>
+
+        {/* Corner accents */}
+        <div className="absolute top-2 left-2 w-4 h-4 border-t border-l border-[var(--gold-dark)]/30 group-hover:border-[var(--gold)]/50 transition-colors" />
+        <div className="absolute top-2 right-2 w-4 h-4 border-t border-r border-[var(--gold-dark)]/30 group-hover:border-[var(--gold)]/50 transition-colors" />
+        <div className="absolute bottom-2 left-2 w-4 h-4 border-b border-l border-[var(--gold-dark)]/30 group-hover:border-[var(--gold)]/50 transition-colors" />
+        <div className="absolute bottom-2 right-2 w-4 h-4 border-b border-r border-[var(--gold-dark)]/30 group-hover:border-[var(--gold)]/50 transition-colors" />
       </div>
-      <h2 className="text-xl font-semibold mb-2 text-stone-100">{title}</h2>
-      <p
-        className={`text-sm ${
-          variant === "warning" ? "text-amber-200/70" : "text-stone-400"
-        }`}
-      >
-        {description}
-      </p>
     </Link>
   );
 }
+
