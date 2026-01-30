@@ -1959,6 +1959,127 @@ function AddPlayerToCampaignModal({
   );
 }
 
+// EncounterHistoryModal for viewing combat logs of archived encounters
+function EncounterHistoryModal({
+  encounter,
+  onClose,
+}: {
+  encounter: Encounter;
+  onClose: () => void;
+}) {
+  const [combatLog, setCombatLog] = useState<import("@/lib/tracker/types").CombatLogEntry[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadLog() {
+      try {
+        const log = await encountersApi.getCombatLog(encounter.id, 500);
+        setCombatLog(log);
+      } catch {
+        // Silently fail - show empty log
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    loadLog();
+  }, [encounter.id]);
+
+  const formatTimestamp = (timestamp: string) => {
+    const date = new Date(timestamp);
+    return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  };
+
+  const getEventIcon = (eventType: string) => {
+    switch (eventType) {
+      case "damage":
+        return "⚔️";
+      case "heal":
+        return "💚";
+      case "condition":
+        return "✨";
+      case "turn":
+        return "➡️";
+      case "death_save":
+        return "💀";
+      case "legendary":
+        return "⭐";
+      case "lair":
+        return "🏰";
+      case "initiative":
+        return "🎲";
+      default:
+        return "📝";
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+      <div className="bg-slate-800 rounded-xl w-full max-w-2xl border border-slate-700 max-h-[85vh] flex flex-col">
+        <div className="p-6 border-b border-slate-700">
+          <div className="flex justify-between items-start">
+            <div>
+              <h3 className="text-xl font-bold text-white">{encounter.name}</h3>
+              <p className="text-sm text-slate-400 mt-1">
+                Completed &bull; {encounter.round_number} rounds &bull;{" "}
+                {encounter.combatants.length} combatants
+              </p>
+            </div>
+            <button
+              onClick={onClose}
+              className="text-slate-400 hover:text-white text-2xl"
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+
+        <div className="p-6 overflow-y-auto flex-1">
+          <h4 className="text-sm font-medium text-slate-400 uppercase tracking-wide mb-4">
+            Combat Log
+          </h4>
+          {isLoading ? (
+            <div className="text-center py-8 text-slate-500">Loading...</div>
+          ) : combatLog.length === 0 ? (
+            <div className="text-center py-8 text-slate-500">
+              No combat log entries recorded.
+            </div>
+          ) : (
+            <div className="space-y-2">
+              {combatLog.map((entry) => (
+                <div
+                  key={entry.id}
+                  className="flex items-start gap-3 p-3 bg-slate-900/50 rounded-lg"
+                >
+                  <span className="text-lg" title={entry.event_type}>
+                    {getEventIcon(entry.event_type)}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm text-slate-200">{entry.description}</p>
+                    <p className="text-xs text-slate-500 mt-1">
+                      {entry.round_number !== undefined && `Round ${entry.round_number}`}
+                      {entry.round_number !== undefined && entry.turn_index !== undefined && " • "}
+                      {formatTimestamp(entry.timestamp)}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="p-4 border-t border-slate-700">
+          <button
+            onClick={onClose}
+            className="w-full px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function TrackerPage() {
   const { user, isLoading: authLoading } = useAuth();
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
@@ -2007,6 +2128,11 @@ export default function TrackerPage() {
   // Loading states for mutations
   const [isCreating, setIsCreating] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+
+  // Archive/History states
+  const [showArchived, setShowArchived] = useState(false);
+  const [viewingEncounterHistory, setViewingEncounterHistory] = useState<Encounter | null>(null);
+  const [isArchiving, setIsArchiving] = useState(false);
 
   const loadData = useCallback(async () => {
     try {
@@ -2257,10 +2383,39 @@ export default function TrackerPage() {
 
   const setupEncounter = encounters.find((e) => e.id === setupEncounterId);
 
-  // Filter encounters by campaign if in campaign view
-  const displayedEncounters = activeCampaignId
+  // Filter encounters by campaign and archive status
+  const filteredByCampaign = activeCampaignId
     ? encounters.filter((e) => e.campaign_id === activeCampaignId)
     : encounters;
+
+  const activeEncounters = filteredByCampaign.filter((e) => e.status !== "completed");
+  const archivedEncounters = filteredByCampaign.filter((e) => e.status === "completed");
+  const displayedEncounters = showArchived ? archivedEncounters : activeEncounters;
+
+  // Archive/restore encounter
+  const handleArchiveEncounter = async (encounterId: string) => {
+    try {
+      setIsArchiving(true);
+      await encountersApi.update(encounterId, { status: "completed" });
+      await loadData();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to archive encounter");
+    } finally {
+      setIsArchiving(false);
+    }
+  };
+
+  const handleRestoreEncounter = async (encounterId: string) => {
+    try {
+      setIsArchiving(true);
+      await encountersApi.update(encounterId, { status: "preparing" });
+      await loadData();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to restore encounter");
+    } finally {
+      setIsArchiving(false);
+    }
+  };
 
   // Players to show in encounter setup (campaign players if in campaign, all players otherwise)
   const setupPlayers = setupEncounter?.campaign_id
@@ -2458,14 +2613,38 @@ export default function TrackerPage() {
             {/* Encounters Tab */}
             {activeTab === "encounters" && (
               <div>
-                {/* New Encounter Button */}
-                <div className="mb-6 flex justify-end">
-                  <button
-                    onClick={() => setShowNewEncounter(true)}
-                    className="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium transition-colors"
-                  >
-                    + New Encounter
-                  </button>
+                {/* Header with Archive Toggle */}
+                <div className="mb-6 flex justify-between items-center">
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => setShowArchived(false)}
+                      className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                        !showArchived
+                          ? "bg-amber-600 text-white"
+                          : "bg-slate-700 text-slate-300 hover:bg-slate-600"
+                      }`}
+                    >
+                      Active ({activeEncounters.length})
+                    </button>
+                    <button
+                      onClick={() => setShowArchived(true)}
+                      className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                        showArchived
+                          ? "bg-slate-600 text-white"
+                          : "bg-slate-700 text-slate-300 hover:bg-slate-600"
+                      }`}
+                    >
+                      Archived ({archivedEncounters.length})
+                    </button>
+                  </div>
+                  {!showArchived && (
+                    <button
+                      onClick={() => setShowNewEncounter(true)}
+                      className="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium transition-colors"
+                    >
+                      + New Encounter
+                    </button>
+                  )}
                 </div>
 
                 {/* New Encounter Form (inline) */}
@@ -2513,22 +2692,30 @@ export default function TrackerPage() {
                   {displayedEncounters.length === 0 ? (
                     <div className="col-span-full text-center py-12 text-slate-500">
                       <p className="mb-4">
-                        {activeCampaignId
-                          ? "No encounters in this campaign yet."
-                          : "No encounters yet."}
+                        {showArchived
+                          ? "No archived encounters yet."
+                          : activeCampaignId
+                            ? "No active encounters in this campaign."
+                            : "No active encounters yet."}
                       </p>
-                      <button
-                        onClick={() => setShowNewEncounter(true)}
-                        className="text-amber-400 hover:text-amber-300"
-                      >
-                        Create your first encounter
-                      </button>
+                      {!showArchived && (
+                        <button
+                          onClick={() => setShowNewEncounter(true)}
+                          className="text-amber-400 hover:text-amber-300"
+                        >
+                          Create your first encounter
+                        </button>
+                      )}
                     </div>
                   ) : (
                     displayedEncounters.map((encounter) => (
                       <div
                         key={encounter.id}
-                        className="bg-slate-800 rounded-lg p-4 border border-slate-700 hover:border-slate-600 transition-colors group"
+                        className={`bg-slate-800 rounded-lg p-4 border transition-colors group ${
+                          showArchived
+                            ? "border-slate-700/50 opacity-80 hover:opacity-100"
+                            : "border-slate-700 hover:border-slate-600"
+                        }`}
                       >
                         <div className="flex justify-between items-start mb-3">
                           <h3 className="font-bold text-white">
@@ -2540,7 +2727,7 @@ export default function TrackerPage() {
                                 encounter.status
                               )}`}
                             >
-                              {encounter.status}
+                              {showArchived ? "archived" : encounter.status}
                             </span>
                             <button
                               onClick={() =>
@@ -2558,23 +2745,49 @@ export default function TrackerPage() {
                           </div>
                         </div>
                         <div className="text-sm text-slate-400 mb-3">
-                          Round {encounter.round_number} &bull;{" "}
+                          {encounter.round_number} rounds &bull;{" "}
                           {encounter.combatants.length} combatants
                         </div>
-                        <div className="flex gap-2">
-                          <button
-                            onClick={() => setSetupEncounterId(encounter.id)}
-                            className="flex-1 px-3 py-2 text-sm text-slate-300 hover:text-white bg-slate-700 hover:bg-slate-600 rounded-lg transition-colors"
-                          >
-                            Setup
-                          </button>
-                          <Link
-                            href={`/tools/tracker/encounter/${encounter.id}`}
-                            className="flex-1 px-3 py-2 text-sm text-center bg-green-600 hover:bg-green-500 text-white rounded-lg font-medium transition-colors"
-                          >
-                            Run
-                          </Link>
-                        </div>
+                        {showArchived ? (
+                          <div className="flex gap-2">
+                            <button
+                              onClick={() => setViewingEncounterHistory(encounter)}
+                              className="flex-1 px-3 py-2 text-sm text-slate-300 hover:text-white bg-slate-700 hover:bg-slate-600 rounded-lg transition-colors"
+                            >
+                              View History
+                            </button>
+                            <button
+                              onClick={() => handleRestoreEncounter(encounter.id)}
+                              disabled={isArchiving}
+                              className="flex-1 px-3 py-2 text-sm text-amber-400 hover:text-amber-300 bg-slate-700 hover:bg-slate-600 rounded-lg transition-colors disabled:opacity-50"
+                            >
+                              Restore
+                            </button>
+                          </div>
+                        ) : (
+                          <div className="flex gap-2">
+                            <button
+                              onClick={() => setSetupEncounterId(encounter.id)}
+                              className="flex-1 px-3 py-2 text-sm text-slate-300 hover:text-white bg-slate-700 hover:bg-slate-600 rounded-lg transition-colors"
+                            >
+                              Setup
+                            </button>
+                            <Link
+                              href={`/tools/tracker/encounter/${encounter.id}`}
+                              className="flex-1 px-3 py-2 text-sm text-center bg-green-600 hover:bg-green-500 text-white rounded-lg font-medium transition-colors"
+                            >
+                              Run
+                            </Link>
+                            <button
+                              onClick={() => handleArchiveEncounter(encounter.id)}
+                              disabled={isArchiving}
+                              className="opacity-0 group-hover:opacity-100 px-3 py-2 text-sm text-slate-400 hover:text-slate-200 bg-slate-700 hover:bg-slate-600 rounded-lg transition-all disabled:opacity-50"
+                              title="Archive encounter"
+                            >
+                              Archive
+                            </button>
+                          </div>
+                        )}
                       </div>
                     ))
                   )}
@@ -2980,6 +3193,13 @@ export default function TrackerPage() {
         <DDBImportModal
           onClose={() => setShowDdbImport(false)}
           onSuccess={() => loadData()}
+        />
+      )}
+
+      {viewingEncounterHistory && (
+        <EncounterHistoryModal
+          encounter={viewingEncounterHistory}
+          onClose={() => setViewingEncounterHistory(null)}
         />
       )}
     </div>
