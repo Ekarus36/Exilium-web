@@ -1,26 +1,742 @@
+/* Google Fonts - loaded via layout.tsx <link> tag */
 @import "tailwindcss";
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   EXILIUM - Ancient Cartographer's Study
+   A design system evoking weathered parchment, illuminated manuscripts,
+   and the mystical atmosphere of forbidden knowledge
+   ═══════════════════════════════════════════════════════════════════════════ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Parchment & Paper */
+  --parchment-light: #f4ead5;
+  --parchment: #e8d9b8;
+  --parchment-dark: #d4c4a1;
+  --parchment-aged: #c9b896;
+
+  /* Ink & Writing */
+  --ink-black: #1a1611;
+  --ink-brown: #3d2914;
+  --ink-sepia: #5c4024;
+  --ink-faded: #7a5d3a;
+
+  /* Illumination & Gold */
+  --gold-bright: #d4a853;
+  --gold: #b8943d;
+  --gold-dark: #8b6f2f;
+  --gold-shadow: #5c4a1f;
+
+  /* Accent Colors - Manuscript Inks */
+  --vermillion: #c23c2a;
+  --vermillion-dark: #8b2a1d;
+  --azure: #2a5c8b;
+  --azure-dark: #1d3d5c;
+  --viridian: #2a6b4f;
+
+  /* Shadows & Depth */
+  --shadow-warm: rgba(60, 40, 20, 0.3);
+  --shadow-deep: rgba(26, 22, 17, 0.5);
+  --vignette: rgba(26, 22, 17, 0.8);
+
+  /* Background as dark study */
+  --study-dark: #1a1611;
+  --study-panel: #241f18;
+  --study-wood: #2d2519;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--study-dark);
+  --color-foreground: var(--parchment);
+  --font-display: 'Cinzel', serif;
+  --font-body: 'Crimson Pro', serif;
+  --font-accent: 'IM Fell English', serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ═══════════════════════════════════════════════════════════════════════════
+   Base Styles
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--study-dark);
+  color: var(--parchment);
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.7;
+  min-height: 100vh;
+
+  /* Subtle paper texture overlay */
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse at center, var(--study-panel) 0%, var(--study-dark) 70%);
+  background-attachment: fixed;
+}
+
+/* Custom scrollbar styled like aged wood */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--study-dark);
+  border-left: 1px solid var(--ink-brown);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--gold-dark) 0%,
+    var(--gold-shadow) 50%,
+    var(--gold-dark) 100%
+  );
+  border-radius: 2px;
+  border: 1px solid var(--gold-shadow);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    var(--gold) 0%,
+    var(--gold-dark) 50%,
+    var(--gold) 100%
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Typography
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cinzel', serif;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+  text-shadow: 0 2px 4px var(--shadow-deep);
+}
+
+/* Drop Cap for first paragraph */
+.prose p:first-of-type::first-letter,
+.drop-cap::first-letter {
+  font-family: 'IM Fell English', serif;
+  font-size: 3.5em;
+  float: left;
+  line-height: 0.8;
+  padding-right: 0.1em;
+  padding-top: 0.1em;
+  color: var(--gold);
+  text-shadow: 2px 2px 0 var(--gold-shadow);
+}
+
+/* Italic accent text */
+.accent-text {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  color: var(--parchment-aged);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Parchment Card Component
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.parchment-card {
+  position: relative;
+  background:
+    linear-gradient(135deg, var(--parchment-light) 0%, var(--parchment) 50%, var(--parchment-dark) 100%);
+  border-radius: 4px;
+  padding: 2rem;
+  color: var(--ink-brown);
+
+  /* Aged paper texture */
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, var(--parchment-light) 0%, var(--parchment) 50%, var(--parchment-dark) 100%);
+
+  /* Burnt edges effect */
+  box-shadow:
+    inset 0 0 30px var(--shadow-warm),
+    inset 0 0 60px rgba(139, 111, 47, 0.1),
+    0 4px 20px var(--shadow-deep),
+    0 0 0 1px var(--gold-shadow);
+
+  /* Subtle torn edge effect via clip-path */
+  clip-path: polygon(
+    0% 2%, 2% 0%, 98% 0%, 100% 2%,
+    100% 98%, 98% 100%, 2% 100%, 0% 98%
+  );
+}
+
+.parchment-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at top left, transparent 70%, var(--shadow-warm) 100%),
+    radial-gradient(ellipse at bottom right, transparent 70%, var(--shadow-warm) 100%);
+  pointer-events: none;
+  border-radius: 4px;
+}
+
+.parchment-card h1,
+.parchment-card h2,
+.parchment-card h3 {
+  color: var(--ink-brown);
+  text-shadow: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Decorative Borders & Corners
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.ornate-border {
+  position: relative;
+  border: 2px solid var(--gold-dark);
+  padding: 2rem;
+}
+
+.ornate-border::before,
+.ornate-border::after {
+  content: '✦';
+  position: absolute;
+  font-size: 1.5rem;
+  color: var(--gold);
+  text-shadow: 0 0 10px var(--gold-shadow);
+}
+
+.ornate-border::before {
+  top: -0.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ornate-border::after {
+  bottom: -0.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Corner flourishes */
+.corner-flourish {
+  position: relative;
+}
+
+.corner-flourish::before,
+.corner-flourish::after,
+.corner-flourish > .flourish-bl,
+.corner-flourish > .flourish-br {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-color: var(--gold-dark);
+  border-style: solid;
+  border-width: 0;
+  opacity: 0.7;
+}
+
+.corner-flourish::before {
+  content: '';
+  top: 0;
+  left: 0;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.corner-flourish::after {
+  content: '';
+  top: 0;
+  right: 0;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Interactive Elements
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Link styles */
+a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+a:hover {
+  color: var(--gold-bright);
+  text-shadow: 0 0 8px var(--gold-shadow);
+}
+
+/* Underline animation */
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Button styles */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-black);
+  background: linear-gradient(
+    180deg,
+    var(--gold-bright) 0%,
+    var(--gold) 50%,
+    var(--gold-dark) 100%
+  );
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 2px 4px var(--shadow-deep),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 12px var(--shadow-deep),
+    0 0 20px var(--gold-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Secondary button - outline style */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: transparent;
+  border: 1px solid var(--gold-dark);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--gold-shadow);
+  border-color: var(--gold);
+  box-shadow: 0 0 15px var(--gold-shadow);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Form Elements
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: 'Crimson Pro', serif;
+  font-size: 1rem;
+  color: var(--ink-brown);
+  background: var(--parchment);
+  border: 1px solid var(--gold-shadow);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+
+  /* Subtle inner shadow for depth */
+  box-shadow: inset 0 2px 4px var(--shadow-warm);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow:
+    inset 0 2px 4px var(--shadow-warm),
+    0 0 0 2px var(--gold-shadow);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--ink-faded);
+  font-style: italic;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Dividers & Separators
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  color: var(--gold-dark);
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold-dark),
+    transparent
+  );
+}
+
+.divider-ornate {
+  text-align: center;
+  margin: 2rem 0;
+  color: var(--gold-dark);
+  font-size: 1.5rem;
+  letter-spacing: 0.5em;
+}
+
+.divider-ornate::before {
+  content: '— ✧ ◆ ✧ —';
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Card Variants
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Dark study panel */
+.study-panel {
+  background: var(--study-panel);
+  border: 1px solid var(--gold-shadow);
+  border-radius: 4px;
+  padding: 1.5rem;
+  position: relative;
+
+  /* Wood grain texture hint */
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.01) 2px,
+      rgba(255, 255, 255, 0.01) 4px
+    );
+}
+
+.study-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold-dark),
+    var(--gold),
+    var(--gold-dark),
+    transparent
+  );
+  border-radius: 4px 4px 0 0;
+}
+
+/* Warning/Spoiler card */
+.card-warning {
+  background:
+    linear-gradient(135deg, rgba(194, 60, 42, 0.1) 0%, rgba(139, 42, 29, 0.15) 100%),
+    var(--study-panel);
+  border: 1px solid var(--vermillion-dark);
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+
+.card-warning::before {
+  content: '⚠';
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--vermillion);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Animations
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.95; }
+  75% { opacity: 0.98; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in-delay-1 {
+  animation: fadeInUp 0.6s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-delay-2 {
+  animation: fadeInUp 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-delay-3 {
+  animation: fadeInUp 0.6s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.animate-flicker {
+  animation: flicker 4s infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Gold shimmer effect */
+.shimmer-gold {
+  background: linear-gradient(
+    90deg,
+    var(--gold-dark) 0%,
+    var(--gold-bright) 50%,
+    var(--gold-dark) 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Compass Rose Icon (CSS-only)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.compass-rose {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+}
+
+.compass-rose::before {
+  content: '✦';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: var(--gold);
+  text-shadow: 0 0 10px var(--gold-shadow);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Prose Styling (for markdown content)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.prose {
+  color: var(--parchment);
+  max-width: 65ch;
+}
+
+.prose h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--gold);
+}
+
+.prose h2 {
+  font-size: 1.75rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--gold);
+  border-bottom: 1px solid var(--gold-shadow);
+  padding-bottom: 0.5rem;
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--gold);
+}
+
+.prose p {
+  margin-bottom: 1.25rem;
+}
+
+.prose strong {
+  color: var(--gold-bright);
+  font-weight: 600;
+}
+
+.prose em {
+  font-family: 'IM Fell English', serif;
+  color: var(--parchment-aged);
+}
+
+.prose ul,
+.prose ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+.prose li::marker {
+  color: var(--gold-dark);
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--gold-dark);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  color: var(--parchment-aged);
+}
+
+.prose code {
+  font-family: 'Courier New', monospace;
+  background: var(--study-panel);
+  padding: 0.2rem 0.4rem;
+  border-radius: 2px;
+  font-size: 0.9em;
+}
+
+.prose a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-decoration-color: var(--gold-shadow);
+  text-underline-offset: 3px;
+}
+
+.prose a:hover {
+  color: var(--gold-bright);
+  text-decoration-color: var(--gold);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Utility Classes
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.text-gold { color: var(--gold); }
+.text-gold-bright { color: var(--gold-bright); }
+.text-parchment { color: var(--parchment); }
+.text-ink { color: var(--ink-brown); }
+.text-vermillion { color: var(--vermillion); }
+
+.bg-study { background: var(--study-dark); }
+.bg-panel { background: var(--study-panel); }
+.bg-parchment { background: var(--parchment); }
+
+.border-gold { border-color: var(--gold-dark); }
+
+/* Vignette overlay for dramatic effect */
+.vignette::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 50%,
+    var(--vignette) 150%
+  );
+  z-index: 9999;
+}
+
+/* Candle glow effect */
+.candle-glow {
+  box-shadow: 0 0 60px 20px rgba(212, 168, 83, 0.15);
 }
