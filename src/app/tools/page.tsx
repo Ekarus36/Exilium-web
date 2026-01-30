@@ -8,103 +8,116 @@ export const metadata = {
 
 export default function ToolsPage() {
   return (
-    <div className="max-w-4xl mx-auto p-8">
-      <header className="mb-8">
-        <h1 className="text-3xl font-bold mb-4 text-stone-100">DM Tools</h1>
-        <p className="text-lg text-stone-400">
-          Tools for running your Exilium campaigns.
+    <div className="animate-fade-in">
+      <header className="mb-12">
+        <div className="text-center mb-8">
+          <div className="text-[var(--gold)] text-sm tracking-[0.5em] mb-4 opacity-60">
+            ✦ ✦ ✦
+          </div>
+          <h1 className="font-['Cinzel',serif] text-4xl md:text-5xl font-semibold tracking-[0.08em] text-[var(--gold)] mb-4">
+            Arcane Tools
+          </h1>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="h-px w-16 bg-gradient-to-r from-transparent via-[var(--gold-dark)] to-transparent" />
+            <span className="text-[var(--gold)] text-sm opacity-60">✦</span>
+            <div className="h-px w-16 bg-gradient-to-l from-transparent via-[var(--gold-dark)] to-transparent" />
+          </div>
+        </div>
+
+        <p className="font-['IM_Fell_English',serif] text-xl text-[var(--parchment-aged)] italic text-center max-w-2xl mx-auto">
+          Instruments for the Keeper — track initiative, chronicle sessions, and forge encounters.
         </p>
       </header>
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
         <Link
           href="/tools/tracker"
-          className="block p-6 bg-stone-900/50 border border-stone-800 rounded-xl hover:border-blue-600/50 hover:bg-stone-900 transition-all group"
+          className="group block"
         >
-          <div className="flex items-center gap-4 mb-4">
-            <div className="p-3 bg-blue-600/20 rounded-lg text-blue-400 group-hover:bg-blue-600/30 transition-colors">
-              <LightningIcon size={32} />
+          <div className="bg-[var(--study-panel)] border border-[var(--gold-shadow)]/50 rounded p-6 transition-all duration-300 group-hover:border-[var(--gold)]/70 group-hover:shadow-[0_0_30px_rgba(184,148,61,0.1)]">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="text-[var(--gold)] opacity-70 group-hover:opacity-100 transition-opacity">
+                <LightningIcon size={28} />
+              </div>
+              <h2 className="font-['Cinzel',serif] text-xl text-[var(--gold)] group-hover:text-[var(--gold-bright)] transition-colors">
+                Initiative Tracker
+              </h2>
             </div>
-            <h2 className="text-xl font-semibold text-stone-100">
-              Initiative Tracker
-            </h2>
-          </div>
-          <p className="text-stone-400 text-sm mb-4">
-            Track combat initiative, HP, conditions, and more. Supports
-            multi-user campaigns with persistent data.
-          </p>
-          <div className="flex flex-wrap gap-2">
-            <span className="text-xs bg-stone-800 text-stone-400 px-2 py-1 rounded">
-              Combat tracking
-            </span>
-            <span className="text-xs bg-stone-800 text-stone-400 px-2 py-1 rounded">
-              Conditions
-            </span>
-            <span className="text-xs bg-stone-800 text-stone-400 px-2 py-1 rounded">
-              SRD monsters
-            </span>
+            <p className="font-['Crimson_Pro',serif] text-[var(--parchment-aged)] text-sm mb-4">
+              Track combat initiative, HP, conditions, and more. Supports
+              multi-user campaigns with persistent data.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <span className="text-xs border border-[var(--gold-shadow)]/30 text-[var(--gold-dark)] px-2 py-1 rounded">
+                Combat tracking
+              </span>
+              <span className="text-xs border border-[var(--gold-shadow)]/30 text-[var(--gold-dark)] px-2 py-1 rounded">
+                Conditions
+              </span>
+              <span className="text-xs border border-[var(--gold-shadow)]/30 text-[var(--gold-dark)] px-2 py-1 rounded">
+                SRD monsters
+              </span>
+            </div>
           </div>
         </Link>
 
-        <div className="p-6 bg-stone-900/30 border border-stone-800 rounded-xl opacity-60">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="p-3 bg-stone-700/20 rounded-lg text-stone-500">
-              <ClipboardIcon size={32} />
-            </div>
-            <h2 className="text-xl font-semibold text-stone-500">
-              Session Notes
-            </h2>
-          </div>
-          <p className="text-stone-500 text-sm mb-4">
-            Track session summaries, player decisions, and campaign events.
-          </p>
-          <span className="text-xs bg-stone-800/50 text-stone-500 px-2 py-1 rounded">
-            Coming soon
-          </span>
-        </div>
+        <ToolCardComingSoon
+          title="Session Notes"
+          description="Track session summaries, player decisions, and campaign events."
+          icon={<ClipboardIcon size={28} />}
+        />
 
-        <div className="p-6 bg-stone-900/30 border border-stone-800 rounded-xl opacity-60">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="p-3 bg-stone-700/20 rounded-lg text-stone-500">
-              <MapPinIcon size={32} />
-            </div>
-            <h2 className="text-xl font-semibold text-stone-500">
-              Encounter Builder
-            </h2>
-          </div>
-          <p className="text-stone-500 text-sm mb-4">
-            Build balanced encounters with CR calculations and terrain options.
-          </p>
-          <span className="text-xs bg-stone-800/50 text-stone-500 px-2 py-1 rounded">
-            Coming soon
-          </span>
-        </div>
+        <ToolCardComingSoon
+          title="Encounter Builder"
+          description="Build balanced encounters with CR calculations and terrain options."
+          icon={<MapPinIcon size={28} />}
+        />
 
-        <div className="p-6 bg-stone-900/30 border border-stone-800 rounded-xl opacity-60">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="p-3 bg-stone-700/20 rounded-lg text-stone-500">
-              <SlidersIcon size={32} />
-            </div>
-            <h2 className="text-xl font-semibold text-stone-500">
-              Random Tables
-            </h2>
-          </div>
-          <p className="text-stone-500 text-sm mb-4">
-            Roll on custom random tables for loot, encounters, and events.
-          </p>
-          <span className="text-xs bg-stone-800/50 text-stone-500 px-2 py-1 rounded">
-            Coming soon
-          </span>
-        </div>
+        <ToolCardComingSoon
+          title="Random Tables"
+          description="Roll on custom random tables for loot, encounters, and events."
+          icon={<SlidersIcon size={28} />}
+        />
       </div>
 
-      <div className="mt-8 p-4 bg-stone-900/30 border border-stone-800 rounded-lg">
-        <p className="text-stone-500 text-sm">
-          <strong className="text-stone-400">Note:</strong> Tools require sign-in
-          to save data. Your campaigns and creatures are stored securely and only
-          accessible to you.
-        </p>
+      <div className="mt-8 max-w-4xl mx-auto">
+        <div className="card-dark">
+          <p className="font-['Crimson_Pro',serif] text-[var(--parchment-aged)] text-sm">
+            <span className="text-[var(--gold)]">✦</span>{" "}
+            Tools require sign-in to save data. Your campaigns and creatures are
+            stored securely and only accessible to you.
+          </p>
+        </div>
       </div>
+    </div>
+  );
+}
+
+function ToolCardComingSoon({
+  title,
+  description,
+  icon,
+}: {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+}) {
+  return (
+    <div className="bg-[var(--study-panel)] border border-[var(--gold-shadow)]/30 rounded p-6 opacity-50">
+      <div className="flex items-center gap-4 mb-4">
+        <div className="text-[var(--gold-dark)]">
+          {icon}
+        </div>
+        <h2 className="font-['Cinzel',serif] text-xl text-[var(--gold-dark)]">
+          {title}
+        </h2>
+      </div>
+      <p className="font-['Crimson_Pro',serif] text-[var(--parchment-aged)] text-sm mb-4">
+        {description}
+      </p>
+      <span className="text-xs border border-[var(--gold-shadow)]/20 text-[var(--gold-dark)] px-2 py-1 rounded">
+        Coming soon
+      </span>
     </div>
   );
 }
