@@ -209,10 +209,10 @@ export default function SignupPage() {
         <div className="mt-6 text-center">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-[var(--gold-dark)] hover:text-[var(--gold)] transition-colors font-['Cinzel',serif] text-sm tracking-wide"
+            className="inline-flex items-center gap-2 text-[var(--gold)] hover:text-[var(--gold-bright)] transition-colors duration-300 font-['Cinzel',serif] text-sm font-semibold tracking-[0.08em]"
           >
             <ArrowLeftIcon size={16} />
-            Return to Exilium
+            <span className="opacity-60">✦</span> Return to Exilium <span className="opacity-60">✦</span>
           </Link>
         </div>
       </div>

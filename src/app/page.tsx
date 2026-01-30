@@ -41,19 +41,19 @@ export default function HomePage() {
         {/* Header with illuminated manuscript styling */}
         <header className="text-center mb-20 animate-fade-in">
           {/* Decorative flourish above title */}
-          <div className="mb-6 text-[var(--gold-dark)] text-2xl tracking-[1em] opacity-60">
-            ✧ ◆ ✧
+          <div className="mb-6 text-[var(--gold)] text-2xl tracking-[1em] opacity-60">
+            ✦ ✦ ✦
           </div>
 
-          <h1 className="font-['Cinzel',serif] text-7xl md:text-8xl font-medium tracking-[0.15em] mb-6 shimmer-gold">
+          <h1 className="font-['Cinzel',serif] text-7xl md:text-8xl font-semibold tracking-[0.08em] mb-6 text-[var(--gold)] hover:text-[var(--gold-bright)] transition-colors duration-300">
             EXILIUM
           </h1>
 
           {/* Decorative line */}
           <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="h-px w-24 bg-gradient-to-r from-transparent via-[var(--gold-dark)] to-transparent" />
-            <span className="text-[var(--gold)] text-lg">✦</span>
-            <div className="h-px w-24 bg-gradient-to-l from-transparent via-[var(--gold-dark)] to-transparent" />
+            <div className="h-px w-24 bg-gradient-to-r from-transparent via-[var(--gold)] to-transparent" />
+            <span className="text-[var(--gold)] text-lg opacity-60">✦</span>
+            <div className="h-px w-24 bg-gradient-to-l from-transparent via-[var(--gold)] to-transparent" />
           </div>
 
           <p className="font-['IM_Fell_English',serif] text-xl md:text-2xl text-[var(--parchment-aged)] italic max-w-2xl mx-auto leading-relaxed">
