@@ -254,6 +254,17 @@ export function ScrollHeroIcon({ size = 40, ...props }: IconProps) {
   );
 }
 
+export function CornerOrnamentIcon({ size = 96, ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 100 100" {...defaultProps} {...props}>
+      <path d="M0 50 Q0 0 50 0" />
+      <path d="M10 50 Q10 10 50 10" opacity="0.5" />
+      <circle cx="50" cy="0" r="3" fill="currentColor" />
+      <circle cx="0" cy="50" r="3" fill="currentColor" />
+    </svg>
+  );
+}
+
 // Icon map for navigation
 export const navIcons: Record<string, React.ComponentType<IconProps>> = {
   "🏠": HomeIcon,

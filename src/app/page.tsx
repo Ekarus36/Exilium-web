@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BookHeroIcon, EyeHeroIcon, ScrollHeroIcon, ArrowRightIcon } from "@/components/ui/Icons";
+import { BookHeroIcon, EyeHeroIcon, ScrollHeroIcon, ArrowRightIcon, CornerOrnamentIcon } from "@/components/ui/Icons";
 
 export default function HomePage() {
   return (
@@ -11,30 +11,10 @@ export default function HomePage() {
           ✦
         </div>
         {/* Corner decorations */}
-        <svg className="absolute top-8 left-8 w-24 h-24 text-[var(--gold-dark)] opacity-30" viewBox="0 0 100 100">
-          <path d="M0 50 Q0 0 50 0" fill="none" stroke="currentColor" strokeWidth="1"/>
-          <path d="M10 50 Q10 10 50 10" fill="none" stroke="currentColor" strokeWidth="0.5"/>
-          <circle cx="50" cy="0" r="3" fill="currentColor"/>
-          <circle cx="0" cy="50" r="3" fill="currentColor"/>
-        </svg>
-        <svg className="absolute top-8 right-8 w-24 h-24 text-[var(--gold-dark)] opacity-30 scale-x-[-1]" viewBox="0 0 100 100">
-          <path d="M0 50 Q0 0 50 0" fill="none" stroke="currentColor" strokeWidth="1"/>
-          <path d="M10 50 Q10 10 50 10" fill="none" stroke="currentColor" strokeWidth="0.5"/>
-          <circle cx="50" cy="0" r="3" fill="currentColor"/>
-          <circle cx="0" cy="50" r="3" fill="currentColor"/>
-        </svg>
-        <svg className="absolute bottom-8 left-8 w-24 h-24 text-[var(--gold-dark)] opacity-30 scale-y-[-1]" viewBox="0 0 100 100">
-          <path d="M0 50 Q0 0 50 0" fill="none" stroke="currentColor" strokeWidth="1"/>
-          <path d="M10 50 Q10 10 50 10" fill="none" stroke="currentColor" strokeWidth="0.5"/>
-          <circle cx="50" cy="0" r="3" fill="currentColor"/>
-          <circle cx="0" cy="50" r="3" fill="currentColor"/>
-        </svg>
-        <svg className="absolute bottom-8 right-8 w-24 h-24 text-[var(--gold-dark)] opacity-30 scale-[-1]" viewBox="0 0 100 100">
-          <path d="M0 50 Q0 0 50 0" fill="none" stroke="currentColor" strokeWidth="1"/>
-          <path d="M10 50 Q10 10 50 10" fill="none" stroke="currentColor" strokeWidth="0.5"/>
-          <circle cx="50" cy="0" r="3" fill="currentColor"/>
-          <circle cx="0" cy="50" r="3" fill="currentColor"/>
-        </svg>
+        <CornerOrnamentIcon size={96} className="absolute top-8 left-8 text-[var(--gold-dark)] opacity-30" />
+        <CornerOrnamentIcon size={96} className="absolute top-8 right-8 text-[var(--gold-dark)] opacity-30 scale-x-[-1]" />
+        <CornerOrnamentIcon size={96} className="absolute bottom-8 left-8 text-[var(--gold-dark)] opacity-30 scale-y-[-1]" />
+        <CornerOrnamentIcon size={96} className="absolute bottom-8 right-8 text-[var(--gold-dark)] opacity-30 scale-[-1]" />
       </div>
 
       <div className="max-w-5xl w-full relative z-10">
