@@ -1,4 +1,5 @@
 import { SearchWrapper } from "@/components/content/SearchWrapper";
+import { EyeIcon, KeyIcon, MasksIcon } from "@/components/ui/Icons";
 
 export const metadata = {
   title: "DM Guide",
@@ -12,7 +13,7 @@ export default function DMHomePage() {
         {/* Decorative header with warning aesthetic */}
         <div className="text-center mb-8">
           <div className="text-[var(--vermillion)] text-sm tracking-[0.5em] mb-4 opacity-70">
-            ⚠ ◆ ⚠
+            ✦ ✦ ✦
           </div>
           <h1 className="font-['Cinzel',serif] text-4xl md:text-5xl font-medium tracking-wide text-[var(--gold)] mb-4">
             Keeper&apos;s Tome
@@ -42,17 +43,17 @@ export default function DMHomePage() {
           <SecretCard
             title="Secret Knowledge"
             description="Hidden truths, conspiracies, and information players don't know"
-            icon="👁"
+            icon={<EyeIcon size={28} />}
           />
           <SecretCard
             title="Plot Hooks"
             description="Adventure seeds and story connections"
-            icon="🗝"
+            icon={<KeyIcon size={28} />}
           />
           <SecretCard
             title="NPC Motivations"
             description="True goals and hidden agendas"
-            icon="🎭"
+            icon={<MasksIcon size={28} />}
           />
         </div>
 
@@ -99,14 +100,14 @@ function SecretCard({
 }: {
   title: string;
   description: string;
-  icon: string;
+  icon: React.ReactNode;
 }) {
   return (
     <div className="bg-gradient-to-b from-[var(--study-panel)] to-[rgba(139,42,29,0.1)] border border-[var(--vermillion-dark)]/30 rounded p-6 group hover:border-[var(--vermillion)]/50 transition-all duration-300">
       <div className="text-center">
-        <span className="text-3xl mb-4 block opacity-80 group-hover:opacity-100 transition-opacity">
+        <div className="mb-4 flex justify-center text-[var(--vermillion)] opacity-80 group-hover:opacity-100 transition-opacity">
           {icon}
-        </span>
+        </div>
         <h3 className="font-['Cinzel',serif] text-lg text-[var(--gold)] mb-2">
           {title}
         </h3>

@@ -13,7 +13,7 @@ export default function PlayerHomePage() {
         {/* Decorative header */}
         <div className="text-center mb-8">
           <div className="text-[var(--gold-dark)] text-sm tracking-[0.5em] mb-4 opacity-60">
-            ✧ ◆ ✧
+            ✦ ✦ ✦
           </div>
           <h1 className="font-['Cinzel',serif] text-4xl md:text-5xl font-medium tracking-wide text-[var(--gold)] mb-4">
             Welcome to Exilium
