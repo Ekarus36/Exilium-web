@@ -1,96 +1,119 @@
-import Link from "next/link";
-import { getManifest, getDocumentCounts } from "@/lib/content/loader";
 import { SearchWrapper } from "@/components/content/SearchWrapper";
 
 export const metadata = {
-  title: "DM Content",
-  description: "Full lore including secret knowledge - contains spoilers!",
+  title: "DM Guide",
+  description: "Complete DM reference for Exilium including secrets and plot hooks",
 };
 
-export default function DMContentPage() {
-  const manifest = getManifest();
-  const counts = getDocumentCounts();
-
-  // Count documents with secrets
-  const secretCounts: Record<string, number> = {};
-  for (const doc of manifest.documents) {
-    if (doc.hasSections.secretKnowledge) {
-      secretCounts[doc.category] = (secretCounts[doc.category] || 0) + 1;
-    }
-  }
-
+export default function DMHomePage() {
   return (
-    <main className="min-h-screen p-8">
-      <div className="max-w-4xl mx-auto">
-        <header className="mb-12">
-          <Link
-            href="/"
-            className="text-stone-500 hover:text-stone-300 text-sm mb-4 inline-block"
-          >
-            &larr; Back to home
-          </Link>
-          <h1 className="text-4xl font-bold mb-4 text-stone-100">DM Content</h1>
-          <div className="bg-amber-950/30 border border-amber-800/50 rounded-lg p-4 mb-4">
-            <p className="text-amber-200 text-sm">
-              <strong>Warning:</strong> This section contains secret knowledge,
-              plot spoilers, and behind-the-scenes information. Players should
-              not read this content.
-            </p>
+    <div className="animate-fade-in">
+      <header className="mb-12">
+        {/* Decorative header with warning aesthetic */}
+        <div className="text-center mb-8">
+          <div className="text-[var(--vermillion)] text-sm tracking-[0.5em] mb-4 opacity-70">
+            ⚠ ◆ ⚠
           </div>
-          <p className="text-lg text-stone-400 mb-6">
-            Complete worldbuilding reference including all three content tiers:
-            At a Glance, Common Knowledge, and Secret Knowledge.
-          </p>
-          <SearchWrapper accessLevel="dm" />
-        </header>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {manifest.categories.map((category) => (
-            <Link
-              key={category.slug}
-              href={`/dm/${category.slug}`}
-              className="block p-6 bg-stone-900/50 border border-stone-800 rounded-xl hover:border-amber-800/50 hover:bg-stone-900 transition-all"
-            >
-              <h2 className="text-xl font-semibold mb-2 text-stone-100">
-                {category.name}
-              </h2>
-              <p className="text-stone-400 text-sm mb-3">
-                {category.description}
-              </p>
-              <div className="flex items-center gap-3 text-sm">
-                <span className="text-stone-500">
-                  {counts[category.slug] || 0} articles
-                </span>
-                {secretCounts[category.slug] && (
-                  <span className="text-amber-400">
-                    {secretCounts[category.slug]} with secrets
-                  </span>
-                )}
-              </div>
-            </Link>
-          ))}
+          <h1 className="font-['Cinzel',serif] text-4xl md:text-5xl font-medium tracking-wide text-[var(--gold)] mb-4">
+            Keeper&apos;s Tome
+          </h1>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="h-px w-16 bg-gradient-to-r from-transparent via-[var(--vermillion-dark)] to-transparent" />
+            <span className="text-[var(--vermillion)] text-sm">✦</span>
+            <div className="h-px w-16 bg-gradient-to-l from-transparent via-[var(--vermillion-dark)] to-transparent" />
+          </div>
         </div>
 
-        <div className="mt-12 p-6 bg-amber-950/20 border border-amber-800/30 rounded-xl">
-          <h2 className="text-lg font-semibold mb-2 text-amber-200">
-            Content Tiers Explained
-          </h2>
-          <ul className="text-stone-400 text-sm space-y-2">
-            <li>
-              <strong className="text-stone-200">At a Glance:</strong> Common
-              knowledge anyone would know
+        <p className="font-['IM_Fell_English',serif] text-xl text-[var(--parchment-aged)] italic text-center max-w-2xl mx-auto mb-8">
+          Complete chronicles including secrets, plot hooks, and forbidden knowledge.
+        </p>
+
+        <SearchWrapper accessLevel="dm" />
+      </header>
+
+      <div className="prose max-w-none">
+        <h2>Dungeon Master Content</h2>
+        <p className="drop-cap">
+          This tome includes everything from the Player&apos;s Codex plus the hidden
+          truths that shape this world:
+        </p>
+
+        <div className="grid md:grid-cols-3 gap-6 not-prose my-8">
+          <SecretCard
+            title="Secret Knowledge"
+            description="Hidden truths, conspiracies, and information players don't know"
+            icon="👁"
+          />
+          <SecretCard
+            title="Plot Hooks"
+            description="Adventure seeds and story connections"
+            icon="🗝"
+          />
+          <SecretCard
+            title="NPC Motivations"
+            description="True goals and hidden agendas"
+            icon="🎭"
+          />
+        </div>
+
+        {/* Stats panel */}
+        <div className="card-warning not-prose my-8">
+          <h3 className="font-['Cinzel',serif] text-lg text-[var(--vermillion)] mb-4">
+            Chronicle Statistics
+          </h3>
+          <ul className="space-y-2 text-[var(--parchment)]">
+            <li className="flex items-center gap-2">
+              <span className="text-[var(--gold)]">✦</span>
+              ~106,000 words across 107 pages
             </li>
-            <li>
-              <strong className="text-stone-200">Common Knowledge:</strong> What
-              educated or well-traveled characters know
+            <li className="flex items-center gap-2">
+              <span className="text-[var(--gold)]">✦</span>
+              4 major regions: Veraheim, Elven Empire, Human Kingdom, Broken Isles
             </li>
-            <li>
-              <strong className="text-amber-300">Secret Knowledge:</strong>{" "}
-              Hidden truths, plot hooks, and DM-only information
+            <li className="flex items-center gap-2">
+              <span className="text-[var(--gold)]">✦</span>
+              73 detailed NPCs with backgrounds and motivations
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-[var(--gold)]">✦</span>
+              Rich political intrigue and hidden conflicts
             </li>
           </ul>
         </div>
+
+        <h2>Navigation</h2>
+        <p>
+          Use the sidebar to explore. Content mirrors the Player Guide structure
+          but includes all tiers of information — the complete truth behind each
+          entry.
+        </p>
       </div>
-    </main>
+    </div>
+  );
+}
+
+function SecretCard({
+  title,
+  description,
+  icon,
+}: {
+  title: string;
+  description: string;
+  icon: string;
+}) {
+  return (
+    <div className="bg-gradient-to-b from-[var(--study-panel)] to-[rgba(139,42,29,0.1)] border border-[var(--vermillion-dark)]/30 rounded p-6 group hover:border-[var(--vermillion)]/50 transition-all duration-300">
+      <div className="text-center">
+        <span className="text-3xl mb-4 block opacity-80 group-hover:opacity-100 transition-opacity">
+          {icon}
+        </span>
+        <h3 className="font-['Cinzel',serif] text-lg text-[var(--gold)] mb-2">
+          {title}
+        </h3>
+        <p className="text-[var(--parchment-aged)] text-sm">
+          {description}
+        </p>
+      </div>
+    </div>
   );
 }

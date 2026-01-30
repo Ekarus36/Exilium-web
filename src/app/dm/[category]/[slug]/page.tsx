@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
-import { getDocument, getAllDocumentPaths, getCategory } from "@/lib/content/loader";
+import { getDocument, getAllDocumentPaths } from "@/lib/content/loader";
 import { ContentPage } from "@/components/content/ContentPage";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { RelationshipPanel } from "@/components/content/RelationshipPanel";
+import { getBreadcrumbs, dmNavigation } from "@/lib/content/navigation";
 
 interface PageProps {
   params: Promise<{
@@ -32,60 +34,90 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-export default async function DMContentPage({ params }: PageProps) {
+export default async function DMDocumentPage({ params }: PageProps) {
   const { category, slug } = await params;
   const document = getDocument(category, slug);
-  const categoryInfo = getCategory(category);
 
   if (!document) {
     notFound();
   }
 
+  // Build breadcrumbs from navigation
+  const href = `/dm/${category}/${slug}`;
+  const breadcrumbs = getBreadcrumbs(href, dmNavigation);
+
+  // Extract relationships from metadata
+  const relationships = extractRelationships(document);
+
   return (
-    <main className="min-h-screen p-8">
-      <div className="max-w-4xl mx-auto">
-        <Breadcrumb category={category} categoryName={categoryInfo?.name} title={document.title} />
+    <div>
+      <Breadcrumbs items={breadcrumbs} />
 
-        {/* DM Warning Banner */}
-        <div className="mt-4 p-3 bg-amber-950/30 border border-amber-800/50 rounded-lg">
-          <p className="text-amber-200 text-sm">
-            <strong>DM Content:</strong> This page includes secret knowledge not
-            visible to players.
-          </p>
+      {/* DM indicator */}
+      {document.secretKnowledge && (
+        <div className="mb-4 px-3 py-1.5 bg-amber-950/30 border border-amber-800/50 rounded-lg inline-block">
+          <span className="text-amber-300 text-sm font-medium">
+            Contains secret knowledge
+          </span>
         </div>
+      )}
 
-        <div className="mt-8">
-          <ContentPage document={document} accessLevel="dm" />
-        </div>
-      </div>
-    </main>
+      <ContentPage document={document} accessLevel="dm" />
+
+      <RelationshipPanel
+        relationships={relationships}
+        backlinks={document.seeAlso.map((link) => ({
+          label: link,
+          href: `/${category}/${slugify(link)}`,
+        }))}
+        baseUrl="/dm"
+      />
+    </div>
   );
 }
 
-function Breadcrumb({
-  category,
-  categoryName,
-  title,
-}: {
-  category: string;
-  categoryName?: string;
-  title: string;
-}) {
-  return (
-    <nav className="flex items-center text-sm text-stone-500 space-x-2">
-      <Link href="/" className="hover:text-stone-300">
-        Home
-      </Link>
-      <span>/</span>
-      <Link href="/dm" className="hover:text-amber-300 text-amber-400/70">
-        DM
-      </Link>
-      <span>/</span>
-      <Link href={`/dm/${category}`} className="hover:text-stone-300">
-        {categoryName || category}
-      </Link>
-      <span>/</span>
-      <span className="text-stone-300">{title}</span>
-    </nav>
-  );
+// Helper to extract typed relationships from document metadata
+function extractRelationships(document: ReturnType<typeof getDocument>) {
+  if (!document) return [];
+
+  const relationships: Array<{
+    type: "location" | "npc" | "faction" | "event" | "parent" | "child";
+    label: string;
+    href: string;
+  }> = [];
+
+  const meta = document.metadata;
+
+  if (meta.Region) {
+    relationships.push({
+      type: "parent",
+      label: meta.Region,
+      href: `/geography/${slugify(meta.Region)}`,
+    });
+  }
+
+  if (meta.Location) {
+    relationships.push({
+      type: "parent",
+      label: meta.Location,
+      href: `/geography/${slugify(meta.Location)}`,
+    });
+  }
+
+  if (meta.Faction) {
+    relationships.push({
+      type: "faction",
+      label: meta.Faction,
+      href: `/factions/${slugify(meta.Faction)}`,
+    });
+  }
+
+  return relationships;
+}
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 }
