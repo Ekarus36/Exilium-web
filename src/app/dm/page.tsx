@@ -12,7 +12,7 @@ export default function DMHomePage() {
       <header className="mb-12">
         {/* Decorative header with warning aesthetic */}
         <div className="text-center mb-8">
-          <div className="text-[var(--vermillion)] text-sm tracking-[0.5em] mb-4 opacity-70">
+          <div className="text-[var(--gold)] text-sm tracking-[0.5em] mb-4 opacity-60">
             ✦ ✦ ✦
           </div>
           <h1 className="font-['Cinzel',serif] text-4xl md:text-5xl font-medium tracking-wide text-[var(--gold)] mb-4">

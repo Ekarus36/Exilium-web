@@ -1,4 +1,5 @@
 import { SearchWrapper } from "@/components/content/SearchWrapper";
+import { GlobeIcon, HexagonIcon, HourglassIcon, SwordsIcon, SunIcon, CrownIcon } from "@/components/ui/Icons";
 
 export const metadata = {
   title: "Player Guide",
@@ -43,32 +44,32 @@ export default function PlayerHomePage() {
           <CategoryCard
             title="World"
             description="Core systems: religion, magic, distances"
-            icon="◈"
+            icon={<GlobeIcon size={24} />}
           />
           <CategoryCard
             title="Geography"
             description="Locations by region: Veraheim, Elven Empire, Broken Isles"
-            icon="⬡"
+            icon={<HexagonIcon size={24} />}
           />
           <CategoryCard
             title="History"
             description="Timeline and major events"
-            icon="⧗"
+            icon={<HourglassIcon size={24} />}
           />
           <CategoryCard
             title="Factions"
             description="Political powers and organizations"
-            icon="⚔"
+            icon={<SwordsIcon size={24} />}
           />
           <CategoryCard
             title="Peoples"
             description="Cultures and races"
-            icon="☉"
+            icon={<SunIcon size={24} />}
           />
           <CategoryCard
             title="NPCs"
             description="Notable characters by faction"
-            icon="♛"
+            icon={<CrownIcon size={24} />}
           />
         </div>
 
@@ -94,14 +95,14 @@ function CategoryCard({
 }: {
   title: string;
   description: string;
-  icon: string;
+  icon: React.ReactNode;
 }) {
   return (
     <div className="study-panel group hover:border-[var(--gold)]/50 transition-all duration-300">
       <div className="flex items-start gap-4">
-        <span className="text-2xl text-[var(--gold)] opacity-70 group-hover:opacity-100 transition-opacity">
+        <div className="text-[var(--gold)] opacity-70 group-hover:opacity-100 transition-opacity">
           {icon}
-        </span>
+        </div>
         <div>
           <h3 className="font-['Cinzel',serif] text-lg text-[var(--gold)] mb-1">
             {title}

@@ -271,6 +271,40 @@ export function KeyIcon({ size = 18, ...props }: IconProps) {
   );
 }
 
+export function DiamondIcon({ size = 18, ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...defaultProps} {...props}>
+      <path d="M12 2l10 10-10 10L2 12 12 2z" />
+    </svg>
+  );
+}
+
+export function HexagonIcon({ size = 18, ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...defaultProps} {...props}>
+      <path d="M12 2l9 5v10l-9 5-9-5V7l9-5z" />
+    </svg>
+  );
+}
+
+export function HourglassIcon({ size = 18, ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...defaultProps} {...props}>
+      <path d="M6 2h12v6l-4 4 4 4v6H6v-6l4-4-4-4V2z" />
+      <path d="M6 2h12M6 22h12" />
+    </svg>
+  );
+}
+
+export function SunIcon({ size = 18, ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...defaultProps} {...props}>
+      <circle cx="12" cy="12" r="5" />
+      <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+    </svg>
+  );
+}
+
 export function CornerOrnamentIcon({ size = 96, ...props }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" {...defaultProps} {...props}>
