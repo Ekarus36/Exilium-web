@@ -12,7 +12,7 @@ export function ConcentrationCheckModal() {
   if (!concentrationCheck) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[60]">
       <div className="bg-[var(--study-panel)] rounded p-6 border border-[var(--gold)] max-w-md w-full mx-4">
         <h3 className="text-lg font-bold font-['Cinzel'] text-[var(--gold)] mb-2">
           Concentration Check

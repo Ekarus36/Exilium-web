@@ -112,7 +112,7 @@ export function InitiativeModal({
   });
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[60]">
       <div className="bg-[var(--study-panel)] rounded p-6 border border-[var(--gold-shadow)] max-w-lg w-full mx-4">
         <h3 className="text-lg font-bold font-['Cinzel'] mb-2">Roll Initiative</h3>
         <p className="text-[var(--parchment-aged)] text-sm mb-4">

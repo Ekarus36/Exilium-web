@@ -110,7 +110,7 @@ export function Header({ variant, onMenuToggle }: HeaderProps) {
           backdrop-filter: blur(8px);
           position: sticky;
           top: 0;
-          z-index: 50;
+          z-index: 40;
         }
 
         .header-accent {

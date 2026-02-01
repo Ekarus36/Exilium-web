@@ -365,7 +365,7 @@ export function ThreePanel({ encounterId }: ThreePanelProps) {
 
           {/* Damage/Heal input overlay */}
           {(damageMode || healMode) && (
-            <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+            <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[60]">
               <div className="bg-[var(--study-panel)] rounded p-6 border border-[var(--gold-shadow)]">
                 <h3 className="text-lg font-bold mb-4">
                   {damageMode ? "Apply Damage" : "Apply Healing"}

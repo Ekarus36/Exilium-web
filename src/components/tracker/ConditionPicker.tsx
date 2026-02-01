@@ -25,7 +25,7 @@ export function ConditionPicker({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[60]">
       <div className="bg-[var(--study-panel)] rounded p-6 border border-[var(--gold-shadow)] max-w-md w-full mx-4">
         <h3 className="text-lg font-bold font-['Cinzel'] mb-4">Conditions</h3>
         <div className="grid grid-cols-3 gap-2 mb-4">

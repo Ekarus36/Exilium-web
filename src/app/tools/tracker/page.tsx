@@ -59,7 +59,7 @@ function QuickAddModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
       <div className="bg-[var(--study-panel)] rounded p-6 w-full max-w-sm border border-[var(--gold-shadow)]">
         <h3 className="text-xl font-bold text-[var(--parchment-light)] mb-6 text-center">
           New {type === "player" ? "Player" : "Creature"}
@@ -189,7 +189,7 @@ function EditPlayerModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
       <div className="bg-[var(--study-panel)] rounded p-6 w-full max-w-md border border-[var(--gold-shadow)] max-h-[90vh] overflow-y-auto">
         <h3 className="text-xl font-bold text-[var(--parchment-light)] mb-6 text-center">Edit Player</h3>
         <div className="space-y-4">
@@ -347,7 +347,7 @@ function EditCreatureModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
       <div className="bg-[var(--study-panel)] rounded p-6 w-full max-w-md border border-[var(--gold-shadow)] max-h-[90vh] overflow-y-auto">
         <h3 className="text-xl font-bold text-[var(--parchment-light)] mb-6 text-center">Edit Creature</h3>
         <div className="space-y-4">
@@ -510,7 +510,7 @@ function OCRImportModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
       <div className="bg-[var(--study-panel)] rounded p-6 w-full max-w-lg border border-[var(--gold-shadow)] max-h-[90vh] overflow-y-auto">
         <h3 className="text-xl font-bold text-[var(--parchment-light)] mb-2 text-center">
           Import {mode === "player" ? "Player" : "Creature"} from Screenshot
@@ -696,7 +696,7 @@ function PDFImportModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
       <div className="bg-[var(--study-panel)] rounded p-6 w-full max-w-lg border border-[var(--gold-shadow)] max-h-[90vh] overflow-y-auto">
         <h3 className="text-xl font-bold text-[var(--parchment-light)] mb-2 text-center">Import Player from PDF</h3>
         <p className="text-sm text-[var(--parchment-aged)] text-center mb-6">
@@ -867,7 +867,7 @@ function DDBImportModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
       <div className="bg-[var(--study-panel)] rounded p-6 w-full max-w-lg border border-[var(--gold-shadow)] max-h-[90vh] overflow-y-auto">
         <h3 className="text-xl font-bold text-[var(--parchment-light)] mb-2 text-center">Import from D&D Beyond</h3>
         <p className="text-sm text-[var(--parchment-aged)] text-center mb-6">
@@ -1008,7 +1008,7 @@ function EncounterSetupModal({
   });
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
       <div className="bg-[var(--study-panel)] rounded p-6 border border-[var(--gold-shadow)] w-full max-w-2xl max-h-[85vh] overflow-hidden flex flex-col">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-xl font-bold text-[var(--parchment-light)]">Setup: {encounter.name}</h3>
@@ -1204,7 +1204,7 @@ function DeleteConfirmModal({
   isDeleting: boolean;
 }) {
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
       <div className="bg-[var(--study-panel)] rounded p-6 w-full max-w-sm border border-[var(--gold-shadow)]">
         <h3 className="text-xl font-bold text-[var(--parchment-light)] mb-2 text-center">Delete {type}?</h3>
         <p className="text-[var(--parchment-aged)] text-center mb-6 text-sm">
@@ -1244,7 +1244,7 @@ function NewCampaignModal({
   const [description, setDescription] = useState("");
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
       <div className="bg-[var(--study-panel)] rounded p-6 w-full max-w-sm border border-[var(--gold-shadow)]">
         <h3 className="text-xl font-bold text-[var(--parchment-light)] mb-6 text-center">New Campaign</h3>
 
@@ -1318,7 +1318,7 @@ function PlayerDetailModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
       <div className="bg-[var(--study-panel)] rounded p-6 border border-[var(--gold-shadow)] w-full max-w-lg max-h-[90vh] overflow-y-auto">
         <div className="flex justify-between items-start mb-4">
           <div>
@@ -1501,7 +1501,7 @@ function CreatureDetailModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
       <div className="bg-[var(--study-panel)] rounded p-6 border border-[var(--gold-shadow)] w-full max-w-lg max-h-[90vh] overflow-y-auto">
         <div className="flex justify-between items-start mb-4">
           <div>
@@ -1712,7 +1712,7 @@ function SrdBrowserModal({
   const details = monsterDetails as Record<string, unknown> | null;
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
       <div className="bg-[var(--study-panel)] rounded border border-[var(--gold-shadow)] w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
         <div className="flex justify-between items-center p-4 border-b border-[var(--gold-shadow)]">
@@ -1872,7 +1872,7 @@ function AddPlayerToCampaignModal({
   const campaignPlayers = allPlayers.filter((p) => campaignPlayerIds.includes(p.id));
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
       <div className="bg-[var(--study-panel)] rounded p-6 border border-[var(--gold-shadow)] w-full max-w-md max-h-[85vh] overflow-hidden flex flex-col">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-xl font-bold text-[var(--parchment-light)]">Manage Players: {campaign.name}</h3>
@@ -2013,7 +2013,7 @@ function EncounterHistoryModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
       <div className="bg-[var(--study-panel)] rounded w-full max-w-2xl border border-[var(--gold-shadow)] max-h-[85vh] flex flex-col">
         <div className="p-6 border-b border-[var(--gold-shadow)]">
           <div className="flex justify-between items-start">

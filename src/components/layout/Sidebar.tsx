@@ -129,6 +129,7 @@ export function Sidebar({ navigation, title, titleHref, isOpen = false, onClose 
       <style jsx>{`
         .sidebar-container {
           width: 18rem;
+          max-width: calc(100vw - 3rem);
           height: 100vh;
           overflow-y: auto;
           display: flex;
