@@ -35,6 +35,12 @@ const OUTPUT_DIR = path.join(process.cwd(), "src/content");
 const CONTENT_DIR = path.join(OUTPUT_DIR, "documents");
 const PUBLIC_CONTENT_DIR = path.join(process.cwd(), "public/content");
 
+// Skip content build if vault isn't available (e.g. on Vercel) and pre-built content exists
+if (!fs.existsSync(VAULT_PATH) && fs.existsSync(path.join(OUTPUT_DIR, "manifest.json"))) {
+  console.log(`Vault not found at ${VAULT_PATH}, using pre-built content. Skipping build.`);
+  process.exit(0);
+}
+
 // Category definitions
 const CATEGORIES: Category[] = [
   {
