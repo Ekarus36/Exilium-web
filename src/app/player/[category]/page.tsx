@@ -56,16 +56,16 @@ export default async function PlayerCategoryPage({ params }: PageProps) {
       <Breadcrumbs items={breadcrumbs} />
 
       <header className="mb-8">
-        <h1 className="text-3xl font-bold mb-2 text-stone-100">
+        <h1 className="text-3xl font-['Cinzel'] font-medium mb-2 text-[var(--gold)]">
           {categoryInfo.name}
         </h1>
-        <p className="text-stone-400">{categoryInfo.description}</p>
+        <p className="text-[var(--parchment-aged)]">{categoryInfo.description}</p>
       </header>
 
       {playerDocs.length === 0 ? (
-        <div className="p-6 bg-stone-900/50 border border-stone-800 rounded-lg text-center">
-          <p className="text-stone-400">
-            No player-visible content in this category yet.
+        <div className="p-6 bg-[var(--study-panel)] border border-[var(--gold-shadow)] rounded text-center">
+          <p className="text-[var(--ink-faded)] font-['IM_Fell_English'] italic">
+            No chronicles have been recorded in this category yet.
           </p>
         </div>
       ) : (
@@ -74,13 +74,13 @@ export default async function PlayerCategoryPage({ params }: PageProps) {
             <Link
               key={doc.slug}
               href={`/player/${category}/${doc.slug}`}
-              className="block p-4 bg-stone-900/50 border border-stone-800 rounded-lg hover:border-stone-600 hover:bg-stone-900 transition-all"
+              className="block p-4 bg-[var(--study-panel)] border border-[var(--gold-shadow)] rounded hover:border-[var(--gold-dark)] hover:bg-[var(--study-wood)] transition-all"
             >
-              <h2 className="text-lg font-semibold text-stone-100 mb-1">
+              <h2 className="text-lg font-['Cinzel'] font-medium text-[var(--parchment)] mb-1">
                 {doc.title}
               </h2>
               {doc.atAGlance && (
-                <p className="text-stone-400 text-sm line-clamp-2">
+                <p className="text-[var(--parchment-aged)] text-sm line-clamp-2">
                   {doc.atAGlance.replace(/[#*_\[\]]/g, " ").slice(0, 150)}...
                 </p>
               )}

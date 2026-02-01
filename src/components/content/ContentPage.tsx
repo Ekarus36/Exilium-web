@@ -26,30 +26,30 @@ export function ContentPage({ document, accessLevel }: ContentPageProps) {
   };
 
   return (
-    <article className="prose prose-stone prose-invert max-w-none">
+    <article className="prose max-w-none">
       {/* Title */}
-      <h1 className="text-3xl font-bold mb-4 text-stone-100">
+      <h1 className="text-3xl font-['Cinzel'] font-medium mb-4 text-[var(--gold)]">
         {document.title}
       </h1>
 
       {/* Epigraph */}
       {document.epigraph && (
-        <blockquote className="border-l-4 border-amber-600 pl-4 italic text-stone-400 mb-6">
+        <blockquote className="border-l-4 border-[var(--gold-dark)] pl-4 italic text-[var(--parchment-aged)] mb-6 font-['IM_Fell_English']">
           &ldquo;{document.epigraph}&rdquo;
         </blockquote>
       )}
 
       {/* Metadata */}
       {Object.keys(document.metadata).length > 0 && (
-        <div className="bg-stone-900/50 border border-stone-800 rounded-lg p-4 mb-6 not-prose">
+        <div className="bg-[var(--study-panel)] border border-[var(--gold-shadow)] rounded p-4 mb-6 not-prose">
           <table className="w-full text-sm">
             <tbody>
               {Object.entries(document.metadata).map(([key, value]) => (
-                <tr key={key} className="border-b border-stone-800 last:border-0">
-                  <td className="py-2 pr-4 font-medium text-stone-400 w-1/3">
+                <tr key={key} className="border-b border-[var(--gold-shadow)]/50 last:border-0">
+                  <td className="py-2 pr-4 font-medium text-[var(--parchment-aged)] w-1/3 font-['Cinzel'] text-xs uppercase tracking-wider">
                     {key}
                   </td>
-                  <td className="py-2 text-stone-200">
+                  <td className="py-2 text-[var(--parchment)]">
                     <MarkdownContent content={value} inline />
                   </td>
                 </tr>
@@ -98,15 +98,15 @@ export function ContentPage({ document, accessLevel }: ContentPageProps) {
 
       {/* Connections Diagram */}
       {document.connections && (
-        <div className="mt-8 p-4 bg-stone-900/50 border border-stone-800 rounded-lg">
-          <h2 className="text-lg font-semibold mb-4 text-stone-200">
+        <div className="mt-8 p-4 bg-[var(--study-panel)] border border-[var(--gold-shadow)] rounded">
+          <h2 className="text-lg font-['Cinzel'] font-medium mb-4 text-[var(--gold)]">
             Connections
           </h2>
           <div className="mermaid-container overflow-auto">
-            <pre className="text-xs text-stone-400">
+            <pre className="text-xs text-[var(--ink-faded)]">
               {document.connections}
             </pre>
-            <p className="text-stone-500 text-sm mt-2 italic">
+            <p className="text-[var(--ink-faded)] text-sm mt-2 italic font-['IM_Fell_English']">
               (Mermaid diagram - will be rendered in production)
             </p>
           </div>
@@ -115,13 +115,13 @@ export function ContentPage({ document, accessLevel }: ContentPageProps) {
 
       {/* See Also */}
       {document.seeAlso.length > 0 && (
-        <div className="mt-8 p-4 bg-stone-900/50 border border-stone-800 rounded-lg">
-          <h2 className="text-lg font-semibold mb-2 text-stone-200">
+        <div className="mt-8 p-4 bg-[var(--study-panel)] border border-[var(--gold-shadow)] rounded">
+          <h2 className="text-lg font-['Cinzel'] font-medium mb-2 text-[var(--gold)]">
             See Also
           </h2>
-          <ul className="list-disc list-inside text-stone-400">
+          <ul className="list-disc list-inside text-[var(--parchment-aged)]">
             {document.seeAlso.map((link) => (
-              <li key={link} className="text-amber-400">
+              <li key={link} className="text-[var(--gold)]">
                 {link}
               </li>
             ))}
@@ -152,32 +152,32 @@ function ContentSection({
   variant = "default",
 }: ContentSectionProps) {
   const borderColor =
-    variant === "secret" ? "border-amber-800/50" : "border-stone-800";
+    variant === "secret" ? "border-[var(--vermillion-dark)]" : "border-[var(--gold-shadow)]";
   const bgColor =
-    variant === "secret" ? "bg-amber-950/20" : "bg-stone-900/30";
+    variant === "secret" ? "bg-[var(--vermillion-dark)]/10" : "bg-[var(--study-panel)]";
   const titleColor =
-    variant === "secret" ? "text-amber-300" : "text-stone-200";
+    variant === "secret" ? "text-[var(--vermillion)]" : "text-[var(--gold)]";
 
   return (
     <section
       id={sectionId}
-      className={`mb-6 border ${borderColor} rounded-lg overflow-hidden`}
+      className={`mb-6 border ${borderColor} rounded overflow-hidden`}
     >
       <button
         onClick={onToggle}
-        className={`w-full p-4 ${bgColor} flex items-center justify-between text-left hover:bg-stone-900/50 transition-colors`}
+        className={`w-full p-4 ${bgColor} flex items-center justify-between text-left hover:bg-[var(--study-wood)] transition-colors`}
       >
         <div>
-          <h2 className={`text-lg font-semibold ${titleColor}`}>{title}</h2>
-          <p className="text-sm text-stone-500">{subtitle}</p>
+          <h2 className={`text-lg font-['Cinzel'] font-medium ${titleColor}`}>{title}</h2>
+          <p className="text-sm text-[var(--ink-faded)]">{subtitle}</p>
         </div>
-        <ChevronDownIcon size={20} className={`text-stone-500 transform transition-transform ${
+        <ChevronDownIcon size={20} className={`text-[var(--ink-faded)] transform transition-transform ${
             isExpanded ? "rotate-180" : ""
           }`} />
       </button>
 
       {isExpanded && (
-        <div className="p-4 border-t border-stone-800">
+        <div className="p-4 border-t border-[var(--gold-shadow)]/50">
           <MarkdownContent content={content} />
         </div>
       )}

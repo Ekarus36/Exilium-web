@@ -203,45 +203,45 @@ export function ThreePanel({ encounterId }: ThreePanelProps) {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center h-screen bg-slate-900">
-        <div className="text-xl text-slate-400">Loading encounter...</div>
+      <div className="flex items-center justify-center h-screen bg-[var(--study-dark)]">
+        <div className="text-xl text-[var(--parchment-aged)]">Loading encounter...</div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="flex items-center justify-center h-screen bg-slate-900">
-        <div className="text-xl text-red-400">{error}</div>
+      <div className="flex items-center justify-center h-screen bg-[var(--study-dark)]">
+        <div className="text-xl text-[var(--vermillion)]">{error}</div>
       </div>
     );
   }
 
   if (!encounter) {
     return (
-      <div className="flex items-center justify-center h-screen bg-slate-900">
-        <div className="text-xl text-slate-400">Encounter not found</div>
+      <div className="flex items-center justify-center h-screen bg-[var(--study-dark)]">
+        <div className="text-xl text-[var(--parchment-aged)]">Encounter not found</div>
       </div>
     );
   }
 
   return (
-    <div className="h-screen flex flex-col bg-slate-900">
+    <div className="h-screen flex flex-col bg-[var(--study-dark)]">
       {/* Header */}
-      <header className="bg-slate-800 border-b border-slate-700">
+      <header className="bg-[var(--study-panel)] border-b border-[var(--gold-shadow)]">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center px-4 sm:px-6 py-3 gap-2">
           <div className="flex items-center gap-3">
             <Link
               href="/tools/tracker"
-              className="text-slate-400 hover:text-amber-400 transition-colors"
+              className="text-[var(--parchment-aged)] hover:text-[var(--gold)] transition-colors"
               title="Back to tracker"
             >
               &larr;
             </Link>
-            <h1 className="text-lg sm:text-xl font-bold text-amber-400 truncate">
+            <h1 className="text-lg sm:text-xl font-bold text-[var(--gold)] truncate">
               {encounter.name}
             </h1>
-            <span className="text-slate-400 text-sm whitespace-nowrap">
+            <span className="text-[var(--parchment-aged)] text-sm whitespace-nowrap">
               R{encounter.round_number}
             </span>
           </div>
@@ -265,7 +265,7 @@ export function ThreePanel({ encounterId }: ThreePanelProps) {
                 disabled={!encounter.can_undo}
                 className={`px-2 py-1 rounded text-sm ${
                   encounter.can_undo
-                    ? "bg-slate-700 hover:bg-amber-500/20"
+                    ? "bg-[var(--study-wood)] hover:bg-[var(--gold)]/20"
                     : "bg-gray-800 text-gray-600 cursor-not-allowed"
                 }`}
                 title="Undo (Ctrl+Z)"
@@ -277,7 +277,7 @@ export function ThreePanel({ encounterId }: ThreePanelProps) {
                 disabled={!encounter.can_redo}
                 className={`px-2 py-1 rounded text-sm ${
                   encounter.can_redo
-                    ? "bg-slate-700 hover:bg-amber-500/20"
+                    ? "bg-[var(--study-wood)] hover:bg-[var(--gold)]/20"
                     : "bg-gray-800 text-gray-600 cursor-not-allowed"
                 }`}
                 title="Redo (Ctrl+Shift+Z)"
@@ -297,7 +297,7 @@ export function ThreePanel({ encounterId }: ThreePanelProps) {
         </div>
 
         {/* Mobile tab navigation */}
-        <div className="flex lg:hidden border-t border-slate-700">
+        <div className="flex lg:hidden border-t border-[var(--gold-shadow)]">
           {[
             { id: "players" as const, label: `Players (${players.length})` },
             { id: "active" as const, label: "Active" },
@@ -308,8 +308,8 @@ export function ThreePanel({ encounterId }: ThreePanelProps) {
               onClick={() => setMobileTab(tab.id)}
               className={`flex-1 py-2 text-sm font-medium transition-colors ${
                 mobileTab === tab.id
-                  ? "text-amber-400 border-b-2 border-amber-400"
-                  : "text-slate-400 hover:text-slate-300"
+                  ? "text-[var(--gold)] border-b-2 border-amber-400"
+                  : "text-[var(--parchment-aged)] hover:text-[var(--parchment-dark)]"
               }`}
             >
               {tab.label}
@@ -326,7 +326,7 @@ export function ThreePanel({ encounterId }: ThreePanelProps) {
             mobileTab === "players" ? "block" : "hidden lg:block"
           }`}
         >
-          <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2 hidden lg:block">
+          <h2 className="text-sm font-semibold text-[var(--parchment-aged)] uppercase tracking-wider mb-2 hidden lg:block">
             Players ({players.length})
           </h2>
           {players.map((combatant) => (
@@ -358,7 +358,7 @@ export function ThreePanel({ encounterId }: ThreePanelProps) {
               onCondition={() => setShowConditionPicker(true)}
             />
           ) : (
-            <div className="flex items-center justify-center h-full text-slate-400">
+            <div className="flex items-center justify-center h-full text-[var(--parchment-aged)]">
               Select a combatant to view details
             </div>
           )}
@@ -366,7 +366,7 @@ export function ThreePanel({ encounterId }: ThreePanelProps) {
           {/* Damage/Heal input overlay */}
           {(damageMode || healMode) && (
             <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-              <div className="bg-slate-800 rounded-lg p-6 border border-slate-700">
+              <div className="bg-[var(--study-panel)] rounded p-6 border border-[var(--gold-shadow)]">
                 <h3 className="text-lg font-bold mb-4">
                   {damageMode ? "Apply Damage" : "Apply Healing"}
                 </h3>
@@ -382,7 +382,7 @@ export function ThreePanel({ encounterId }: ThreePanelProps) {
                       setHealMode(false);
                     }
                   }}
-                  className="w-32 px-4 py-2 text-2xl text-center bg-slate-700 border border-slate-600 rounded"
+                  className="w-32 px-4 py-2 text-2xl text-center bg-[var(--study-wood)] border border-[var(--gold-dark)] rounded"
                   placeholder="0"
                 />
                 <div className="flex gap-2 mt-4">
@@ -390,7 +390,7 @@ export function ThreePanel({ encounterId }: ThreePanelProps) {
                     onClick={confirmPendingAmount}
                     className={`px-4 py-2 rounded font-semibold ${
                       damageMode
-                        ? "bg-red-600 hover:bg-red-500"
+                        ? "bg-[var(--vermillion-dark)] hover:bg-[var(--vermillion)]"
                         : "bg-green-600 hover:bg-green-500"
                     }`}
                   >
@@ -401,7 +401,7 @@ export function ThreePanel({ encounterId }: ThreePanelProps) {
                       setDamageMode(false);
                       setHealMode(false);
                     }}
-                    className="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded"
+                    className="px-4 py-2 bg-[var(--study-wood)] hover:bg-[var(--study-wood)] rounded"
                   >
                     Cancel (Esc)
                   </button>
@@ -426,7 +426,7 @@ export function ThreePanel({ encounterId }: ThreePanelProps) {
             mobileTab === "creatures" ? "block" : "hidden lg:block"
           }`}
         >
-          <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2 hidden lg:block">
+          <h2 className="text-sm font-semibold text-[var(--parchment-aged)] uppercase tracking-wider mb-2 hidden lg:block">
             Creatures ({creatures.length})
           </h2>
           {creatures.map((combatant) => (
@@ -446,7 +446,7 @@ export function ThreePanel({ encounterId }: ThreePanelProps) {
       </main>
 
       {/* Footer: Keyboard shortcuts hint - hidden on mobile */}
-      <footer className="hidden sm:block px-6 py-2 bg-slate-800 border-t border-slate-700 text-xs text-slate-500">
+      <footer className="hidden sm:block px-6 py-2 bg-[var(--study-panel)] border-t border-[var(--gold-shadow)] text-xs text-[var(--ink-faded)]">
         <span className="mr-4">Space: Next</span>
         <span className="mr-4">Shift+Space: Prev</span>
         <span className="mr-4">D: Damage</span>

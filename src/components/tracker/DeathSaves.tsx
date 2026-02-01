@@ -16,8 +16,8 @@ export function DeathSaves({
   const { recordDeathSave } = useEncounterStore();
 
   return (
-    <div className="p-3 bg-slate-700 rounded-lg">
-      <h4 className="text-sm font-semibold text-red-400 mb-3">Death Saves</h4>
+    <div className="p-3 bg-[var(--study-wood)] rounded">
+      <h4 className="text-sm font-semibold text-[var(--vermillion)] mb-3">Death Saves</h4>
       <div className="flex items-center gap-4">
         {/* Successes */}
         <div className="flex items-center gap-2">

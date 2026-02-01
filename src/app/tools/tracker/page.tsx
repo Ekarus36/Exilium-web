@@ -60,21 +60,21 @@ function QuickAddModal({
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-slate-800 rounded-xl p-6 w-full max-w-sm border border-slate-700">
-        <h3 className="text-xl font-bold text-white mb-6 text-center">
+      <div className="bg-[var(--study-panel)] rounded p-6 w-full max-w-sm border border-[var(--gold-shadow)]">
+        <h3 className="text-xl font-bold text-[var(--parchment-light)] mb-6 text-center">
           New {type === "player" ? "Player" : "Creature"}
         </h3>
 
         <div className="space-y-4">
           <div>
-            <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">
+            <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">
               Name
             </label>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:border-amber-500 focus:outline-none"
+              className="w-full px-4 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] focus:border-[var(--gold)] focus:outline-none"
               placeholder={type === "player" ? "Character name" : "Creature name"}
               autoFocus
               onKeyDown={(e) => {
@@ -87,36 +87,36 @@ function QuickAddModal({
 
           <div className="grid grid-cols-3 gap-3">
             <div>
-              <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">
+              <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">
                 AC
               </label>
               <input
                 type="number"
                 value={ac}
                 onChange={(e) => setAc(e.target.value)}
-                className="w-full px-3 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white text-center font-mono focus:border-amber-500 focus:outline-none"
+                className="w-full px-3 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] text-center font-mono focus:border-[var(--gold)] focus:outline-none"
               />
             </div>
             <div>
-              <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">
+              <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">
                 HP
               </label>
               <input
                 type="number"
                 value={hp}
                 onChange={(e) => setHp(e.target.value)}
-                className="w-full px-3 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white text-center font-mono focus:border-amber-500 focus:outline-none"
+                className="w-full px-3 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] text-center font-mono focus:border-[var(--gold)] focus:outline-none"
               />
             </div>
             <div>
-              <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">
+              <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">
                 DEX
               </label>
               <input
                 type="number"
                 value={dex}
                 onChange={(e) => setDex(e.target.value)}
-                className="w-full px-3 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white text-center font-mono focus:border-amber-500 focus:outline-none"
+                className="w-full px-3 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] text-center font-mono focus:border-[var(--gold)] focus:outline-none"
               />
             </div>
           </div>
@@ -126,13 +126,13 @@ function QuickAddModal({
           <button
             onClick={handleSubmit}
             disabled={!name.trim() || isSubmitting}
-            className="flex-1 px-4 py-3 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="flex-1 px-4 py-3 bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             {isSubmitting ? "Creating..." : `Add ${type === "player" ? "Player" : "Creature"}`}
           </button>
           <button
             onClick={onClose}
-            className="px-4 py-3 text-slate-400 hover:text-white rounded-lg transition-colors"
+            className="px-4 py-3 text-[var(--parchment-aged)] hover:text-[var(--parchment-light)] rounded transition-colors"
           >
             Cancel
           </button>
@@ -190,80 +190,80 @@ function EditPlayerModal({
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-slate-800 rounded-xl p-6 w-full max-w-md border border-slate-700 max-h-[90vh] overflow-y-auto">
-        <h3 className="text-xl font-bold text-white mb-6 text-center">Edit Player</h3>
+      <div className="bg-[var(--study-panel)] rounded p-6 w-full max-w-md border border-[var(--gold-shadow)] max-h-[90vh] overflow-y-auto">
+        <h3 className="text-xl font-bold text-[var(--parchment-light)] mb-6 text-center">Edit Player</h3>
         <div className="space-y-4">
           <div>
-            <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">Name</label>
+            <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">Name</label>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:border-amber-500 focus:outline-none"
+              className="w-full px-4 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] focus:border-[var(--gold)] focus:outline-none"
             />
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">Race</label>
+              <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">Race</label>
               <input
                 type="text"
                 value={race}
                 onChange={(e) => setRace(e.target.value)}
-                className="w-full px-3 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:border-amber-500 focus:outline-none"
+                className="w-full px-3 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] focus:border-[var(--gold)] focus:outline-none"
                 placeholder="Human"
               />
             </div>
             <div>
-              <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">Class</label>
+              <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">Class</label>
               <input
                 type="text"
                 value={charClass}
                 onChange={(e) => setCharClass(e.target.value)}
-                className="w-full px-3 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:border-amber-500 focus:outline-none"
+                className="w-full px-3 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] focus:border-[var(--gold)] focus:outline-none"
                 placeholder="Fighter"
               />
             </div>
           </div>
           <div className="grid grid-cols-4 gap-3">
             <div>
-              <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">Level</label>
+              <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">Level</label>
               <input
                 type="number"
                 value={level}
                 onChange={(e) => setLevel(e.target.value)}
-                className="w-full px-3 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white text-center font-mono focus:border-amber-500 focus:outline-none"
+                className="w-full px-3 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] text-center font-mono focus:border-[var(--gold)] focus:outline-none"
               />
             </div>
             <div>
-              <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">AC</label>
+              <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">AC</label>
               <input
                 type="number"
                 value={ac}
                 onChange={(e) => setAc(e.target.value)}
-                className="w-full px-3 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white text-center font-mono focus:border-amber-500 focus:outline-none"
+                className="w-full px-3 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] text-center font-mono focus:border-[var(--gold)] focus:outline-none"
               />
             </div>
             <div>
-              <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">HP Max</label>
+              <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">HP Max</label>
               <input
                 type="number"
                 value={hpMax}
                 onChange={(e) => setHpMax(e.target.value)}
-                className="w-full px-3 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white text-center font-mono focus:border-amber-500 focus:outline-none"
+                className="w-full px-3 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] text-center font-mono focus:border-[var(--gold)] focus:outline-none"
               />
             </div>
             <div>
-              <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">HP Cur</label>
+              <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">HP Cur</label>
               <input
                 type="number"
                 value={hpCurrent}
                 onChange={(e) => setHpCurrent(e.target.value)}
-                className="w-full px-3 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white text-center font-mono focus:border-amber-500 focus:outline-none"
+                className="w-full px-3 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] text-center font-mono focus:border-[var(--gold)] focus:outline-none"
               />
             </div>
           </div>
           <div>
-            <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">Ability Scores</label>
+            <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">Ability Scores</label>
             <div className="grid grid-cols-6 gap-2">
               {[
                 { label: "STR", value: str, set: setStr },
@@ -274,12 +274,12 @@ function EditPlayerModal({
                 { label: "CHA", value: cha, set: setCha },
               ].map(({ label, value, set }) => (
                 <div key={label}>
-                  <label className="block text-xs text-slate-500 mb-1 text-center">{label}</label>
+                  <label className="block text-xs text-[var(--ink-faded)] mb-1 text-center">{label}</label>
                   <input
                     type="number"
                     value={value}
                     onChange={(e) => set(e.target.value)}
-                    className="w-full px-1 py-2 bg-slate-900 border border-slate-700 rounded text-white text-center text-sm font-mono focus:border-amber-500 focus:outline-none"
+                    className="w-full px-1 py-2 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] text-center text-sm font-mono focus:border-[var(--gold)] focus:outline-none"
                   />
                 </div>
               ))}
@@ -290,11 +290,11 @@ function EditPlayerModal({
           <button
             onClick={handleSubmit}
             disabled={!name.trim() || isSubmitting}
-            className="flex-1 px-4 py-3 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="flex-1 px-4 py-3 bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             {isSubmitting ? "Saving..." : "Save Changes"}
           </button>
-          <button onClick={onClose} className="px-4 py-3 text-slate-400 hover:text-white rounded-lg transition-colors">
+          <button onClick={onClose} className="px-4 py-3 text-[var(--parchment-aged)] hover:text-[var(--parchment-light)] rounded transition-colors">
             Cancel
           </button>
         </div>
@@ -348,25 +348,25 @@ function EditCreatureModal({
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-slate-800 rounded-xl p-6 w-full max-w-md border border-slate-700 max-h-[90vh] overflow-y-auto">
-        <h3 className="text-xl font-bold text-white mb-6 text-center">Edit Creature</h3>
+      <div className="bg-[var(--study-panel)] rounded p-6 w-full max-w-md border border-[var(--gold-shadow)] max-h-[90vh] overflow-y-auto">
+        <h3 className="text-xl font-bold text-[var(--parchment-light)] mb-6 text-center">Edit Creature</h3>
         <div className="space-y-4">
           <div>
-            <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">Name</label>
+            <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">Name</label>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:border-amber-500 focus:outline-none"
+              className="w-full px-4 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] focus:border-[var(--gold)] focus:outline-none"
             />
           </div>
           <div className="grid grid-cols-3 gap-3">
             <div>
-              <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">Size</label>
+              <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">Size</label>
               <select
                 value={size}
                 onChange={(e) => setSize(e.target.value)}
-                className="w-full px-3 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:border-amber-500 focus:outline-none"
+                className="w-full px-3 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] focus:border-[var(--gold)] focus:outline-none"
               >
                 {["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"].map((s) => (
                   <option key={s} value={s}>{s}</option>
@@ -374,48 +374,48 @@ function EditCreatureModal({
               </select>
             </div>
             <div>
-              <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">Type</label>
+              <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">Type</label>
               <input
                 type="text"
                 value={creatureType}
                 onChange={(e) => setCreatureType(e.target.value)}
-                className="w-full px-3 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:border-amber-500 focus:outline-none"
+                className="w-full px-3 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] focus:border-[var(--gold)] focus:outline-none"
                 placeholder="Beast"
               />
             </div>
             <div>
-              <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">CR</label>
+              <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">CR</label>
               <input
                 type="text"
                 value={cr}
                 onChange={(e) => setCr(e.target.value)}
-                className="w-full px-3 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white text-center font-mono focus:border-amber-500 focus:outline-none"
+                className="w-full px-3 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] text-center font-mono focus:border-[var(--gold)] focus:outline-none"
                 placeholder="1"
               />
             </div>
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">AC</label>
+              <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">AC</label>
               <input
                 type="number"
                 value={ac}
                 onChange={(e) => setAc(e.target.value)}
-                className="w-full px-3 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white text-center font-mono focus:border-amber-500 focus:outline-none"
+                className="w-full px-3 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] text-center font-mono focus:border-[var(--gold)] focus:outline-none"
               />
             </div>
             <div>
-              <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">HP</label>
+              <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">HP</label>
               <input
                 type="number"
                 value={hpMax}
                 onChange={(e) => setHpMax(e.target.value)}
-                className="w-full px-3 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white text-center font-mono focus:border-amber-500 focus:outline-none"
+                className="w-full px-3 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] text-center font-mono focus:border-[var(--gold)] focus:outline-none"
               />
             </div>
           </div>
           <div>
-            <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">Ability Scores</label>
+            <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">Ability Scores</label>
             <div className="grid grid-cols-6 gap-2">
               {[
                 { label: "STR", value: str, set: setStr },
@@ -426,12 +426,12 @@ function EditCreatureModal({
                 { label: "CHA", value: cha, set: setCha },
               ].map(({ label, value, set }) => (
                 <div key={label}>
-                  <label className="block text-xs text-slate-500 mb-1 text-center">{label}</label>
+                  <label className="block text-xs text-[var(--ink-faded)] mb-1 text-center">{label}</label>
                   <input
                     type="number"
                     value={value}
                     onChange={(e) => set(e.target.value)}
-                    className="w-full px-1 py-2 bg-slate-900 border border-slate-700 rounded text-white text-center text-sm font-mono focus:border-amber-500 focus:outline-none"
+                    className="w-full px-1 py-2 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] text-center text-sm font-mono focus:border-[var(--gold)] focus:outline-none"
                   />
                 </div>
               ))}
@@ -442,11 +442,11 @@ function EditCreatureModal({
           <button
             onClick={handleSubmit}
             disabled={!name.trim() || isSubmitting}
-            className="flex-1 px-4 py-3 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="flex-1 px-4 py-3 bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             {isSubmitting ? "Saving..." : "Save Changes"}
           </button>
-          <button onClick={onClose} className="px-4 py-3 text-slate-400 hover:text-white rounded-lg transition-colors">
+          <button onClick={onClose} className="px-4 py-3 text-[var(--parchment-aged)] hover:text-[var(--parchment-light)] rounded transition-colors">
             Cancel
           </button>
         </div>
@@ -511,16 +511,16 @@ function OCRImportModal({
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-slate-800 rounded-xl p-6 w-full max-w-lg border border-slate-700 max-h-[90vh] overflow-y-auto">
-        <h3 className="text-xl font-bold text-white mb-2 text-center">
+      <div className="bg-[var(--study-panel)] rounded p-6 w-full max-w-lg border border-[var(--gold-shadow)] max-h-[90vh] overflow-y-auto">
+        <h3 className="text-xl font-bold text-[var(--parchment-light)] mb-2 text-center">
           Import {mode === "player" ? "Player" : "Creature"} from Screenshot
         </h3>
-        <p className="text-sm text-slate-400 text-center mb-6">
+        <p className="text-sm text-[var(--parchment-aged)] text-center mb-6">
           Upload a screenshot of a {mode === "player" ? "character sheet" : "stat block"} to extract data using AI
         </p>
 
         {error && (
-          <div className="mb-4 p-3 bg-red-900/50 border border-red-700 rounded-lg text-red-300 text-sm">
+          <div className="mb-4 p-3 bg-red-900/50 border border-red-700 rounded text-red-300 text-sm">
             {error}
           </div>
         )}
@@ -533,14 +533,14 @@ function OCRImportModal({
               onChange={handleFileChange}
               className="hidden"
             />
-            <div className="w-full px-4 py-8 border-2 border-dashed border-slate-600 rounded-lg text-center cursor-pointer hover:border-amber-500 transition-colors">
+            <div className="w-full px-4 py-8 border-2 border-dashed border-[var(--gold-dark)] rounded text-center cursor-pointer hover:border-amber-500 transition-colors">
               {file ? (
                 <div>
-                  <div className="text-white font-medium">{file.name}</div>
-                  <div className="text-sm text-slate-400">{(file.size / 1024).toFixed(1)} KB</div>
+                  <div className="text-[var(--parchment-light)] font-medium">{file.name}</div>
+                  <div className="text-sm text-[var(--parchment-aged)]">{(file.size / 1024).toFixed(1)} KB</div>
                 </div>
               ) : (
-                <div className="text-slate-400">
+                <div className="text-[var(--parchment-aged)]">
                   Click to select an image or drag & drop
                 </div>
               )}
@@ -549,45 +549,45 @@ function OCRImportModal({
         </div>
 
         {isLoading && (
-          <div className="text-center py-4 text-slate-400">
+          <div className="text-center py-4 text-[var(--parchment-aged)]">
             Analyzing image with AI...
           </div>
         )}
 
         {preview && (
-          <div className="mb-4 p-4 bg-slate-900 rounded-lg">
-            <h4 className="text-sm font-semibold text-amber-400 mb-3">Extracted Data</h4>
+          <div className="mb-4 p-4 bg-[var(--study-dark)] rounded">
+            <h4 className="text-sm font-semibold text-[var(--gold)] mb-3">Extracted Data</h4>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-slate-400">Name</span>
-                <span className="text-white font-medium">{preview.name}</span>
+                <span className="text-[var(--parchment-aged)]">Name</span>
+                <span className="text-[var(--parchment-light)] font-medium">{preview.name}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">AC</span>
-                <span className="text-white">{preview.ac || 10}</span>
+                <span className="text-[var(--parchment-aged)]">AC</span>
+                <span className="text-[var(--parchment-light)]">{preview.ac || 10}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">HP</span>
-                <span className="text-white">{preview.hp_max || 10}</span>
+                <span className="text-[var(--parchment-aged)]">HP</span>
+                <span className="text-[var(--parchment-light)]">{preview.hp_max || 10}</span>
               </div>
               {mode === "player" && (
                 <>
                   {preview.race && (
                     <div className="flex justify-between">
-                      <span className="text-slate-400">Race</span>
-                      <span className="text-white">{preview.race}</span>
+                      <span className="text-[var(--parchment-aged)]">Race</span>
+                      <span className="text-[var(--parchment-light)]">{preview.race}</span>
                     </div>
                   )}
                   {preview.character_class && (
                     <div className="flex justify-between">
-                      <span className="text-slate-400">Class</span>
-                      <span className="text-white">{preview.character_class}</span>
+                      <span className="text-[var(--parchment-aged)]">Class</span>
+                      <span className="text-[var(--parchment-light)]">{preview.character_class}</span>
                     </div>
                   )}
                   {preview.level && (
                     <div className="flex justify-between">
-                      <span className="text-slate-400">Level</span>
-                      <span className="text-white">{preview.level}</span>
+                      <span className="text-[var(--parchment-aged)]">Level</span>
+                      <span className="text-[var(--parchment-light)]">{preview.level}</span>
                     </div>
                   )}
                 </>
@@ -596,33 +596,33 @@ function OCRImportModal({
                 <>
                   {preview.creature_type && (
                     <div className="flex justify-between">
-                      <span className="text-slate-400">Type</span>
-                      <span className="text-white">{preview.creature_type}</span>
+                      <span className="text-[var(--parchment-aged)]">Type</span>
+                      <span className="text-[var(--parchment-light)]">{preview.creature_type}</span>
                     </div>
                   )}
                   {preview.size && (
                     <div className="flex justify-between">
-                      <span className="text-slate-400">Size</span>
-                      <span className="text-white">{preview.size}</span>
+                      <span className="text-[var(--parchment-aged)]">Size</span>
+                      <span className="text-[var(--parchment-light)]">{preview.size}</span>
                     </div>
                   )}
                   {preview.challenge_rating !== undefined && (
                     <div className="flex justify-between">
-                      <span className="text-slate-400">CR</span>
-                      <span className="text-white">{preview.challenge_rating}</span>
+                      <span className="text-[var(--parchment-aged)]">CR</span>
+                      <span className="text-[var(--parchment-light)]">{preview.challenge_rating}</span>
                     </div>
                   )}
                 </>
               )}
-              <div className="pt-2 border-t border-slate-700">
+              <div className="pt-2 border-t border-[var(--gold-shadow)]">
                 <div className="grid grid-cols-6 gap-2 text-center">
                   {["STR", "DEX", "CON", "INT", "WIS", "CHA"].map((ability, i) => {
                     const keys = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
                     const value = preview[keys[i] as keyof OcrPreviewResult] as number || 10;
                     return (
                       <div key={ability}>
-                        <div className="text-xs text-slate-500">{ability}</div>
-                        <div className="text-white font-mono">{value}</div>
+                        <div className="text-xs text-[var(--ink-faded)]">{ability}</div>
+                        <div className="text-[var(--parchment-light)] font-mono">{value}</div>
                       </div>
                     );
                   })}
@@ -636,11 +636,11 @@ function OCRImportModal({
           <button
             onClick={handleImport}
             disabled={!preview || isImporting}
-            className="flex-1 px-4 py-3 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="flex-1 px-4 py-3 bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             {isImporting ? "Importing..." : "Import"}
           </button>
-          <button onClick={onClose} className="px-4 py-3 text-slate-400 hover:text-white rounded-lg transition-colors">
+          <button onClick={onClose} className="px-4 py-3 text-[var(--parchment-aged)] hover:text-[var(--parchment-light)] rounded transition-colors">
             Cancel
           </button>
         </div>
@@ -697,14 +697,14 @@ function PDFImportModal({
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-slate-800 rounded-xl p-6 w-full max-w-lg border border-slate-700 max-h-[90vh] overflow-y-auto">
-        <h3 className="text-xl font-bold text-white mb-2 text-center">Import Player from PDF</h3>
-        <p className="text-sm text-slate-400 text-center mb-6">
+      <div className="bg-[var(--study-panel)] rounded p-6 w-full max-w-lg border border-[var(--gold-shadow)] max-h-[90vh] overflow-y-auto">
+        <h3 className="text-xl font-bold text-[var(--parchment-light)] mb-2 text-center">Import Player from PDF</h3>
+        <p className="text-sm text-[var(--parchment-aged)] text-center mb-6">
           Upload a D&D character sheet PDF to extract player data
         </p>
 
         {error && (
-          <div className="mb-4 p-3 bg-red-900/50 border border-red-700 rounded-lg text-red-300 text-sm">
+          <div className="mb-4 p-3 bg-red-900/50 border border-red-700 rounded text-red-300 text-sm">
             {error}
           </div>
         )}
@@ -717,14 +717,14 @@ function PDFImportModal({
               onChange={handleFileChange}
               className="hidden"
             />
-            <div className="w-full px-4 py-8 border-2 border-dashed border-slate-600 rounded-lg text-center cursor-pointer hover:border-amber-500 transition-colors">
+            <div className="w-full px-4 py-8 border-2 border-dashed border-[var(--gold-dark)] rounded text-center cursor-pointer hover:border-amber-500 transition-colors">
               {file ? (
                 <div>
-                  <div className="text-white font-medium">{file.name}</div>
-                  <div className="text-sm text-slate-400">{(file.size / 1024).toFixed(1)} KB</div>
+                  <div className="text-[var(--parchment-light)] font-medium">{file.name}</div>
+                  <div className="text-sm text-[var(--parchment-aged)]">{(file.size / 1024).toFixed(1)} KB</div>
                 </div>
               ) : (
-                <div className="text-slate-400">
+                <div className="text-[var(--parchment-aged)]">
                   Click to select a PDF character sheet
                 </div>
               )}
@@ -733,54 +733,54 @@ function PDFImportModal({
         </div>
 
         {isLoading && (
-          <div className="text-center py-4 text-slate-400">
+          <div className="text-center py-4 text-[var(--parchment-aged)]">
             Extracting data from PDF...
           </div>
         )}
 
         {preview && (
-          <div className="mb-4 p-4 bg-slate-900 rounded-lg">
-            <h4 className="text-sm font-semibold text-amber-400 mb-3">Extracted Data</h4>
+          <div className="mb-4 p-4 bg-[var(--study-dark)] rounded">
+            <h4 className="text-sm font-semibold text-[var(--gold)] mb-3">Extracted Data</h4>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-slate-400">Name</span>
-                <span className="text-white font-medium">{preview.name}</span>
+                <span className="text-[var(--parchment-aged)]">Name</span>
+                <span className="text-[var(--parchment-light)] font-medium">{preview.name}</span>
               </div>
               {preview.race && (
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Race</span>
-                  <span className="text-white">{preview.race}</span>
+                  <span className="text-[var(--parchment-aged)]">Race</span>
+                  <span className="text-[var(--parchment-light)]">{preview.race}</span>
                 </div>
               )}
               {preview.character_class && (
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Class</span>
-                  <span className="text-white">{preview.character_class}</span>
+                  <span className="text-[var(--parchment-aged)]">Class</span>
+                  <span className="text-[var(--parchment-light)]">{preview.character_class}</span>
                 </div>
               )}
               {preview.level && (
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Level</span>
-                  <span className="text-white">{preview.level}</span>
+                  <span className="text-[var(--parchment-aged)]">Level</span>
+                  <span className="text-[var(--parchment-light)]">{preview.level}</span>
                 </div>
               )}
               <div className="flex justify-between">
-                <span className="text-slate-400">AC</span>
-                <span className="text-white">{preview.ac || 10}</span>
+                <span className="text-[var(--parchment-aged)]">AC</span>
+                <span className="text-[var(--parchment-light)]">{preview.ac || 10}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">HP</span>
-                <span className="text-white">{preview.hp_max || 10}</span>
+                <span className="text-[var(--parchment-aged)]">HP</span>
+                <span className="text-[var(--parchment-light)]">{preview.hp_max || 10}</span>
               </div>
-              <div className="pt-2 border-t border-slate-700">
+              <div className="pt-2 border-t border-[var(--gold-shadow)]">
                 <div className="grid grid-cols-6 gap-2 text-center">
                   {["STR", "DEX", "CON", "INT", "WIS", "CHA"].map((ability, i) => {
                     const keys = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
                     const value = preview[keys[i] as keyof OcrPreviewResult] as number || 10;
                     return (
                       <div key={ability}>
-                        <div className="text-xs text-slate-500">{ability}</div>
-                        <div className="text-white font-mono">{value}</div>
+                        <div className="text-xs text-[var(--ink-faded)]">{ability}</div>
+                        <div className="text-[var(--parchment-light)] font-mono">{value}</div>
                       </div>
                     );
                   })}
@@ -794,11 +794,11 @@ function PDFImportModal({
           <button
             onClick={handleImport}
             disabled={!preview || isImporting}
-            className="flex-1 px-4 py-3 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="flex-1 px-4 py-3 bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             {isImporting ? "Importing..." : "Import Player"}
           </button>
-          <button onClick={onClose} className="px-4 py-3 text-slate-400 hover:text-white rounded-lg transition-colors">
+          <button onClick={onClose} className="px-4 py-3 text-[var(--parchment-aged)] hover:text-[var(--parchment-light)] rounded transition-colors">
             Cancel
           </button>
         </div>
@@ -868,85 +868,85 @@ function DDBImportModal({
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-slate-800 rounded-xl p-6 w-full max-w-lg border border-slate-700 max-h-[90vh] overflow-y-auto">
-        <h3 className="text-xl font-bold text-white mb-2 text-center">Import from D&D Beyond</h3>
-        <p className="text-sm text-slate-400 text-center mb-6">
+      <div className="bg-[var(--study-panel)] rounded p-6 w-full max-w-lg border border-[var(--gold-shadow)] max-h-[90vh] overflow-y-auto">
+        <h3 className="text-xl font-bold text-[var(--parchment-light)] mb-2 text-center">Import from D&D Beyond</h3>
+        <p className="text-sm text-[var(--parchment-aged)] text-center mb-6">
           Enter a D&D Beyond character URL or ID to import
         </p>
 
         {error && (
-          <div className="mb-4 p-3 bg-red-900/50 border border-red-700 rounded-lg text-red-300 text-sm">
+          <div className="mb-4 p-3 bg-red-900/50 border border-red-700 rounded text-red-300 text-sm">
             {error}
           </div>
         )}
 
         <div className="mb-4">
-          <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">Character URL or ID</label>
+          <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">Character URL or ID</label>
           <div className="flex gap-2">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="https://www.dndbeyond.com/characters/12345678"
-              className="flex-1 px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:border-amber-500 focus:outline-none"
+              className="flex-1 px-4 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] focus:border-[var(--gold)] focus:outline-none"
               onKeyDown={(e) => e.key === "Enter" && handlePreview()}
             />
             <button
               onClick={handlePreview}
               disabled={!input.trim() || isLoading}
-              className="px-4 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium disabled:opacity-40 transition-colors"
+              className="px-4 py-3 bg-[var(--study-wood)] hover:bg-[var(--study-wood)] text-[var(--parchment-light)] rounded font-medium disabled:opacity-40 transition-colors"
             >
               {isLoading ? "..." : "Preview"}
             </button>
           </div>
-          <p className="mt-2 text-xs text-slate-500">
+          <p className="mt-2 text-xs text-[var(--ink-faded)]">
             The character must be set to public on D&D Beyond
           </p>
         </div>
 
         {preview && (
-          <div className="mb-4 p-4 bg-slate-900 rounded-lg">
-            <h4 className="text-sm font-semibold text-amber-400 mb-3">Character Preview</h4>
+          <div className="mb-4 p-4 bg-[var(--study-dark)] rounded">
+            <h4 className="text-sm font-semibold text-[var(--gold)] mb-3">Character Preview</h4>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-slate-400">Name</span>
-                <span className="text-white font-medium">{preview.name}</span>
+                <span className="text-[var(--parchment-aged)]">Name</span>
+                <span className="text-[var(--parchment-light)] font-medium">{preview.name}</span>
               </div>
               {preview.race && (
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Race</span>
-                  <span className="text-white">{preview.race}</span>
+                  <span className="text-[var(--parchment-aged)]">Race</span>
+                  <span className="text-[var(--parchment-light)]">{preview.race}</span>
                 </div>
               )}
               {preview.character_class && (
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Class</span>
-                  <span className="text-white">{preview.character_class}</span>
+                  <span className="text-[var(--parchment-aged)]">Class</span>
+                  <span className="text-[var(--parchment-light)]">{preview.character_class}</span>
                 </div>
               )}
               {preview.level && (
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Level</span>
-                  <span className="text-white">{preview.level}</span>
+                  <span className="text-[var(--parchment-aged)]">Level</span>
+                  <span className="text-[var(--parchment-light)]">{preview.level}</span>
                 </div>
               )}
               <div className="flex justify-between">
-                <span className="text-slate-400">AC</span>
-                <span className="text-white">{preview.ac || 10}</span>
+                <span className="text-[var(--parchment-aged)]">AC</span>
+                <span className="text-[var(--parchment-light)]">{preview.ac || 10}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">HP</span>
-                <span className="text-white">{preview.hp_max || 10}</span>
+                <span className="text-[var(--parchment-aged)]">HP</span>
+                <span className="text-[var(--parchment-light)]">{preview.hp_max || 10}</span>
               </div>
-              <div className="pt-2 border-t border-slate-700">
+              <div className="pt-2 border-t border-[var(--gold-shadow)]">
                 <div className="grid grid-cols-6 gap-2 text-center">
                   {["STR", "DEX", "CON", "INT", "WIS", "CHA"].map((ability, i) => {
                     const keys = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
                     const value = preview[keys[i] as keyof OcrPreviewResult] as number || 10;
                     return (
                       <div key={ability}>
-                        <div className="text-xs text-slate-500">{ability}</div>
-                        <div className="text-white font-mono">{value}</div>
+                        <div className="text-xs text-[var(--ink-faded)]">{ability}</div>
+                        <div className="text-[var(--parchment-light)] font-mono">{value}</div>
                       </div>
                     );
                   })}
@@ -960,11 +960,11 @@ function DDBImportModal({
           <button
             onClick={handleImport}
             disabled={!preview || isImporting}
-            className="flex-1 px-4 py-3 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="flex-1 px-4 py-3 bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             {isImporting ? "Importing..." : "Import Character"}
           </button>
-          <button onClick={onClose} className="px-4 py-3 text-slate-400 hover:text-white rounded-lg transition-colors">
+          <button onClick={onClose} className="px-4 py-3 text-[var(--parchment-aged)] hover:text-[var(--parchment-light)] rounded transition-colors">
             Cancel
           </button>
         </div>
@@ -1009,12 +1009,12 @@ function EncounterSetupModal({
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-slate-800 rounded-xl p-6 border border-slate-700 w-full max-w-2xl max-h-[85vh] overflow-hidden flex flex-col">
+      <div className="bg-[var(--study-panel)] rounded p-6 border border-[var(--gold-shadow)] w-full max-w-2xl max-h-[85vh] overflow-hidden flex flex-col">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-xl font-bold text-white">Setup: {encounter.name}</h3>
+          <h3 className="text-xl font-bold text-[var(--parchment-light)]">Setup: {encounter.name}</h3>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-white text-2xl leading-none"
+            className="text-[var(--parchment-aged)] hover:text-[var(--parchment-light)] text-2xl leading-none"
           >
             &times;
           </button>
@@ -1022,7 +1022,7 @@ function EncounterSetupModal({
 
         {/* Current Combatants */}
         <div className="mb-4">
-          <h4 className="text-sm font-semibold text-amber-400 mb-2">
+          <h4 className="text-sm font-semibold text-[var(--gold)] mb-2">
             In Encounter ({encounter.combatants?.length || 0})
           </h4>
           <div className="flex flex-wrap gap-2">
@@ -1036,14 +1036,14 @@ function EncounterSetupModal({
                   key={c.id}
                   className={`px-2 py-1 rounded text-sm flex items-center gap-1 ${
                     c.entity_type === "player"
-                      ? "bg-blue-600/20 text-blue-300"
-                      : "bg-red-600/20 text-red-300"
+                      ? "bg-[var(--azure)]/20 text-blue-300"
+                      : "bg-[var(--vermillion-dark)]/20 text-red-300"
                   }`}
                 >
                   {c.display_name || entity?.name || "Unknown"}
                   <button
                     onClick={() => onRemoveCombatant(c.id)}
-                    className="ml-1 hover:text-white"
+                    className="ml-1 hover:text-[var(--parchment-light)]"
                     title="Remove from encounter"
                   >
                     &times;
@@ -1052,7 +1052,7 @@ function EncounterSetupModal({
               );
             })}
             {(!encounter.combatants || encounter.combatants.length === 0) && (
-              <span className="text-slate-500 text-sm">
+              <span className="text-[var(--ink-faded)] text-sm">
                 No combatants yet. Add players and creatures below.
               </span>
             )}
@@ -1062,53 +1062,53 @@ function EncounterSetupModal({
         <div className="flex-1 overflow-y-auto grid grid-cols-2 gap-4">
           {/* Available Players */}
           <div>
-            <h4 className="text-sm font-semibold text-slate-400 mb-2">Players</h4>
+            <h4 className="text-sm font-semibold text-[var(--parchment-aged)] mb-2">Players</h4>
             <div className="space-y-2">
               {players.map((player) => {
                 const alreadyAdded = existingPlayerIds.has(player.id);
                 return (
                   <div
                     key={player.id}
-                    className={`p-3 rounded-lg flex justify-between items-center ${
+                    className={`p-3 rounded flex justify-between items-center ${
                       alreadyAdded
-                        ? "bg-blue-600/10 border border-blue-600/30"
-                        : "bg-slate-900"
+                        ? "bg-[var(--azure)]/10 border border-blue-600/30"
+                        : "bg-[var(--study-dark)]"
                     }`}
                   >
                     <div>
-                      <div className="font-semibold text-sm text-white">{player.name}</div>
-                      <div className="text-xs text-slate-500">
+                      <div className="font-semibold text-sm text-[var(--parchment-light)]">{player.name}</div>
+                      <div className="text-xs text-[var(--ink-faded)]">
                         AC {player.ac} | HP {player.hp_max}
                       </div>
                     </div>
                     {!alreadyAdded ? (
                       <button
                         onClick={() => onAddCombatant("player", player.id)}
-                        className="px-3 py-1 text-xs bg-amber-600 hover:bg-amber-500 text-white rounded"
+                        className="px-3 py-1 text-xs bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded"
                       >
                         Add
                       </button>
                     ) : (
-                      <span className="text-xs text-blue-400">Added</span>
+                      <span className="text-xs text-[var(--azure)]">Added</span>
                     )}
                   </div>
                 );
               })}
               {players.length === 0 && (
-                <p className="text-slate-500 text-xs">No players created yet.</p>
+                <p className="text-[var(--ink-faded)] text-xs">No players created yet.</p>
               )}
             </div>
           </div>
 
           {/* Available Creatures */}
           <div>
-            <h4 className="text-sm font-semibold text-slate-400 mb-2">Creatures</h4>
+            <h4 className="text-sm font-semibold text-[var(--parchment-aged)] mb-2">Creatures</h4>
             <input
               type="text"
               value={creatureSearch}
               onChange={(e) => setCreatureSearch(e.target.value)}
               placeholder="Search creatures..."
-              className="w-full px-3 py-2 mb-2 text-sm bg-slate-900 border border-slate-700 rounded-lg text-white focus:border-amber-500 focus:outline-none"
+              className="w-full px-3 py-2 mb-2 text-sm bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] focus:border-[var(--gold)] focus:outline-none"
             />
             <div className="space-y-2">
               {filteredCreatures.map((creature) => {
@@ -1117,17 +1117,17 @@ function EncounterSetupModal({
                 return (
                   <div
                     key={creature.id}
-                    className={`p-3 rounded-lg ${
-                      count > 0 ? "bg-red-600/10 border border-red-600/30" : "bg-slate-900"
+                    className={`p-3 rounded ${
+                      count > 0 ? "bg-[var(--vermillion-dark)]/10 border border-red-600/30" : "bg-[var(--study-dark)]"
                     }`}
                   >
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <div className="font-semibold text-sm text-white">{creature.name}</div>
-                        <div className="text-xs text-slate-500">
+                        <div className="font-semibold text-sm text-[var(--parchment-light)]">{creature.name}</div>
+                        <div className="text-xs text-[var(--ink-faded)]">
                           AC {creature.ac} | HP {creature.hp_max}
                           {count > 0 && (
-                            <span className="text-red-400 ml-2">({count} in encounter)</span>
+                            <span className="text-[var(--vermillion)] ml-2">({count} in encounter)</span>
                           )}
                         </div>
                       </div>
@@ -1144,14 +1144,14 @@ function EncounterSetupModal({
                             [creature.id]: Math.max(1, Math.min(20, parseInt(e.target.value) || 1)),
                           })
                         }
-                        className="w-14 px-2 py-1 text-xs bg-slate-900 border border-slate-700 rounded text-center text-white"
+                        className="w-14 px-2 py-1 text-xs bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-center text-[var(--parchment-light)]"
                       />
                       <button
                         onClick={() => {
                           onAddCombatant("creature", creature.id, quantity);
                           setCreatureQuantities({ ...creatureQuantities, [creature.id]: 1 });
                         }}
-                        className="flex-1 px-2 py-1 text-xs bg-amber-600 hover:bg-amber-500 text-white rounded"
+                        className="flex-1 px-2 py-1 text-xs bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded"
                       >
                         Add {quantity > 1 ? `${quantity}x` : ""}
                       </button>
@@ -1160,26 +1160,26 @@ function EncounterSetupModal({
                 );
               })}
               {creatures.length === 0 && (
-                <p className="text-slate-500 text-xs">No creatures created yet.</p>
+                <p className="text-[var(--ink-faded)] text-xs">No creatures created yet.</p>
               )}
               {creatures.length > 0 && filteredCreatures.length === 0 && (
-                <p className="text-slate-500 text-xs">No creatures match "{creatureSearch}"</p>
+                <p className="text-[var(--ink-faded)] text-xs">No creatures match "{creatureSearch}"</p>
               )}
             </div>
           </div>
         </div>
 
-        <div className="flex gap-3 mt-4 pt-4 border-t border-slate-700">
+        <div className="flex gap-3 mt-4 pt-4 border-t border-[var(--gold-shadow)]">
           <button
             onClick={onStartCombat}
             disabled={!encounter.combatants || encounter.combatants.length === 0}
-            className="flex-1 px-4 py-3 bg-green-600 hover:bg-green-500 text-white rounded-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="flex-1 px-4 py-3 bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded font-semibold font-['Cinzel'] tracking-wide disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             Start Combat
           </button>
           <button
             onClick={onClose}
-            className="px-4 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors"
+            className="px-4 py-3 bg-[var(--study-wood)] hover:bg-[var(--study-wood)] text-[var(--parchment-light)] rounded transition-colors"
           >
             Close
           </button>
@@ -1205,22 +1205,22 @@ function DeleteConfirmModal({
 }) {
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-slate-800 rounded-xl p-6 w-full max-w-sm border border-slate-700">
-        <h3 className="text-xl font-bold text-white mb-2 text-center">Delete {type}?</h3>
-        <p className="text-slate-400 text-center mb-6 text-sm">
-          <span className="text-white font-medium">{name}</span> will be permanently removed.
+      <div className="bg-[var(--study-panel)] rounded p-6 w-full max-w-sm border border-[var(--gold-shadow)]">
+        <h3 className="text-xl font-bold text-[var(--parchment-light)] mb-2 text-center">Delete {type}?</h3>
+        <p className="text-[var(--parchment-aged)] text-center mb-6 text-sm">
+          <span className="text-[var(--parchment-light)] font-medium">{name}</span> will be permanently removed.
         </p>
         <div className="flex gap-3">
           <button
             onClick={onConfirm}
             disabled={isDeleting}
-            className="flex-1 px-4 py-3 bg-red-600 hover:bg-red-500 text-white rounded-lg font-medium disabled:opacity-50 transition-colors"
+            className="flex-1 px-4 py-3 bg-[var(--vermillion-dark)] hover:bg-[var(--vermillion)] text-[var(--parchment-light)] rounded font-medium disabled:opacity-50 transition-colors"
           >
             {isDeleting ? "Deleting..." : "Delete"}
           </button>
           <button
             onClick={onCancel}
-            className="flex-1 px-4 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors"
+            className="flex-1 px-4 py-3 bg-[var(--study-wood)] hover:bg-[var(--study-wood)] text-[var(--parchment-light)] rounded transition-colors"
           >
             Cancel
           </button>
@@ -1245,19 +1245,19 @@ function NewCampaignModal({
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-slate-800 rounded-xl p-6 w-full max-w-sm border border-slate-700">
-        <h3 className="text-xl font-bold text-white mb-6 text-center">New Campaign</h3>
+      <div className="bg-[var(--study-panel)] rounded p-6 w-full max-w-sm border border-[var(--gold-shadow)]">
+        <h3 className="text-xl font-bold text-[var(--parchment-light)] mb-6 text-center">New Campaign</h3>
 
         <div className="space-y-4">
           <div>
-            <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">
+            <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">
               Name
             </label>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:border-amber-500 focus:outline-none"
+              className="w-full px-4 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] focus:border-[var(--gold)] focus:outline-none"
               placeholder="Campaign name"
               autoFocus
               onKeyDown={(e) => {
@@ -1268,13 +1268,13 @@ function NewCampaignModal({
             />
           </div>
           <div>
-            <label className="block text-xs text-slate-400 mb-1.5 uppercase tracking-wide">
+            <label className="block text-xs text-[var(--parchment-aged)] mb-1.5 uppercase tracking-wide">
               Description (optional)
             </label>
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:border-amber-500 focus:outline-none resize-none"
+              className="w-full px-4 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] focus:border-[var(--gold)] focus:outline-none resize-none"
               placeholder="Campaign description"
               rows={3}
             />
@@ -1285,13 +1285,13 @@ function NewCampaignModal({
           <button
             onClick={() => onSubmit(name.trim(), description.trim() || undefined)}
             disabled={!name.trim() || isSubmitting}
-            className="flex-1 px-4 py-3 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="flex-1 px-4 py-3 bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             {isSubmitting ? "Creating..." : "Create Campaign"}
           </button>
           <button
             onClick={onClose}
-            className="px-4 py-3 text-slate-400 hover:text-white rounded-lg transition-colors"
+            className="px-4 py-3 text-[var(--parchment-aged)] hover:text-[var(--parchment-light)] rounded transition-colors"
           >
             Cancel
           </button>
@@ -1319,11 +1319,11 @@ function PlayerDetailModal({
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-slate-800 rounded-xl p-6 border border-slate-700 w-full max-w-lg max-h-[90vh] overflow-y-auto">
+      <div className="bg-[var(--study-panel)] rounded p-6 border border-[var(--gold-shadow)] w-full max-w-lg max-h-[90vh] overflow-y-auto">
         <div className="flex justify-between items-start mb-4">
           <div>
-            <h3 className="text-2xl font-bold text-amber-400">{player.name}</h3>
-            <p className="text-sm text-slate-400 italic">
+            <h3 className="text-2xl font-bold text-[var(--gold)]">{player.name}</h3>
+            <p className="text-sm text-[var(--parchment-aged)] italic">
               {player.race && `${player.race} `}
               {player.character_class && `${player.character_class} `}
               {player.level && `Level ${player.level}`}
@@ -1331,7 +1331,7 @@ function PlayerDetailModal({
           </div>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-white text-2xl leading-none"
+            className="text-[var(--parchment-aged)] hover:text-[var(--parchment-light)] text-2xl leading-none"
           >
             &times;
           </button>
@@ -1339,32 +1339,32 @@ function PlayerDetailModal({
 
         {/* Combat Stats */}
         <div className="grid grid-cols-4 gap-3 mb-4">
-          <div className="bg-slate-900 rounded-lg p-3 text-center">
-            <div className="text-xs text-slate-500 uppercase">AC</div>
-            <div className="text-xl font-bold text-white">{player.ac}</div>
+          <div className="bg-[var(--study-dark)] rounded p-3 text-center">
+            <div className="text-xs text-[var(--ink-faded)] uppercase">AC</div>
+            <div className="text-xl font-bold text-[var(--parchment-light)]">{player.ac}</div>
           </div>
-          <div className="bg-slate-900 rounded-lg p-3 text-center">
-            <div className="text-xs text-slate-500 uppercase">HP</div>
-            <div className="text-xl font-bold text-white">
+          <div className="bg-[var(--study-dark)] rounded p-3 text-center">
+            <div className="text-xs text-[var(--ink-faded)] uppercase">HP</div>
+            <div className="text-xl font-bold text-[var(--parchment-light)]">
               {player.hp_current}/{player.hp_max}
             </div>
           </div>
-          <div className="bg-slate-900 rounded-lg p-3 text-center">
-            <div className="text-xs text-slate-500 uppercase">Init</div>
-            <div className="text-xl font-bold text-white">
+          <div className="bg-[var(--study-dark)] rounded p-3 text-center">
+            <div className="text-xs text-[var(--ink-faded)] uppercase">Init</div>
+            <div className="text-xl font-bold text-[var(--parchment-light)]">
               {player.initiative_bonus !== undefined && player.initiative_bonus >= 0 ? "+" : ""}
               {player.initiative_bonus ?? 0}
             </div>
           </div>
-          <div className="bg-slate-900 rounded-lg p-3 text-center">
-            <div className="text-xs text-slate-500 uppercase">Speed</div>
-            <div className="text-xl font-bold text-white">{player.speed ?? 30} ft</div>
+          <div className="bg-[var(--study-dark)] rounded p-3 text-center">
+            <div className="text-xs text-[var(--ink-faded)] uppercase">Speed</div>
+            <div className="text-xl font-bold text-[var(--parchment-light)]">{player.speed ?? 30} ft</div>
           </div>
         </div>
 
         {/* Ability Scores */}
         <div className="mb-4">
-          <h4 className="text-sm font-semibold text-slate-400 mb-2 uppercase tracking-wide">
+          <h4 className="text-sm font-semibold text-[var(--parchment-aged)] mb-2 uppercase tracking-wide">
             Ability Scores
           </h4>
           <div className="grid grid-cols-6 gap-2">
@@ -1376,10 +1376,10 @@ function PlayerDetailModal({
               { name: "WIS", value: player.wisdom },
               { name: "CHA", value: player.charisma },
             ].map((stat) => (
-              <div key={stat.name} className="bg-slate-900 rounded-lg p-2 text-center">
-                <div className="text-xs text-slate-500">{stat.name}</div>
-                <div className="text-lg font-bold text-white">{stat.value ?? 10}</div>
-                <div className="text-xs text-amber-400">{mod(stat.value)}</div>
+              <div key={stat.name} className="bg-[var(--study-dark)] rounded p-2 text-center">
+                <div className="text-xs text-[var(--ink-faded)]">{stat.name}</div>
+                <div className="text-lg font-bold text-[var(--parchment-light)]">{stat.value ?? 10}</div>
+                <div className="text-xs text-[var(--gold)]">{mod(stat.value)}</div>
               </div>
             ))}
           </div>
@@ -1387,20 +1387,20 @@ function PlayerDetailModal({
 
         {/* Proficiency & Passive Stats */}
         <div className="grid grid-cols-2 gap-3 mb-4">
-          <div className="bg-slate-900 rounded-lg p-3">
-            <div className="text-xs text-slate-500 uppercase">Proficiency Bonus</div>
-            <div className="font-bold text-white">+{player.proficiency_bonus ?? 2}</div>
+          <div className="bg-[var(--study-dark)] rounded p-3">
+            <div className="text-xs text-[var(--ink-faded)] uppercase">Proficiency Bonus</div>
+            <div className="font-bold text-[var(--parchment-light)]">+{player.proficiency_bonus ?? 2}</div>
           </div>
-          <div className="bg-slate-900 rounded-lg p-3">
-            <div className="text-xs text-slate-500 uppercase">Passive Perception</div>
-            <div className="font-bold text-white">{player.passive_perception ?? 10}</div>
+          <div className="bg-[var(--study-dark)] rounded p-3">
+            <div className="text-xs text-[var(--ink-faded)] uppercase">Passive Perception</div>
+            <div className="font-bold text-[var(--parchment-light)]">{player.passive_perception ?? 10}</div>
           </div>
         </div>
 
         {/* Skills */}
         {player.skills && Object.keys(player.skills).length > 0 && (
           <div className="mb-4">
-            <h4 className="text-sm font-semibold text-amber-400 mb-2 uppercase tracking-wide border-b border-slate-700 pb-1">
+            <h4 className="text-sm font-semibold text-[var(--gold)] mb-2 uppercase tracking-wide border-b border-[var(--gold-shadow)] pb-1">
               Skills
             </h4>
             <div className="grid grid-cols-2 gap-x-4 gap-y-1">
@@ -1408,10 +1408,10 @@ function PlayerDetailModal({
                 .sort(([a], [b]) => a.localeCompare(b))
                 .map(([skill, bonus]) => (
                   <div key={skill} className="flex justify-between text-sm py-1">
-                    <span className="text-slate-400 capitalize">
+                    <span className="text-[var(--parchment-aged)] capitalize">
                       {skill.replace(/_/g, " ")}
                     </span>
-                    <span className="font-mono text-amber-400">
+                    <span className="font-mono text-[var(--gold)]">
                       {(bonus as number) >= 0 ? "+" : ""}
                       {bonus as number}
                     </span>
@@ -1424,7 +1424,7 @@ function PlayerDetailModal({
         {/* Saving Throws */}
         {player.saving_throws && Object.keys(player.saving_throws).length > 0 && (
           <div className="mb-4">
-            <h4 className="text-sm font-semibold text-amber-400 mb-2 uppercase tracking-wide border-b border-slate-700 pb-1">
+            <h4 className="text-sm font-semibold text-[var(--gold)] mb-2 uppercase tracking-wide border-b border-[var(--gold-shadow)] pb-1">
               Saving Throws
             </h4>
             <div className="grid grid-cols-3 gap-x-4 gap-y-1">
@@ -1432,8 +1432,8 @@ function PlayerDetailModal({
                 .sort(([a], [b]) => a.localeCompare(b))
                 .map(([save, bonus]) => (
                   <div key={save} className="flex justify-between text-sm py-1">
-                    <span className="text-slate-400 uppercase">{save.slice(0, 3)}</span>
-                    <span className="font-mono text-amber-400">
+                    <span className="text-[var(--parchment-aged)] uppercase">{save.slice(0, 3)}</span>
+                    <span className="font-mono text-[var(--gold)]">
                       {(bonus as number) >= 0 ? "+" : ""}
                       {bonus as number}
                     </span>
@@ -1444,37 +1444,37 @@ function PlayerDetailModal({
         )}
 
         {/* Spell Slots */}
-        {player.spell_slots && Object.keys(player.spell_slots).length > 0 && (
+        {player.spells?.slots && Object.keys(player.spells.slots).length > 0 && (
           <div>
-            <h4 className="text-sm font-semibold text-amber-400 mb-2 uppercase tracking-wide border-b border-slate-700 pb-1">
+            <h4 className="text-sm font-semibold text-[var(--gold)] mb-2 uppercase tracking-wide border-b border-[var(--gold-shadow)] pb-1">
               Spell Slots
             </h4>
             <div className="flex flex-wrap gap-2">
-              {Object.entries(player.spell_slots)
+              {Object.entries(player.spells.slots!)
                 .sort(([a], [b]) => parseInt(a) - parseInt(b))
                 .map(([level, count]) => (
                   <div
                     key={level}
-                    className="bg-slate-900 rounded px-3 py-1.5 text-sm"
+                    className="bg-[var(--study-dark)] rounded px-3 py-1.5 text-sm"
                   >
-                    <span className="text-slate-400">Lvl {level}:</span>{" "}
-                    <span className="text-white font-mono">{count as number}</span>
+                    <span className="text-[var(--parchment-aged)]">Lvl {level}:</span>{" "}
+                    <span className="text-[var(--parchment-light)] font-mono">{count as number}</span>
                   </div>
                 ))}
             </div>
           </div>
         )}
 
-        <div className="mt-6 pt-4 border-t border-slate-700 flex gap-3">
+        <div className="mt-6 pt-4 border-t border-[var(--gold-shadow)] flex gap-3">
           <button
             onClick={onEdit}
-            className="flex-1 px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors"
+            className="flex-1 px-4 py-2 bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded transition-colors"
           >
             Edit
           </button>
           <button
             onClick={onClose}
-            className="flex-1 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors"
+            className="flex-1 px-4 py-2 bg-[var(--study-wood)] hover:bg-[var(--study-wood)] text-[var(--parchment-light)] rounded transition-colors"
           >
             Close
           </button>
@@ -1502,23 +1502,23 @@ function CreatureDetailModal({
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-slate-800 rounded-xl p-6 border border-slate-700 w-full max-w-lg max-h-[90vh] overflow-y-auto">
+      <div className="bg-[var(--study-panel)] rounded p-6 border border-[var(--gold-shadow)] w-full max-w-lg max-h-[90vh] overflow-y-auto">
         <div className="flex justify-between items-start mb-4">
           <div>
-            <h3 className="text-2xl font-bold text-red-400">{creature.name}</h3>
-            <p className="text-sm text-slate-400 italic">
+            <h3 className="text-2xl font-bold text-[var(--vermillion)]">{creature.name}</h3>
+            <p className="text-sm text-[var(--parchment-aged)] italic">
               {creature.size} {creature.creature_type}
               {creature.alignment && `, ${creature.alignment}`}
             </p>
             {creature.challenge_rating && (
-              <p className="text-sm text-amber-400 mt-1">
+              <p className="text-sm text-[var(--gold)] mt-1">
                 Challenge Rating {creature.challenge_rating}
               </p>
             )}
           </div>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-white text-2xl leading-none"
+            className="text-[var(--parchment-aged)] hover:text-[var(--parchment-light)] text-2xl leading-none"
           >
             &times;
           </button>
@@ -1526,23 +1526,23 @@ function CreatureDetailModal({
 
         {/* Combat Stats */}
         <div className="grid grid-cols-3 gap-3 mb-4">
-          <div className="bg-slate-900 rounded-lg p-3 text-center">
-            <div className="text-xs text-slate-500 uppercase">AC</div>
-            <div className="text-xl font-bold text-white">{creature.ac}</div>
+          <div className="bg-[var(--study-dark)] rounded p-3 text-center">
+            <div className="text-xs text-[var(--ink-faded)] uppercase">AC</div>
+            <div className="text-xl font-bold text-[var(--parchment-light)]">{creature.ac}</div>
           </div>
-          <div className="bg-slate-900 rounded-lg p-3 text-center">
-            <div className="text-xs text-slate-500 uppercase">HP</div>
-            <div className="text-xl font-bold text-white">{creature.hp_max}</div>
+          <div className="bg-[var(--study-dark)] rounded p-3 text-center">
+            <div className="text-xs text-[var(--ink-faded)] uppercase">HP</div>
+            <div className="text-xl font-bold text-[var(--parchment-light)]">{creature.hp_max}</div>
           </div>
-          <div className="bg-slate-900 rounded-lg p-3 text-center">
-            <div className="text-xs text-slate-500 uppercase">Speed</div>
-            <div className="text-xl font-bold text-white">{creature.speed ?? 30} ft</div>
+          <div className="bg-[var(--study-dark)] rounded p-3 text-center">
+            <div className="text-xs text-[var(--ink-faded)] uppercase">Speed</div>
+            <div className="text-xl font-bold text-[var(--parchment-light)]">{creature.speed_walk ?? 30} ft</div>
           </div>
         </div>
 
         {/* Ability Scores */}
         <div className="mb-4">
-          <h4 className="text-sm font-semibold text-slate-400 mb-2 uppercase tracking-wide">
+          <h4 className="text-sm font-semibold text-[var(--parchment-aged)] mb-2 uppercase tracking-wide">
             Ability Scores
           </h4>
           <div className="grid grid-cols-6 gap-2">
@@ -1554,20 +1554,20 @@ function CreatureDetailModal({
               { name: "WIS", value: creature.wisdom },
               { name: "CHA", value: creature.charisma },
             ].map((stat) => (
-              <div key={stat.name} className="bg-slate-900 rounded-lg p-2 text-center">
-                <div className="text-xs text-slate-500">{stat.name}</div>
-                <div className="text-lg font-bold text-white">{stat.value ?? 10}</div>
-                <div className="text-xs text-red-400">{mod(stat.value)}</div>
+              <div key={stat.name} className="bg-[var(--study-dark)] rounded p-2 text-center">
+                <div className="text-xs text-[var(--ink-faded)]">{stat.name}</div>
+                <div className="text-lg font-bold text-[var(--parchment-light)]">{stat.value ?? 10}</div>
+                <div className="text-xs text-[var(--vermillion)]">{mod(stat.value)}</div>
               </div>
             ))}
           </div>
         </div>
 
         {/* Legendary Actions */}
-        {creature.legendary_actions !== undefined && creature.legendary_actions > 0 && (
-          <div className="bg-slate-900 rounded-lg p-3 mb-4">
-            <div className="text-xs text-slate-500 uppercase">Legendary Actions</div>
-            <div className="font-bold text-amber-400">{creature.legendary_actions} per round</div>
+        {creature.legendary_action_count > 0 && (
+          <div className="bg-[var(--study-dark)] rounded p-3 mb-4">
+            <div className="text-xs text-[var(--ink-faded)] uppercase">Legendary Actions</div>
+            <div className="font-bold text-[var(--gold)]">{creature.legendary_action_count} per round</div>
           </div>
         )}
 
@@ -1575,21 +1575,21 @@ function CreatureDetailModal({
         {(creature.damage_resistances?.length || creature.damage_immunities?.length || creature.condition_immunities?.length) && (
           <div className="space-y-2 mb-4">
             {creature.damage_resistances && creature.damage_resistances.length > 0 && (
-              <div className="bg-slate-900 rounded-lg p-3">
-                <div className="text-xs text-slate-500 uppercase mb-1">Damage Resistances</div>
-                <div className="text-sm text-slate-300">{creature.damage_resistances.join(", ")}</div>
+              <div className="bg-[var(--study-dark)] rounded p-3">
+                <div className="text-xs text-[var(--ink-faded)] uppercase mb-1">Damage Resistances</div>
+                <div className="text-sm text-[var(--parchment-dark)]">{creature.damage_resistances.join(", ")}</div>
               </div>
             )}
             {creature.damage_immunities && creature.damage_immunities.length > 0 && (
-              <div className="bg-slate-900 rounded-lg p-3">
-                <div className="text-xs text-slate-500 uppercase mb-1">Damage Immunities</div>
-                <div className="text-sm text-slate-300">{creature.damage_immunities.join(", ")}</div>
+              <div className="bg-[var(--study-dark)] rounded p-3">
+                <div className="text-xs text-[var(--ink-faded)] uppercase mb-1">Damage Immunities</div>
+                <div className="text-sm text-[var(--parchment-dark)]">{creature.damage_immunities.join(", ")}</div>
               </div>
             )}
             {creature.condition_immunities && creature.condition_immunities.length > 0 && (
-              <div className="bg-slate-900 rounded-lg p-3">
-                <div className="text-xs text-slate-500 uppercase mb-1">Condition Immunities</div>
-                <div className="text-sm text-slate-300">{creature.condition_immunities.join(", ")}</div>
+              <div className="bg-[var(--study-dark)] rounded p-3">
+                <div className="text-xs text-[var(--ink-faded)] uppercase mb-1">Condition Immunities</div>
+                <div className="text-sm text-[var(--parchment-dark)]">{creature.condition_immunities.join(", ")}</div>
               </div>
             )}
           </div>
@@ -1597,9 +1597,9 @@ function CreatureDetailModal({
 
         {/* Senses */}
         {creature.senses && Object.keys(creature.senses).length > 0 && (
-          <div className="bg-slate-900 rounded-lg p-3 mb-4">
-            <div className="text-xs text-slate-500 uppercase mb-1">Senses</div>
-            <div className="text-sm text-slate-300">
+          <div className="bg-[var(--study-dark)] rounded p-3 mb-4">
+            <div className="text-xs text-[var(--ink-faded)] uppercase mb-1">Senses</div>
+            <div className="text-sm text-[var(--parchment-dark)]">
               {Object.entries(creature.senses)
                 .map(([sense, value]) => `${sense.replace(/_/g, " ")} ${value} ft.`)
                 .join(", ")}
@@ -1609,22 +1609,22 @@ function CreatureDetailModal({
 
         {/* Languages */}
         {creature.languages && creature.languages.length > 0 && (
-          <div className="bg-slate-900 rounded-lg p-3 mb-4">
-            <div className="text-xs text-slate-500 uppercase mb-1">Languages</div>
-            <div className="text-sm text-slate-300">{creature.languages.join(", ")}</div>
+          <div className="bg-[var(--study-dark)] rounded p-3 mb-4">
+            <div className="text-xs text-[var(--ink-faded)] uppercase mb-1">Languages</div>
+            <div className="text-sm text-[var(--parchment-dark)]">{creature.languages.join(", ")}</div>
           </div>
         )}
 
-        <div className="mt-6 pt-4 border-t border-slate-700 flex gap-3">
+        <div className="mt-6 pt-4 border-t border-[var(--gold-shadow)] flex gap-3">
           <button
             onClick={onEdit}
-            className="flex-1 px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors"
+            className="flex-1 px-4 py-2 bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded transition-colors"
           >
             Edit
           </button>
           <button
             onClick={onClose}
-            className="flex-1 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors"
+            className="flex-1 px-4 py-2 bg-[var(--study-wood)] hover:bg-[var(--study-wood)] text-[var(--parchment-light)] rounded transition-colors"
           >
             Close
           </button>
@@ -1713,26 +1713,26 @@ function SrdBrowserModal({
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-slate-800 rounded-xl border border-slate-700 w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col">
+      <div className="bg-[var(--study-panel)] rounded border border-[var(--gold-shadow)] w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="flex justify-between items-center p-4 border-b border-slate-700">
+        <div className="flex justify-between items-center p-4 border-b border-[var(--gold-shadow)]">
           <div>
-            <h3 className="text-xl font-bold text-white">SRD Monster Database</h3>
-            <p className="text-xs text-slate-400">322 monsters from the D&D 5e SRD</p>
+            <h3 className="text-xl font-bold text-[var(--parchment-light)]">SRD Monster Database</h3>
+            <p className="text-xs text-[var(--parchment-aged)]">322 monsters from the D&D 5e SRD</p>
           </div>
-          <button onClick={onClose} className="text-slate-400 hover:text-white text-2xl">
+          <button onClick={onClose} className="text-[var(--parchment-aged)] hover:text-[var(--parchment-light)] text-2xl">
             &times;
           </button>
         </div>
 
         {/* Search */}
-        <div className="p-4 border-b border-slate-700">
+        <div className="p-4 border-b border-[var(--gold-shadow)]">
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search monsters..."
-            className="w-full px-4 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white focus:border-amber-500 focus:outline-none"
+            className="w-full px-4 py-2 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] focus:border-[var(--gold)] focus:outline-none"
             autoFocus
           />
         </div>
@@ -1740,24 +1740,24 @@ function SrdBrowserModal({
         {/* Content */}
         <div className="flex-1 flex overflow-hidden">
           {/* Monster List */}
-          <div className="w-1/3 border-r border-slate-700 overflow-y-auto">
+          <div className="w-1/3 border-r border-[var(--gold-shadow)] overflow-y-auto">
             {isLoading ? (
-              <div className="p-4 text-center text-slate-400">Loading...</div>
+              <div className="p-4 text-center text-[var(--parchment-aged)]">Loading...</div>
             ) : (
-              <div className="divide-y divide-slate-700">
+              <div className="divide-y divide-[var(--gold-shadow)]">
                 {monsters.map((monster) => (
                   <button
                     key={monster.index}
                     onClick={() => setSelectedMonster(monster.index)}
-                    className={`w-full text-left px-4 py-2 hover:bg-slate-700 transition-colors ${
-                      selectedMonster === monster.index ? "bg-slate-700" : ""
+                    className={`w-full text-left px-4 py-2 hover:bg-[var(--study-wood)] transition-colors ${
+                      selectedMonster === monster.index ? "bg-[var(--study-wood)]" : ""
                     }`}
                   >
-                    <div className="font-medium text-white">{monster.name}</div>
+                    <div className="font-medium text-[var(--parchment-light)]">{monster.name}</div>
                   </button>
                 ))}
                 {monsters.length === 0 && (
-                  <div className="p-4 text-center text-slate-400">No monsters found</div>
+                  <div className="p-4 text-center text-[var(--parchment-aged)]">No monsters found</div>
                 )}
               </div>
             )}
@@ -1769,16 +1769,16 @@ function SrdBrowserModal({
               <div>
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <h4 className="text-xl font-bold text-red-400">{details.name as string}</h4>
-                    <p className="text-sm text-slate-400">
+                    <h4 className="text-xl font-bold text-[var(--vermillion)]">{details.name as string}</h4>
+                    <p className="text-sm text-[var(--parchment-aged)]">
                       {details.size as string} {details.type as string}
-                      {details.subtype && ` (${details.subtype})`}, {details.alignment as string}
+                      {details.subtype ? ` (${details.subtype as string})` : ""}, {details.alignment as string}
                     </p>
                   </div>
                   <button
                     onClick={() => handleImport(selectedMonster)}
                     disabled={importing.has(selectedMonster)}
-                    className="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium disabled:opacity-50 transition-colors"
+                    className="px-4 py-2 bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded font-medium disabled:opacity-50 transition-colors"
                   >
                     {importing.has(selectedMonster) ? "Importing..." : "Import"}
                   </button>
@@ -1786,19 +1786,19 @@ function SrdBrowserModal({
 
                 {/* Stats Grid */}
                 <div className="grid grid-cols-3 gap-3 mb-4">
-                  <div className="bg-slate-900 rounded-lg p-3">
-                    <div className="text-xs text-slate-500 uppercase">AC</div>
-                    <div className="text-lg font-bold text-white">
+                  <div className="bg-[var(--study-dark)] rounded p-3">
+                    <div className="text-xs text-[var(--ink-faded)] uppercase">AC</div>
+                    <div className="text-lg font-bold text-[var(--parchment-light)]">
                       {(details.armor_class as Array<{value: number}>)?.[0]?.value || 10}
                     </div>
                   </div>
-                  <div className="bg-slate-900 rounded-lg p-3">
-                    <div className="text-xs text-slate-500 uppercase">HP</div>
-                    <div className="text-lg font-bold text-white">{details.hit_points as number}</div>
+                  <div className="bg-[var(--study-dark)] rounded p-3">
+                    <div className="text-xs text-[var(--ink-faded)] uppercase">HP</div>
+                    <div className="text-lg font-bold text-[var(--parchment-light)]">{details.hit_points as number}</div>
                   </div>
-                  <div className="bg-slate-900 rounded-lg p-3">
-                    <div className="text-xs text-slate-500 uppercase">CR</div>
-                    <div className="text-lg font-bold text-amber-400">
+                  <div className="bg-[var(--study-dark)] rounded p-3">
+                    <div className="text-xs text-[var(--ink-faded)] uppercase">CR</div>
+                    <div className="text-lg font-bold text-[var(--gold)]">
                       {formatCR(details.challenge_rating as number)}
                     </div>
                   </div>
@@ -1808,10 +1808,10 @@ function SrdBrowserModal({
                 <div className="grid grid-cols-6 gap-2 mb-4">
                   {["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"].map(
                     (ability) => (
-                      <div key={ability} className="bg-slate-900 rounded-lg p-2 text-center">
-                        <div className="text-xs text-slate-500 uppercase">{ability.slice(0, 3)}</div>
-                        <div className="font-bold text-white">{details[ability] as number}</div>
-                        <div className="text-xs text-slate-400">{mod(details[ability] as number)}</div>
+                      <div key={ability} className="bg-[var(--study-dark)] rounded p-2 text-center">
+                        <div className="text-xs text-[var(--ink-faded)] uppercase">{ability.slice(0, 3)}</div>
+                        <div className="font-bold text-[var(--parchment-light)]">{details[ability] as number}</div>
+                        <div className="text-xs text-[var(--parchment-aged)]">{mod(details[ability] as number)}</div>
                       </div>
                     )
                   )}
@@ -1820,17 +1820,17 @@ function SrdBrowserModal({
                 {/* Actions */}
                 {(details.actions as Array<{name: string; desc: string}>)?.length > 0 && (
                   <div className="mb-4">
-                    <div className="text-sm font-semibold text-red-400 mb-2">Actions</div>
+                    <div className="text-sm font-semibold text-[var(--vermillion)] mb-2">Actions</div>
                     {(details.actions as Array<{name: string; desc: string}>).map((action, i) => (
-                      <div key={i} className="mb-2 text-sm text-slate-300">
-                        <span className="font-semibold text-white">{action.name}.</span> {action.desc}
+                      <div key={i} className="mb-2 text-sm text-[var(--parchment-dark)]">
+                        <span className="font-semibold text-[var(--parchment-light)]">{action.name}.</span> {action.desc}
                       </div>
                     ))}
                   </div>
                 )}
               </div>
             ) : (
-              <div className="h-full flex items-center justify-center text-slate-400">
+              <div className="h-full flex items-center justify-center text-[var(--parchment-aged)]">
                 Select a monster to view details
               </div>
             )}
@@ -1838,11 +1838,11 @@ function SrdBrowserModal({
         </div>
 
         {/* Footer */}
-        <div className="p-4 border-t border-slate-700 flex justify-between items-center">
-          <div className="text-xs text-slate-500">Data from dnd5eapi.co (SRD content only)</div>
+        <div className="p-4 border-t border-[var(--gold-shadow)] flex justify-between items-center">
+          <div className="text-xs text-[var(--ink-faded)]">Data from dnd5eapi.co (SRD content only)</div>
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors"
+            className="px-4 py-2 bg-[var(--study-wood)] hover:bg-[var(--study-wood)] text-[var(--parchment-light)] rounded transition-colors"
           >
             Close
           </button>
@@ -1873,12 +1873,12 @@ function AddPlayerToCampaignModal({
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-slate-800 rounded-xl p-6 border border-slate-700 w-full max-w-md max-h-[85vh] overflow-hidden flex flex-col">
+      <div className="bg-[var(--study-panel)] rounded p-6 border border-[var(--gold-shadow)] w-full max-w-md max-h-[85vh] overflow-hidden flex flex-col">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-xl font-bold text-white">Manage Players: {campaign.name}</h3>
+          <h3 className="text-xl font-bold text-[var(--parchment-light)]">Manage Players: {campaign.name}</h3>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-white text-2xl leading-none"
+            className="text-[var(--parchment-aged)] hover:text-[var(--parchment-light)] text-2xl leading-none"
           >
             &times;
           </button>
@@ -1886,70 +1886,70 @@ function AddPlayerToCampaignModal({
 
         {/* Current Players in Campaign */}
         <div className="mb-4">
-          <h4 className="text-sm font-semibold text-amber-400 mb-2">
+          <h4 className="text-sm font-semibold text-[var(--gold)] mb-2">
             In Campaign ({campaignPlayers.length})
           </h4>
           <div className="space-y-2 max-h-32 overflow-y-auto">
             {campaignPlayers.map((player) => (
               <div
                 key={player.id}
-                className="p-2 bg-slate-900 rounded-lg flex justify-between items-center"
+                className="p-2 bg-[var(--study-dark)] rounded flex justify-between items-center"
               >
                 <div>
-                  <div className="font-medium text-sm text-white">{player.name}</div>
-                  <div className="text-xs text-slate-500">
+                  <div className="font-medium text-sm text-[var(--parchment-light)]">{player.name}</div>
+                  <div className="text-xs text-[var(--ink-faded)]">
                     {player.character_class ? `Level ${player.level} ${player.character_class}` : "No class"}
                   </div>
                 </div>
                 <button
                   onClick={() => onRemovePlayer(player.id)}
-                  className="px-2 py-1 text-xs text-red-400 hover:text-red-300 hover:bg-red-900/30 rounded transition-colors"
+                  className="px-2 py-1 text-xs text-[var(--vermillion)] hover:text-red-300 hover:bg-[var(--vermillion-dark)]/20 rounded transition-colors"
                 >
                   Remove
                 </button>
               </div>
             ))}
             {campaignPlayers.length === 0 && (
-              <p className="text-slate-500 text-sm">No players in this campaign yet.</p>
+              <p className="text-[var(--ink-faded)] text-sm">No players in this campaign yet.</p>
             )}
           </div>
         </div>
 
         {/* Available Players */}
         <div className="flex-1 overflow-y-auto">
-          <h4 className="text-sm font-semibold text-slate-400 mb-2">
+          <h4 className="text-sm font-semibold text-[var(--parchment-aged)] mb-2">
             Available Players ({availablePlayers.length})
           </h4>
           <div className="space-y-2">
             {availablePlayers.map((player) => (
               <div
                 key={player.id}
-                className="p-2 bg-slate-900 rounded-lg flex justify-between items-center"
+                className="p-2 bg-[var(--study-dark)] rounded flex justify-between items-center"
               >
                 <div>
-                  <div className="font-medium text-sm text-white">{player.name}</div>
-                  <div className="text-xs text-slate-500">
+                  <div className="font-medium text-sm text-[var(--parchment-light)]">{player.name}</div>
+                  <div className="text-xs text-[var(--ink-faded)]">
                     {player.character_class ? `Level ${player.level} ${player.character_class}` : "No class"}
                   </div>
                 </div>
                 <button
                   onClick={() => onAddPlayer(player.id)}
-                  className="px-3 py-1 text-xs bg-amber-600 hover:bg-amber-500 text-white rounded transition-colors"
+                  className="px-3 py-1 text-xs bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded transition-colors"
                 >
                   Add
                 </button>
               </div>
             ))}
             {availablePlayers.length === 0 && (
-              <p className="text-slate-500 text-sm">All players are in this campaign.</p>
+              <p className="text-[var(--ink-faded)] text-sm">All players are in this campaign.</p>
             )}
           </div>
         </div>
 
-        <div className="mt-4 pt-4 border-t border-slate-700">
+        <div className="mt-4 pt-4 border-t border-[var(--gold-shadow)]">
           <button
             onClick={onClose}
-            className="w-full px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors"
+            className="w-full px-4 py-2 bg-[var(--study-wood)] hover:bg-[var(--study-wood)] text-[var(--parchment-light)] rounded transition-colors"
           >
             Done
           </button>
@@ -2014,19 +2014,19 @@ function EncounterHistoryModal({
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-slate-800 rounded-xl w-full max-w-2xl border border-slate-700 max-h-[85vh] flex flex-col">
-        <div className="p-6 border-b border-slate-700">
+      <div className="bg-[var(--study-panel)] rounded w-full max-w-2xl border border-[var(--gold-shadow)] max-h-[85vh] flex flex-col">
+        <div className="p-6 border-b border-[var(--gold-shadow)]">
           <div className="flex justify-between items-start">
             <div>
-              <h3 className="text-xl font-bold text-white">{encounter.name}</h3>
-              <p className="text-sm text-slate-400 mt-1">
+              <h3 className="text-xl font-bold text-[var(--parchment-light)]">{encounter.name}</h3>
+              <p className="text-sm text-[var(--parchment-aged)] mt-1">
                 Completed &bull; {encounter.round_number} rounds &bull;{" "}
                 {encounter.combatants.length} combatants
               </p>
             </div>
             <button
               onClick={onClose}
-              className="text-slate-400 hover:text-white text-2xl"
+              className="text-[var(--parchment-aged)] hover:text-[var(--parchment-light)] text-2xl"
             >
               &times;
             </button>
@@ -2034,13 +2034,13 @@ function EncounterHistoryModal({
         </div>
 
         <div className="p-6 overflow-y-auto flex-1">
-          <h4 className="text-sm font-medium text-slate-400 uppercase tracking-wide mb-4">
+          <h4 className="text-sm font-medium text-[var(--parchment-aged)] uppercase tracking-wide mb-4">
             Combat Log
           </h4>
           {isLoading ? (
-            <div className="text-center py-8 text-slate-500">Loading...</div>
+            <div className="text-center py-8 text-[var(--ink-faded)]">Loading...</div>
           ) : combatLog.length === 0 ? (
-            <div className="text-center py-8 text-slate-500">
+            <div className="text-center py-8 text-[var(--ink-faded)]">
               No combat log entries recorded.
             </div>
           ) : (
@@ -2048,14 +2048,14 @@ function EncounterHistoryModal({
               {combatLog.map((entry) => (
                 <div
                   key={entry.id}
-                  className="flex items-start gap-3 p-3 bg-slate-900/50 rounded-lg"
+                  className="flex items-start gap-3 p-3 bg-[var(--study-panel)] rounded"
                 >
                   <span className="text-lg" title={entry.event_type}>
                     {getEventIcon(entry.event_type)}
                   </span>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm text-slate-200">{entry.description}</p>
-                    <p className="text-xs text-slate-500 mt-1">
+                    <p className="text-sm text-[var(--parchment)]">{entry.description}</p>
+                    <p className="text-xs text-[var(--ink-faded)] mt-1">
                       {entry.round_number !== undefined && `Round ${entry.round_number}`}
                       {entry.round_number !== undefined && entry.turn_index !== undefined && " • "}
                       {formatTimestamp(entry.timestamp)}
@@ -2067,10 +2067,10 @@ function EncounterHistoryModal({
           )}
         </div>
 
-        <div className="p-4 border-t border-slate-700">
+        <div className="p-4 border-t border-[var(--gold-shadow)]">
           <button
             onClick={onClose}
-            className="w-full px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors"
+            className="w-full px-4 py-2 bg-[var(--study-wood)] hover:bg-[var(--study-wood)] text-[var(--parchment-light)] rounded transition-colors"
           >
             Close
           </button>
@@ -2371,13 +2371,13 @@ export default function TrackerPage() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "active":
-        return "text-green-400";
+        return "text-[var(--viridian)]";
       case "preparing":
         return "text-yellow-400";
       case "completed":
-        return "text-slate-500";
+        return "text-[var(--ink-faded)]";
       default:
-        return "text-slate-400";
+        return "text-[var(--parchment-aged)]";
     }
   };
 
@@ -2423,30 +2423,30 @@ export default function TrackerPage() {
     : players;
 
   return (
-    <div className="min-h-screen bg-slate-900">
+    <div className="min-h-screen bg-[var(--study-dark)]">
       {/* Header */}
-      <header className="bg-slate-800 border-b border-slate-700">
+      <header className="bg-[var(--study-panel)] border-b border-[var(--gold-shadow)]">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <div>
               <Link
                 href="/"
-                className="text-amber-400 hover:text-amber-300 text-sm"
+                className="text-[var(--gold)] hover:text-[var(--gold-bright)] text-sm"
               >
                 &larr; Back to Exilium
               </Link>
-              <h1 className="text-2xl font-bold text-white mt-1">
+              <h1 className="text-2xl font-bold text-[var(--parchment-light)] mt-1">
                 Initiative Tracker
               </h1>
             </div>
             <div className="text-right">
               {authLoading ? (
-                <span className="text-slate-500 text-sm">Loading...</span>
+                <span className="text-[var(--ink-faded)] text-sm">Loading...</span>
               ) : user ? (
                 <div className="text-sm">
-                  <span className="text-slate-400">Signed in as </span>
-                  <span className="text-slate-200">{user.email}</span>
-                  <p className="text-green-400 text-xs mt-1">
+                  <span className="text-[var(--parchment-aged)]">Signed in as </span>
+                  <span className="text-[var(--parchment)]">{user.email}</span>
+                  <p className="text-[var(--viridian)] text-xs mt-1">
                     Data will be saved
                   </p>
                 </div>
@@ -2454,11 +2454,11 @@ export default function TrackerPage() {
                 <div className="text-sm">
                   <Link
                     href="/auth/login"
-                    className="text-amber-400 hover:text-amber-300"
+                    className="text-[var(--gold)] hover:text-[var(--gold-bright)]"
                   >
                     Sign in
                   </Link>
-                  <span className="text-slate-500"> to save your data</span>
+                  <span className="text-[var(--ink-faded)]"> to save your data</span>
                 </div>
               )}
             </div>
@@ -2467,7 +2467,7 @@ export default function TrackerPage() {
       </header>
 
       {/* Tabs */}
-      <div className="border-b border-slate-700">
+      <div className="border-b border-[var(--gold-shadow)]">
         <div className="max-w-7xl mx-auto px-6">
           <nav className="flex gap-4">
             {[
@@ -2497,8 +2497,8 @@ export default function TrackerPage() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`py-4 px-2 border-b-2 transition-colors ${
                   activeTab === tab.id
-                    ? "border-amber-500 text-amber-400"
-                    : "border-transparent text-slate-400 hover:text-slate-300"
+                    ? "border-amber-500 text-[var(--gold)]"
+                    : "border-transparent text-[var(--parchment-aged)] hover:text-[var(--parchment-dark)]"
                 }`}
               >
                 {tab.label} ({tab.count})
@@ -2509,16 +2509,16 @@ export default function TrackerPage() {
       </div>
 
       {/* Campaign Navigation */}
-      <div className="bg-slate-800/50 border-b border-slate-700">
+      <div className="bg-[var(--study-panel)]/50 border-b border-[var(--gold-shadow)]">
         <div className="max-w-7xl mx-auto px-6 py-3">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-xs text-slate-500 uppercase tracking-wide mr-2">View:</span>
+            <span className="text-xs text-[var(--ink-faded)] uppercase tracking-wide mr-2">View:</span>
             <button
               onClick={() => setActiveCampaignId(null)}
-              className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
+              className={`px-3 py-1.5 rounded text-sm transition-colors ${
                 !activeCampaignId
-                  ? "bg-amber-600 text-white"
-                  : "bg-slate-700 text-slate-300 hover:bg-slate-600"
+                  ? "bg-[var(--gold-dark)] text-[var(--parchment-light)]"
+                  : "bg-[var(--study-wood)] text-[var(--parchment-dark)] hover:bg-[var(--study-wood)]"
               }`}
             >
               Library
@@ -2527,10 +2527,10 @@ export default function TrackerPage() {
               <button
                 key={campaign.id}
                 onClick={() => setActiveCampaignId(campaign.id)}
-                className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
+                className={`px-3 py-1.5 rounded text-sm transition-colors ${
                   activeCampaignId === campaign.id
-                    ? "bg-amber-600 text-white"
-                    : "bg-slate-700 text-slate-300 hover:bg-slate-600"
+                    ? "bg-[var(--gold-dark)] text-[var(--parchment-light)]"
+                    : "bg-[var(--study-wood)] text-[var(--parchment-dark)] hover:bg-[var(--study-wood)]"
                 }`}
               >
                 {campaign.name}
@@ -2538,7 +2538,7 @@ export default function TrackerPage() {
             ))}
             <button
               onClick={() => setShowNewCampaign(true)}
-              className="px-3 py-1.5 rounded-lg text-sm bg-slate-700 text-slate-400 hover:text-white hover:bg-slate-600 transition-colors"
+              className="px-3 py-1.5 rounded text-sm bg-[var(--study-wood)] text-[var(--parchment-aged)] hover:text-[var(--parchment-light)] hover:bg-[var(--study-wood)] transition-colors"
               title="Create new campaign"
             >
               + Campaign
@@ -2549,22 +2549,22 @@ export default function TrackerPage() {
 
       {/* Campaign Context Bar */}
       {activeCampaign && (
-        <div className="bg-slate-800 border-b border-slate-700">
+        <div className="bg-[var(--study-panel)] border-b border-[var(--gold-shadow)]">
           <div className="max-w-7xl mx-auto px-6 py-4">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-lg font-bold text-white">{activeCampaign.name}</h2>
+                <h2 className="text-lg font-bold text-[var(--parchment-light)]">{activeCampaign.name}</h2>
                 {activeCampaign.description && (
-                  <p className="text-sm text-slate-400">{activeCampaign.description}</p>
+                  <p className="text-sm text-[var(--parchment-aged)]">{activeCampaign.description}</p>
                 )}
-                <p className="text-xs text-slate-500 mt-1">
+                <p className="text-xs text-[var(--ink-faded)] mt-1">
                   {activeCampaign.player_count} players &bull; {activeCampaign.encounter_count} encounters
                 </p>
               </div>
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => setShowAddPlayerToCampaign(true)}
-                  className="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium transition-colors"
+                  className="px-4 py-2 text-sm bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded font-medium transition-colors"
                 >
                   Manage Players
                 </button>
@@ -2576,7 +2576,7 @@ export default function TrackerPage() {
                       name: activeCampaign.name,
                     })
                   }
-                  className="px-3 py-2 text-sm text-slate-400 hover:text-red-400 transition-colors"
+                  className="px-3 py-2 text-sm text-[var(--parchment-aged)] hover:text-[var(--vermillion)] transition-colors"
                   title="Delete campaign"
                 >
                   Delete
@@ -2590,11 +2590,11 @@ export default function TrackerPage() {
       {/* Error banner */}
       {error && (
         <div className="max-w-7xl mx-auto px-6 py-3">
-          <div className="bg-red-900/50 border border-red-700 rounded-lg px-4 py-3 flex justify-between items-center">
+          <div className="bg-red-900/50 border border-red-700 rounded px-4 py-3 flex justify-between items-center">
             <span className="text-red-300">{error}</span>
             <button
               onClick={() => setError(null)}
-              className="text-red-400 hover:text-red-300"
+              className="text-[var(--vermillion)] hover:text-red-300"
             >
               &times;
             </button>
@@ -2605,7 +2605,7 @@ export default function TrackerPage() {
       {/* Content */}
       <main className="max-w-7xl mx-auto px-6 py-8">
         {isLoading ? (
-          <div className="text-center py-12 text-slate-400">
+          <div className="text-center py-12 text-[var(--parchment-aged)]">
             Loading tracker data...
           </div>
         ) : (
@@ -2618,20 +2618,20 @@ export default function TrackerPage() {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setShowArchived(false)}
-                      className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                      className={`px-4 py-2 rounded font-medium transition-colors ${
                         !showArchived
-                          ? "bg-amber-600 text-white"
-                          : "bg-slate-700 text-slate-300 hover:bg-slate-600"
+                          ? "bg-[var(--gold-dark)] text-[var(--parchment-light)]"
+                          : "bg-[var(--study-wood)] text-[var(--parchment-dark)] hover:bg-[var(--study-wood)]"
                       }`}
                     >
                       Active ({activeEncounters.length})
                     </button>
                     <button
                       onClick={() => setShowArchived(true)}
-                      className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                      className={`px-4 py-2 rounded font-medium transition-colors ${
                         showArchived
-                          ? "bg-slate-600 text-white"
-                          : "bg-slate-700 text-slate-300 hover:bg-slate-600"
+                          ? "bg-[var(--study-wood)] text-[var(--parchment-light)]"
+                          : "bg-[var(--study-wood)] text-[var(--parchment-dark)] hover:bg-[var(--study-wood)]"
                       }`}
                     >
                       Archived ({archivedEncounters.length})
@@ -2640,7 +2640,7 @@ export default function TrackerPage() {
                   {!showArchived && (
                     <button
                       onClick={() => setShowNewEncounter(true)}
-                      className="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium transition-colors"
+                      className="px-4 py-2 bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded font-medium transition-colors"
                     >
                       + New Encounter
                     </button>
@@ -2649,13 +2649,13 @@ export default function TrackerPage() {
 
                 {/* New Encounter Form (inline) */}
                 {showNewEncounter && (
-                  <div className="mb-6 p-4 bg-slate-800 border border-slate-700 rounded-lg">
+                  <div className="mb-6 p-4 bg-[var(--study-panel)] border border-[var(--gold-shadow)] rounded">
                     <input
                       type="text"
                       value={newEncounterName}
                       onChange={(e) => setNewEncounterName(e.target.value)}
                       placeholder="Encounter name"
-                      className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white mb-3 focus:border-amber-500 focus:outline-none"
+                      className="w-full px-4 py-3 bg-[var(--study-dark)] border border-[var(--gold-shadow)] rounded text-[var(--parchment-light)] mb-3 focus:border-[var(--gold)] focus:outline-none"
                       onKeyDown={(e) => {
                         if (e.key === "Enter" && newEncounterName.trim()) {
                           handleCreateEncounter();
@@ -2671,7 +2671,7 @@ export default function TrackerPage() {
                       <button
                         onClick={handleCreateEncounter}
                         disabled={!newEncounterName.trim() || isCreating}
-                        className="flex-1 px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                        className="flex-1 px-4 py-2 bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                       >
                         {isCreating ? "Creating..." : "Create"}
                       </button>
@@ -2680,7 +2680,7 @@ export default function TrackerPage() {
                           setShowNewEncounter(false);
                           setNewEncounterName("");
                         }}
-                        className="px-4 py-2 text-slate-400 hover:text-white rounded-lg transition-colors"
+                        className="px-4 py-2 text-[var(--parchment-aged)] hover:text-[var(--parchment-light)] rounded transition-colors"
                       >
                         Cancel
                       </button>
@@ -2690,7 +2690,7 @@ export default function TrackerPage() {
 
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                   {displayedEncounters.length === 0 ? (
-                    <div className="col-span-full text-center py-12 text-slate-500">
+                    <div className="col-span-full text-center py-12 text-[var(--ink-faded)]">
                       <p className="mb-4">
                         {showArchived
                           ? "No archived encounters yet."
@@ -2701,7 +2701,7 @@ export default function TrackerPage() {
                       {!showArchived && (
                         <button
                           onClick={() => setShowNewEncounter(true)}
-                          className="text-amber-400 hover:text-amber-300"
+                          className="text-[var(--gold)] hover:text-[var(--gold-bright)]"
                         >
                           Create your first encounter
                         </button>
@@ -2711,14 +2711,14 @@ export default function TrackerPage() {
                     displayedEncounters.map((encounter) => (
                       <div
                         key={encounter.id}
-                        className={`bg-slate-800 rounded-lg p-4 border transition-colors group ${
+                        className={`bg-[var(--study-panel)] rounded p-4 border transition-colors group ${
                           showArchived
-                            ? "border-slate-700/50 opacity-80 hover:opacity-100"
-                            : "border-slate-700 hover:border-slate-600"
+                            ? "border-[var(--gold-shadow)]/50 opacity-80 hover:opacity-100"
+                            : "border-[var(--gold-shadow)] hover:border-[var(--gold-dark)]"
                         }`}
                       >
                         <div className="flex justify-between items-start mb-3">
-                          <h3 className="font-bold text-white">
+                          <h3 className="font-bold text-[var(--parchment-light)]">
                             {encounter.name}
                           </h3>
                           <div className="flex items-center gap-2">
@@ -2737,14 +2737,14 @@ export default function TrackerPage() {
                                   name: encounter.name,
                                 })
                               }
-                              className="opacity-0 group-hover:opacity-100 text-slate-500 hover:text-red-400 transition-all"
+                              className="opacity-0 group-hover:opacity-100 text-[var(--ink-faded)] hover:text-[var(--vermillion)] transition-all"
                               title="Delete encounter"
                             >
                               &times;
                             </button>
                           </div>
                         </div>
-                        <div className="text-sm text-slate-400 mb-3">
+                        <div className="text-sm text-[var(--parchment-aged)] mb-3">
                           {encounter.round_number} rounds &bull;{" "}
                           {encounter.combatants.length} combatants
                         </div>
@@ -2752,14 +2752,14 @@ export default function TrackerPage() {
                           <div className="flex gap-2">
                             <button
                               onClick={() => setViewingEncounterHistory(encounter)}
-                              className="flex-1 px-3 py-2 text-sm text-slate-300 hover:text-white bg-slate-700 hover:bg-slate-600 rounded-lg transition-colors"
+                              className="flex-1 px-3 py-2 text-sm text-[var(--parchment-dark)] hover:text-[var(--parchment-light)] bg-[var(--study-wood)] hover:bg-[var(--study-wood)] rounded transition-colors"
                             >
                               View History
                             </button>
                             <button
                               onClick={() => handleRestoreEncounter(encounter.id)}
                               disabled={isArchiving}
-                              className="flex-1 px-3 py-2 text-sm text-amber-400 hover:text-amber-300 bg-slate-700 hover:bg-slate-600 rounded-lg transition-colors disabled:opacity-50"
+                              className="flex-1 px-3 py-2 text-sm text-[var(--gold)] hover:text-[var(--gold-bright)] bg-[var(--study-wood)] hover:bg-[var(--study-wood)] rounded transition-colors disabled:opacity-50"
                             >
                               Restore
                             </button>
@@ -2768,20 +2768,20 @@ export default function TrackerPage() {
                           <div className="flex gap-2">
                             <button
                               onClick={() => setSetupEncounterId(encounter.id)}
-                              className="flex-1 px-3 py-2 text-sm text-slate-300 hover:text-white bg-slate-700 hover:bg-slate-600 rounded-lg transition-colors"
+                              className="flex-1 px-3 py-2 text-sm text-[var(--parchment-dark)] hover:text-[var(--parchment-light)] bg-[var(--study-wood)] hover:bg-[var(--study-wood)] rounded transition-colors"
                             >
                               Setup
                             </button>
                             <Link
                               href={`/tools/tracker/encounter/${encounter.id}`}
-                              className="flex-1 px-3 py-2 text-sm text-center bg-green-600 hover:bg-green-500 text-white rounded-lg font-medium transition-colors"
+                              className="flex-1 px-3 py-2 text-sm text-center bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded font-medium transition-colors"
                             >
                               Run
                             </Link>
                             <button
                               onClick={() => handleArchiveEncounter(encounter.id)}
                               disabled={isArchiving}
-                              className="opacity-0 group-hover:opacity-100 px-3 py-2 text-sm text-slate-400 hover:text-slate-200 bg-slate-700 hover:bg-slate-600 rounded-lg transition-all disabled:opacity-50"
+                              className="opacity-0 group-hover:opacity-100 px-3 py-2 text-sm text-[var(--parchment-aged)] hover:text-[var(--parchment)] bg-[var(--study-wood)] hover:bg-[var(--study-wood)] rounded transition-all disabled:opacity-50"
                               title="Archive encounter"
                             >
                               Archive
@@ -2802,7 +2802,7 @@ export default function TrackerPage() {
                 <div className="mb-6 flex justify-end">
                   <button
                     onClick={() => setShowNewCampaign(true)}
-                    className="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium transition-colors"
+                    className="px-4 py-2 bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded font-medium transition-colors"
                   >
                     + New Campaign
                   </button>
@@ -2810,11 +2810,11 @@ export default function TrackerPage() {
 
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {campaigns.length === 0 ? (
-                  <div className="col-span-full text-center py-12 text-slate-500">
+                  <div className="col-span-full text-center py-12 text-[var(--ink-faded)]">
                     <p className="mb-4">No campaigns yet.</p>
                     <button
                       onClick={() => setShowNewCampaign(true)}
-                      className="text-amber-400 hover:text-amber-300"
+                      className="text-[var(--gold)] hover:text-[var(--gold-bright)]"
                     >
                       Create your first campaign
                     </button>
@@ -2823,10 +2823,10 @@ export default function TrackerPage() {
                   campaigns.map((campaign) => (
                     <div
                       key={campaign.id}
-                      className="bg-slate-800 rounded-lg p-4 border border-slate-700 group"
+                      className="bg-[var(--study-panel)] rounded p-4 border border-[var(--gold-shadow)] group"
                     >
                       <div className="flex justify-between items-start">
-                        <h3 className="font-bold text-white mb-2">
+                        <h3 className="font-bold text-[var(--parchment-light)] mb-2">
                           {campaign.name}
                         </h3>
                         <button
@@ -2837,18 +2837,18 @@ export default function TrackerPage() {
                               name: campaign.name,
                             })
                           }
-                          className="opacity-0 group-hover:opacity-100 text-slate-500 hover:text-red-400 transition-all"
+                          className="opacity-0 group-hover:opacity-100 text-[var(--ink-faded)] hover:text-[var(--vermillion)] transition-all"
                           title="Delete campaign"
                         >
                           &times;
                         </button>
                       </div>
                       {campaign.description && (
-                        <p className="text-sm text-slate-400 mb-2">
+                        <p className="text-sm text-[var(--parchment-aged)] mb-2">
                           {campaign.description}
                         </p>
                       )}
-                      <div className="text-sm text-slate-500 mb-3">
+                      <div className="text-sm text-[var(--ink-faded)] mb-3">
                         {campaign.player_count} players &bull;{" "}
                         {campaign.encounter_count} encounters
                       </div>
@@ -2857,7 +2857,7 @@ export default function TrackerPage() {
                           setActiveCampaignId(campaign.id);
                           setActiveTab("encounters");
                         }}
-                        className="w-full px-3 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium transition-colors"
+                        className="w-full px-3 py-2 text-sm bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded font-medium transition-colors"
                       >
                         View Campaign
                       </button>
@@ -2876,25 +2876,25 @@ export default function TrackerPage() {
                   <div className="mb-6 flex justify-end gap-3">
                     <button
                       onClick={() => setShowDdbImport(true)}
-                      className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors"
+                      className="px-4 py-2 bg-[var(--study-wood)] hover:bg-[var(--study-wood)] text-[var(--parchment-light)] rounded font-medium transition-colors"
                     >
                       D&D Beyond
                     </button>
                     <button
                       onClick={() => setShowPdfImport(true)}
-                      className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors"
+                      className="px-4 py-2 bg-[var(--study-wood)] hover:bg-[var(--study-wood)] text-[var(--parchment-light)] rounded font-medium transition-colors"
                     >
                       PDF Import
                     </button>
                     <button
                       onClick={() => setShowOcrImport("player")}
-                      className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors"
+                      className="px-4 py-2 bg-[var(--study-wood)] hover:bg-[var(--study-wood)] text-[var(--parchment-light)] rounded font-medium transition-colors"
                     >
                       Screenshot
                     </button>
                     <button
                       onClick={() => setShowQuickAdd("player")}
-                      className="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium transition-colors"
+                      className="px-4 py-2 bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded font-medium transition-colors"
                     >
                       + New Player
                     </button>
@@ -2903,9 +2903,9 @@ export default function TrackerPage() {
 
                 {/* Campaign view info */}
                 {activeCampaignId && (
-                  <div className="mb-6 p-4 bg-slate-800/50 border border-slate-700 rounded-lg">
-                    <p className="text-slate-400 text-sm">
-                      Showing players in <span className="text-white font-medium">{activeCampaign?.name}</span>.
+                  <div className="mb-6 p-4 bg-[var(--study-panel)]/50 border border-[var(--gold-shadow)] rounded">
+                    <p className="text-[var(--parchment-aged)] text-sm">
+                      Showing players in <span className="text-[var(--parchment-light)] font-medium">{activeCampaign?.name}</span>.
                       Use "Manage Players" above to add or remove players from this campaign.
                     </p>
                   </div>
@@ -2913,7 +2913,7 @@ export default function TrackerPage() {
 
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                   {(activeCampaignId ? campaignPlayers : players).length === 0 ? (
-                    <div className="col-span-full text-center py-12 text-slate-500">
+                    <div className="col-span-full text-center py-12 text-[var(--ink-faded)]">
                       <p className="mb-4">
                         {activeCampaignId
                           ? "No players in this campaign yet."
@@ -2922,14 +2922,14 @@ export default function TrackerPage() {
                       {activeCampaignId ? (
                         <button
                           onClick={() => setShowAddPlayerToCampaign(true)}
-                          className="text-amber-400 hover:text-amber-300"
+                          className="text-[var(--gold)] hover:text-[var(--gold-bright)]"
                         >
                           Add players to campaign
                         </button>
                       ) : (
                         <button
                           onClick={() => setShowQuickAdd("player")}
-                          className="text-amber-400 hover:text-amber-300"
+                          className="text-[var(--gold)] hover:text-[var(--gold-bright)]"
                         >
                           Add your first player
                         </button>
@@ -2940,17 +2940,17 @@ export default function TrackerPage() {
                       <div
                         key={player.id}
                         onClick={() => setViewingPlayer(player)}
-                        className="bg-slate-800 rounded-lg p-4 border border-slate-700 group cursor-pointer hover:border-amber-500/50 transition-colors"
+                        className="bg-[var(--study-panel)] rounded p-4 border border-[var(--gold-shadow)] group cursor-pointer hover:border-amber-500/50 transition-colors"
                       >
                         <div className="flex justify-between items-start">
-                          <h3 className="font-bold text-white">{player.name}</h3>
+                          <h3 className="font-bold text-[var(--parchment-light)]">{player.name}</h3>
                           {activeCampaignId ? (
                             <button
                               onClick={(e) => {
                                 e.stopPropagation();
                                 handleRemovePlayerFromCampaign(player.id);
                               }}
-                              className="opacity-0 group-hover:opacity-100 text-slate-500 hover:text-red-400 transition-all text-xs"
+                              className="opacity-0 group-hover:opacity-100 text-[var(--ink-faded)] hover:text-[var(--vermillion)] transition-all text-xs"
                               title="Remove from campaign"
                             >
                               Remove
@@ -2965,20 +2965,20 @@ export default function TrackerPage() {
                                   name: player.name,
                                 });
                               }}
-                              className="opacity-0 group-hover:opacity-100 text-slate-500 hover:text-red-400 transition-all"
+                              className="opacity-0 group-hover:opacity-100 text-[var(--ink-faded)] hover:text-[var(--vermillion)] transition-all"
                               title="Delete player"
                             >
                               &times;
                             </button>
                           )}
                         </div>
-                        <div className="text-sm text-slate-400">
+                        <div className="text-sm text-[var(--parchment-aged)]">
                           Level {player.level} {player.race}{" "}
                           {player.character_class}
                         </div>
                         <div className="flex gap-4 mt-2 text-sm">
-                          <span className="text-slate-300">AC {player.ac}</span>
-                          <span className="text-slate-300">
+                          <span className="text-[var(--parchment-dark)]">AC {player.ac}</span>
+                          <span className="text-[var(--parchment-dark)]">
                             HP {player.hp_current}/{player.hp_max}
                           </span>
                         </div>
@@ -2996,19 +2996,19 @@ export default function TrackerPage() {
                 <div className="mb-6 flex justify-end gap-3">
                   <button
                     onClick={() => setShowSrdBrowser(true)}
-                    className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors"
+                    className="px-4 py-2 bg-[var(--study-wood)] hover:bg-[var(--study-wood)] text-[var(--parchment-light)] rounded font-medium transition-colors"
                   >
                     SRD Browser
                   </button>
                   <button
                     onClick={() => setShowOcrImport("creature")}
-                    className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors"
+                    className="px-4 py-2 bg-[var(--study-wood)] hover:bg-[var(--study-wood)] text-[var(--parchment-light)] rounded font-medium transition-colors"
                   >
                     Screenshot
                   </button>
                   <button
                     onClick={() => setShowQuickAdd("creature")}
-                    className="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium transition-colors"
+                    className="px-4 py-2 bg-[var(--gold-dark)] hover:bg-[var(--gold)] text-[var(--parchment-light)] rounded font-medium transition-colors"
                   >
                     + New Creature
                   </button>
@@ -3016,11 +3016,11 @@ export default function TrackerPage() {
 
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                   {creatures.length === 0 ? (
-                    <div className="col-span-full text-center py-12 text-slate-500">
+                    <div className="col-span-full text-center py-12 text-[var(--ink-faded)]">
                       <p className="mb-4">No creatures yet.</p>
                       <button
                         onClick={() => setShowQuickAdd("creature")}
-                        className="text-amber-400 hover:text-amber-300"
+                        className="text-[var(--gold)] hover:text-[var(--gold-bright)]"
                       >
                         Create a creature
                       </button>
@@ -3030,13 +3030,13 @@ export default function TrackerPage() {
                       <div
                         key={creature.id}
                         onClick={() => setViewingCreature(creature)}
-                        className="bg-slate-800 rounded-lg p-4 border border-slate-700 group cursor-pointer hover:border-red-500/50 transition-colors"
+                        className="bg-[var(--study-panel)] rounded p-4 border border-[var(--gold-shadow)] group cursor-pointer hover:border-red-500/50 transition-colors"
                       >
                         <div className="flex justify-between items-start">
-                          <h3 className="font-bold text-white">{creature.name}</h3>
+                          <h3 className="font-bold text-[var(--parchment-light)]">{creature.name}</h3>
                           <div className="flex items-center gap-2">
                             {creature.challenge_rating && (
-                              <span className="text-sm text-amber-400">
+                              <span className="text-sm text-[var(--gold)]">
                                 CR {creature.challenge_rating}
                               </span>
                             )}
@@ -3049,19 +3049,19 @@ export default function TrackerPage() {
                                   name: creature.name,
                                 });
                               }}
-                              className="opacity-0 group-hover:opacity-100 text-slate-500 hover:text-red-400 transition-all"
+                              className="opacity-0 group-hover:opacity-100 text-[var(--ink-faded)] hover:text-[var(--vermillion)] transition-all"
                               title="Delete creature"
                             >
                               &times;
                             </button>
                           </div>
                         </div>
-                        <div className="text-sm text-slate-400">
+                        <div className="text-sm text-[var(--parchment-aged)]">
                           {creature.size} {creature.creature_type}
                         </div>
                         <div className="flex gap-4 mt-2 text-sm">
-                          <span className="text-slate-300">AC {creature.ac}</span>
-                          <span className="text-slate-300">HP {creature.hp_max}</span>
+                          <span className="text-[var(--parchment-dark)]">AC {creature.ac}</span>
+                          <span className="text-[var(--parchment-dark)]">HP {creature.hp_max}</span>
                         </div>
                       </div>
                     ))

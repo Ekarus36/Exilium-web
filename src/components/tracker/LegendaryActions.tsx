@@ -18,8 +18,8 @@ export function LegendaryActions({
   const remaining = creature.legendary_action_count - used;
 
   return (
-    <div className="p-3 bg-slate-700 rounded-lg">
-      <h4 className="text-sm font-semibold text-yellow-400 mb-3">
+    <div className="p-3 bg-[var(--study-wood)] rounded">
+      <h4 className="text-sm font-semibold text-[var(--gold)] mb-3">
         Legendary Actions ({remaining}/{creature.legendary_action_count})
       </h4>
 

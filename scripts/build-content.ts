@@ -266,14 +266,21 @@ async function build() {
     }
   }
 
-  console.log(`Processed ${documents.length} documents`);
+  // Filter out misc category (npm package READMEs and other non-Exilium content)
+  const EXCLUDED_CATEGORIES = new Set(["misc"]);
+  const filteredDocuments = documents.filter(
+    (doc) => !EXCLUDED_CATEGORIES.has(doc.category)
+  );
+  console.log(
+    `Processed ${documents.length} documents (${filteredDocuments.length} after filtering misc)`
+  );
 
   // Create output directories
   fs.mkdirSync(CONTENT_DIR, { recursive: true });
   fs.mkdirSync(PUBLIC_CONTENT_DIR, { recursive: true });
 
   // Write individual document JSON files
-  for (const doc of documents) {
+  for (const doc of filteredDocuments) {
     const categoryDir = path.join(CONTENT_DIR, doc.category);
     fs.mkdirSync(categoryDir, { recursive: true });
 
@@ -284,7 +291,7 @@ async function build() {
   // Create content manifest
   const manifest: ContentManifest = {
     categories: CATEGORIES,
-    documents: documents.map((doc) => ({
+    documents: filteredDocuments.map((doc) => ({
       slug: doc.slug,
       category: doc.category,
       title: doc.title,
@@ -307,7 +314,7 @@ async function build() {
   const playerSearchIndex: SearchIndexEntry[] = [];
   const dmSearchIndex: SearchIndexEntry[] = [];
 
-  for (const doc of documents) {
+  for (const doc of filteredDocuments) {
     playerSearchIndex.push(...createSearchEntry(doc, "player"));
     dmSearchIndex.push(...createSearchEntry(doc, "dm"));
   }
@@ -331,7 +338,7 @@ async function build() {
 
   // Summary
   console.log("\nBuild complete!");
-  console.log(`  Documents: ${documents.length}`);
+  console.log(`  Documents: ${filteredDocuments.length}`);
   console.log(`  Categories: ${CATEGORIES.length}`);
   console.log(`  Player search entries: ${playerSearchIndex.length}`);
   console.log(`  DM search entries: ${dmSearchIndex.length}`);

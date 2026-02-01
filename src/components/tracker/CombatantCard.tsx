@@ -38,15 +38,15 @@ export function CombatantCard({
   const hpColor = getHPColor(hp, maxHp);
 
   const cardClasses = [
-    "rounded-lg p-3 cursor-pointer transition-all",
+    "rounded p-3 cursor-pointer transition-all",
     "border-2",
     isActive
-      ? "border-amber-500 bg-amber-500/10 shadow-lg shadow-amber-500/20"
+      ? "border-[var(--gold)] bg-[var(--gold)]/10 shadow-lg shadow-[var(--gold)]/20"
       : isOnDeck
-      ? "border-slate-400 bg-slate-400/15 shadow-md shadow-slate-400/20"
+      ? "border-[var(--parchment-aged)] bg-[var(--parchment-aged)]/15 shadow-md shadow-[var(--parchment-aged)]/20"
       : isSelected
-      ? "border-amber-500/50 bg-slate-800"
-      : "border-slate-700 bg-slate-800 hover:border-amber-500/30",
+      ? "border-[var(--gold)]/50 bg-[var(--study-panel)]"
+      : "border-[var(--gold-shadow)] bg-[var(--study-panel)] hover:border-[var(--gold)]/30",
   ].join(" ");
 
   // Get damage resistances/immunities for creatures
@@ -57,12 +57,12 @@ export function CombatantCard({
     <div className={cardClasses} onClick={onClick}>
       {/* Header: Name + Initiative */}
       <div className="flex justify-between items-center mb-2">
-        <div className="font-bold text-white truncate">
+        <div className="font-bold text-[var(--parchment-light)] truncate">
           {combatant.display_name || entity.name}
         </div>
         {combatant.initiative_roll !== null &&
           combatant.initiative_roll !== undefined && (
-            <div className="text-sm bg-slate-700 px-2 py-0.5 rounded">
+            <div className="text-sm bg-[var(--study-wood)] px-2 py-0.5 rounded">
               Init: {combatant.initiative_roll}
             </div>
           )}
@@ -70,7 +70,7 @@ export function CombatantCard({
 
       {/* Subtitle for players */}
       {isPlayer(entity) && entity.character_class && (
-        <div className="text-xs text-slate-400 mb-2">
+        <div className="text-xs text-[var(--parchment-aged)] mb-2">
           Level {entity.level} {entity.race} {entity.character_class}
         </div>
       )}
@@ -78,11 +78,11 @@ export function CombatantCard({
       {/* Combat Stats */}
       <div className="flex gap-4 text-sm mb-2">
         <div>
-          <span className="text-slate-400">AC</span>{" "}
+          <span className="text-[var(--parchment-aged)]">AC</span>{" "}
           <span className="font-semibold">{entity.ac}</span>
         </div>
         <div>
-          <span className="text-slate-400">HP</span>{" "}
+          <span className="text-[var(--parchment-aged)]">HP</span>{" "}
           <span className="font-semibold" style={{ color: hpColor }}>
             {formatHP(hp, maxHp)}
           </span>
@@ -90,7 +90,7 @@ export function CombatantCard({
       </div>
 
       {/* HP Bar */}
-      <div className="h-1.5 bg-slate-700 rounded-full mb-2 overflow-hidden">
+      <div className="h-1.5 bg-[var(--study-wood)] rounded-full mb-2 overflow-hidden">
         <div
           className="h-full rounded-full transition-all"
           style={{ width: `${hpPct}%`, backgroundColor: hpColor }}
@@ -103,7 +103,7 @@ export function CombatantCard({
           {combatant.conditions.map((cond) => (
             <span
               key={cond}
-              className="text-xs bg-slate-700 px-1.5 py-0.5 rounded"
+              className="text-xs bg-[var(--study-wood)] px-1.5 py-0.5 rounded"
               title={cond}
             >
               {CONDITION_ICONS[cond as Condition] || "?"} {cond}
@@ -115,7 +115,7 @@ export function CombatantCard({
       {/* Player at 0 HP: Death Saves indicator */}
       {isPlayer(entity) && hp === 0 && (
         <div className="flex items-center gap-2 mb-2 text-xs">
-          <span className="text-red-400">Death Saves:</span>
+          <span className="text-[var(--vermillion)]">Death Saves:</span>
           <div className="flex gap-0.5">
             {[0, 1, 2].map((i) => (
               <div
@@ -128,7 +128,7 @@ export function CombatantCard({
               />
             ))}
           </div>
-          <span className="text-slate-500">/</span>
+          <span className="text-[var(--ink-faded)]">/</span>
           <div className="flex gap-0.5">
             {[0, 1, 2].map((i) => (
               <div
@@ -146,7 +146,7 @@ export function CombatantCard({
 
       {/* Player: Passive Perception */}
       {isPlayer(entity) && (
-        <div className="text-xs text-slate-400">
+        <div className="text-xs text-[var(--parchment-aged)]">
           PP: {entity.passive_perception}
         </div>
       )}
@@ -168,7 +168,7 @@ export function CombatantCard({
           );
           const remaining = totalMax - totalUsed;
           return (
-            <div className="text-xs text-amber-400 mt-1">
+            <div className="text-xs text-[var(--gold)] mt-1">
               {remaining}/{totalMax} slots
             </div>
           );
@@ -176,7 +176,7 @@ export function CombatantCard({
 
       {/* Concentration indicator */}
       {combatant.concentration_spell && (
-        <div className="text-xs text-amber-400 mb-1">
+        <div className="text-xs text-[var(--gold)] mb-1">
           Concentrating: {combatant.concentration_spell}
         </div>
       )}
@@ -193,7 +193,7 @@ export function CombatantCard({
       {/* Creature: Resistances/Immunities */}
       {!isPlayer(entity) &&
         (resistances.length > 0 || immunities.length > 0) && (
-          <div className="text-xs text-slate-400 space-y-0.5">
+          <div className="text-xs text-[var(--parchment-aged)] space-y-0.5">
             {resistances.length > 0 && (
               <div>Resist: {resistances.join(", ")}</div>
             )}

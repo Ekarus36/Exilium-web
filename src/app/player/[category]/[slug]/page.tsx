@@ -48,20 +48,7 @@ export default async function PlayerDocumentPage({ params }: PageProps) {
 
   // Check if document has player-visible content
   if (!document.atAGlance && !document.commonKnowledge) {
-    return (
-      <div>
-        <Breadcrumbs items={breadcrumbs} />
-        <div className="mt-8 p-6 bg-stone-900/50 border border-stone-800 rounded-lg text-center">
-          <h1 className="text-2xl font-bold mb-4 text-stone-200">
-            {document.title}
-          </h1>
-          <p className="text-stone-400">
-            This content is not available in the player section. It may contain
-            secret information for DMs only.
-          </p>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   // Extract relationships from metadata (placeholder - will be enhanced)

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SearchWrapper } from "@/components/content/SearchWrapper";
 import { GlobeIcon, HexagonIcon, HourglassIcon, SwordsIcon, SunIcon, CrownIcon } from "@/components/ui/Icons";
 
@@ -35,38 +36,44 @@ export default function PlayerHomePage() {
 
       <div className="prose max-w-none">
         <h2>Quick Start</h2>
-        <p className="drop-cap">
+        <p>
           Use the sidebar to navigate through the world of Exilium. Content is
           organized into sections that will help you understand this realm:
         </p>
 
         <div className="grid md:grid-cols-2 gap-6 not-prose my-8">
           <CategoryCard
+            href="/player/world"
             title="World"
             description="Core systems: religion, magic, distances"
             icon={<GlobeIcon size={24} />}
           />
           <CategoryCard
+            href="/player/geography"
             title="Geography"
             description="Locations by region: Veraheim, Elven Empire, Broken Isles"
             icon={<HexagonIcon size={24} />}
           />
           <CategoryCard
+            href="/player/history"
             title="History"
             description="Timeline and major events"
             icon={<HourglassIcon size={24} />}
           />
           <CategoryCard
+            href="/player/factions"
             title="Factions"
             description="Political powers and organizations"
             icon={<SwordsIcon size={24} />}
           />
           <CategoryCard
+            href="/player/peoples"
             title="Peoples"
             description="Cultures and races"
             icon={<SunIcon size={24} />}
           />
           <CategoryCard
+            href="/player/npcs"
             title="NPCs"
             description="Notable characters by faction"
             icon={<CrownIcon size={24} />}
@@ -89,29 +96,42 @@ export default function PlayerHomePage() {
 }
 
 function CategoryCard({
+  href,
   title,
   description,
   icon,
 }: {
+  href: string;
   title: string;
   description: string;
   icon: React.ReactNode;
 }) {
   return (
-    <div className="study-panel group hover:border-[var(--gold)]/50 transition-all duration-300">
+    <Link
+      href={href}
+      className="group block relative bg-[var(--study-panel)] border border-[var(--gold-shadow)]/40 rounded p-5
+        transition-all duration-300 hover:border-[var(--gold)]/60 hover:shadow-[0_0_24px_rgba(184,148,61,0.1)]
+        hover:-translate-y-0.5"
+    >
+      {/* Top accent line */}
+      <div className="absolute top-0 left-4 right-4 h-px bg-gradient-to-r from-transparent via-[var(--gold-dark)] to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-300" />
+
       <div className="flex items-start gap-4">
-        <div className="text-[var(--gold)] opacity-70 group-hover:opacity-100 transition-opacity">
+        <div className="text-[var(--gold-dark)] group-hover:text-[var(--gold)] transition-colors duration-300 mt-0.5">
           {icon}
         </div>
-        <div>
-          <h3 className="font-['Cinzel',serif] text-lg text-[var(--gold)] mb-1">
+        <div className="flex-1 min-w-0">
+          <h3 className="font-['Cinzel',serif] text-lg text-[var(--gold)] group-hover:text-[var(--gold-bright)] transition-colors duration-300 mb-1">
             {title}
           </h3>
-          <p className="text-[var(--parchment-aged)] text-sm">
+          <p className="text-[var(--parchment-aged)] text-sm leading-relaxed">
             {description}
           </p>
         </div>
+        <span className="text-[var(--gold-dark)] opacity-0 group-hover:opacity-70 transition-all duration-300 group-hover:translate-x-0.5 mt-1 shrink-0">
+          ›
+        </span>
       </div>
-    </div>
+    </Link>
   );
 }

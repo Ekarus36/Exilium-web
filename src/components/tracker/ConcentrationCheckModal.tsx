@@ -13,11 +13,11 @@ export function ConcentrationCheckModal() {
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="bg-slate-800 rounded-lg p-6 border border-amber-500 max-w-md w-full mx-4">
-        <h3 className="text-lg font-bold text-amber-400 mb-2">
+      <div className="bg-[var(--study-panel)] rounded p-6 border border-[var(--gold)] max-w-md w-full mx-4">
+        <h3 className="text-lg font-bold font-['Cinzel'] text-[var(--gold)] mb-2">
           Concentration Check
         </h3>
-        <p className="text-slate-300 mb-4">
+        <p className="text-[var(--parchment-dark)] mb-4">
           <strong>{concentrationCheck.combatantName}</strong> must make a
           Constitution saving throw (DC {concentrationCheck.dc}) to maintain
           concentration on <strong>{concentrationCheck.spell}</strong>.

@@ -15,12 +15,12 @@ export function SpellSlots({ combatantId, player, slotsUsed }: SpellSlotsProps) 
   const slots = player.spells?.slots || {};
 
   return (
-    <div className="p-3 bg-slate-700 rounded-lg">
+    <div className="p-3 bg-[var(--study-wood)] rounded">
       <div className="flex justify-between items-center mb-3">
-        <h4 className="text-sm font-semibold text-amber-400">Spell Slots</h4>
+        <h4 className="text-sm font-semibold text-[var(--gold)]">Spell Slots</h4>
         <button
           onClick={() => resetSpellSlots(combatantId)}
-          className="text-xs px-2 py-1 bg-slate-600 hover:bg-slate-500 rounded transition-colors"
+          className="text-xs px-2 py-1 bg-[var(--study-panel)] hover:bg-[var(--study-wood)] rounded transition-colors"
         >
           Reset All
         </button>
@@ -33,7 +33,7 @@ export function SpellSlots({ combatantId, player, slotsUsed }: SpellSlotsProps) 
 
           return (
             <div key={level} className="flex items-center gap-2">
-              <span className="text-sm text-slate-400 w-8">L{level}:</span>
+              <span className="text-sm text-[var(--parchment-aged)] w-8">L{level}:</span>
               <div className="flex gap-1">
                 {Array.from({ length: max || 0 }).map((_, i) => (
                   <div

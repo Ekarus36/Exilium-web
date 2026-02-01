@@ -73,7 +73,7 @@ export function InitiativeModal({
     const newInitiatives = { ...initiatives };
     combatants.forEach((combatant) => {
       // Skip players - they roll for themselves
-      if (combatant.combatant_type === "player") return;
+      if (combatant.entity_type === "player") return;
 
       const d20 = Math.floor(Math.random() * 20) + 1;
       const modifier = getDexModifier(combatant);
@@ -113,9 +113,9 @@ export function InitiativeModal({
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="bg-slate-800 rounded-lg p-6 border border-slate-700 max-w-lg w-full mx-4">
-        <h3 className="text-lg font-bold mb-2">Roll Initiative</h3>
-        <p className="text-slate-400 text-sm mb-4">
+      <div className="bg-[var(--study-panel)] rounded p-6 border border-[var(--gold-shadow)] max-w-lg w-full mx-4">
+        <h3 className="text-lg font-bold font-['Cinzel'] mb-2">Roll Initiative</h3>
+        <p className="text-[var(--parchment-aged)] text-sm mb-4">
           Roll for creatures or enter player rolls manually.
         </p>
 
@@ -123,13 +123,13 @@ export function InitiativeModal({
         <div className="flex gap-2 mb-4">
           <button
             onClick={rollForCreatures}
-            className="flex-1 px-3 py-2 bg-blue-600 hover:bg-blue-500 rounded text-sm font-medium transition-colors"
+            className="flex-1 px-3 py-2 bg-[var(--azure)] hover:bg-[var(--azure)] rounded text-sm font-medium transition-colors"
           >
             🎲 Roll Creatures Only
           </button>
           <button
             onClick={rollAll}
-            className="flex-1 px-3 py-2 bg-slate-700 hover:bg-slate-600 rounded text-sm font-medium transition-colors"
+            className="flex-1 px-3 py-2 bg-[var(--study-wood)] hover:bg-[var(--study-wood)] rounded text-sm font-medium transition-colors"
           >
             🎲 Roll All
           </button>
@@ -139,14 +139,14 @@ export function InitiativeModal({
         <div className="space-y-2 max-h-[50vh] overflow-y-auto">
           {combatants.map((combatant) => {
             const entry = initiatives[combatant.id];
-            const isPlayer = combatant.combatant_type === "player";
+            const isPlayer = combatant.entity_type === "player";
             const modifier = getDexModifier(combatant);
 
             return (
               <div
                 key={combatant.id}
                 className={`flex items-center gap-3 p-2 rounded ${
-                  isPlayer ? "bg-emerald-900/30" : "bg-slate-700/50"
+                  isPlayer ? "bg-[var(--viridian)]/20" : "bg-[var(--study-wood)]/50"
                 }`}
               >
                 {/* Type indicator */}
@@ -159,15 +159,15 @@ export function InitiativeModal({
                   <div className="truncate font-medium">
                     {combatant.display_name || combatant.entity?.name || "Unknown"}
                   </div>
-                  <div className="text-xs text-slate-400">
+                  <div className="text-xs text-[var(--parchment-aged)]">
                     DEX: {modifier >= 0 ? "+" : ""}{modifier}
                   </div>
                 </div>
 
                 {/* Roll breakdown (if rolled) */}
                 {entry?.rolled && (
-                  <div className="text-xs text-slate-400 text-right">
-                    <span className="text-amber-400">{entry.rolled.d20}</span>
+                  <div className="text-xs text-[var(--parchment-aged)] text-right">
+                    <span className="text-[var(--gold)]">{entry.rolled.d20}</span>
                     <span className="mx-1">+</span>
                     <span>{entry.rolled.modifier}</span>
                   </div>
@@ -178,14 +178,14 @@ export function InitiativeModal({
                   type="number"
                   value={entry?.value || ""}
                   onChange={(e) => handleValueChange(combatant.id, e.target.value)}
-                  className="w-16 px-2 py-1.5 bg-slate-900 border border-slate-600 rounded text-center text-lg font-bold"
+                  className="w-16 px-2 py-1.5 bg-[var(--study-dark)] border border-[var(--gold-dark)] rounded text-center text-lg font-bold"
                   placeholder="--"
                 />
 
                 {/* Individual roll button */}
                 <button
                   onClick={() => rollForCombatant(combatant)}
-                  className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-600 rounded transition-colors"
+                  className="p-1.5 text-[var(--parchment-aged)] hover:text-[var(--parchment-light)] hover:bg-[var(--study-wood)] rounded transition-colors"
                   title="Roll for this combatant"
                 >
                   🎲
@@ -196,21 +196,21 @@ export function InitiativeModal({
         </div>
 
         {/* Action buttons */}
-        <div className="flex gap-2 mt-4 pt-4 border-t border-slate-700">
+        <div className="flex gap-2 mt-4 pt-4 border-t border-[var(--gold-shadow)]">
           <button
             onClick={handleSubmit}
             disabled={!allSet}
             className={`flex-1 px-4 py-2 rounded font-semibold transition-colors ${
               allSet
-                ? "bg-amber-600 hover:bg-amber-500"
-                : "bg-slate-700 text-slate-500 cursor-not-allowed"
+                ? "bg-[var(--gold-dark)] hover:bg-[var(--gold)]"
+                : "bg-[var(--study-wood)] text-[var(--ink-faded)] cursor-not-allowed"
             }`}
           >
             Start Combat
           </button>
           <button
             onClick={onCancel}
-            className="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded transition-colors"
+            className="px-4 py-2 bg-[var(--study-wood)] hover:bg-[var(--study-wood)] rounded transition-colors"
           >
             Cancel
           </button>

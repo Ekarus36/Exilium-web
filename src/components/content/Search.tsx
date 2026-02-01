@@ -142,23 +142,23 @@ export function Search({ accessLevel, placeholder = "Search content..." }: Searc
           onFocus={() => setIsOpen(true)}
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
-          className="w-full px-4 py-2 pl-10 bg-stone-900 border border-stone-700 rounded-lg text-stone-100 placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-600"
+          className="w-full px-4 py-2 pl-10 bg-[var(--study-panel)] border border-[var(--gold-shadow)] rounded text-[var(--parchment)] placeholder-[var(--ink-faded)] focus:outline-none focus:ring-2 focus:ring-[var(--gold)]/50 focus:border-[var(--gold-dark)] font-['Crimson_Pro']"
         />
-        <SearchIcon size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500" />
-        <kbd className="absolute right-3 top-1/2 -translate-y-1/2 hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-xs text-stone-500 bg-stone-800 rounded border border-stone-700">
+        <SearchIcon size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--ink-faded)]" />
+        <kbd className="absolute right-3 top-1/2 -translate-y-1/2 hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-xs text-[var(--ink-faded)] bg-[var(--study-dark)] rounded border border-[var(--gold-shadow)]">
           <span>⌘</span>K
         </kbd>
       </div>
 
       {/* Results dropdown */}
       {isOpen && query.trim() && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-stone-900 border border-stone-700 rounded-lg shadow-xl overflow-hidden z-50">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-[var(--study-panel)] border border-[var(--gold-shadow)] rounded shadow-xl overflow-hidden z-50">
           {isLoading ? (
-            <div className="p-4 text-center text-stone-500">
+            <div className="p-4 text-center text-[var(--ink-faded)]">
               Loading search index...
             </div>
           ) : results.length === 0 ? (
-            <div className="p-4 text-center text-stone-500">
+            <div className="p-4 text-center text-[var(--ink-faded)]">
               No results found for &ldquo;{query}&rdquo;
             </div>
           ) : (
@@ -170,14 +170,14 @@ export function Search({ accessLevel, placeholder = "Search content..." }: Searc
                     onMouseEnter={() => setSelectedIndex(index)}
                     className={`w-full px-4 py-3 text-left transition-colors ${
                       index === selectedIndex
-                        ? "bg-amber-900/30"
-                        : "hover:bg-stone-800"
+                        ? "bg-[var(--gold-shadow)]/30"
+                        : "hover:bg-[var(--study-wood)]"
                     }`}
                   >
-                    <div className="font-medium text-stone-100">
+                    <div className="font-medium text-[var(--parchment)]">
                       {result.title}
                     </div>
-                    <div className="text-xs text-stone-500 mt-0.5 capitalize">
+                    <div className="text-xs text-[var(--ink-faded)] mt-0.5 capitalize">
                       {result.category}
                     </div>
                   </button>

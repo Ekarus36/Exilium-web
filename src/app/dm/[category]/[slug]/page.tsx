@@ -55,8 +55,8 @@ export default async function DMDocumentPage({ params }: PageProps) {
 
       {/* DM indicator */}
       {document.secretKnowledge && (
-        <div className="mb-4 px-3 py-1.5 bg-amber-950/30 border border-amber-800/50 rounded-lg inline-block">
-          <span className="text-amber-300 text-sm font-medium">
+        <div className="mb-4 px-3 py-1.5 bg-[var(--vermillion-dark)]/20 border border-[var(--vermillion-dark)] rounded inline-block">
+          <span className="text-[var(--vermillion)] text-sm font-['Cinzel'] font-medium">
             Contains secret knowledge
           </span>
         </div>

@@ -1,8 +1,8 @@
 {
   "title": "@sveltejs/vite-plugin-svelte",
   "metadata": {},
-  "atAGlance": "",
-  "commonKnowledge": "",
+  "atAGlance": "```js\n// vite.config.js\nimport { defineConfig } from 'vite';\nimport { svelte } from '@sveltejs/vite-plugin-svelte';\n\nexport default defineConfig({\n  plugins: [\n    svelte({\n      /* plugin options */\n    })\n  ]\n});\n```",
+  "commonKnowledge": "### Documentation\n\n- [Plugin options](../../docs/config.md)\n- [FAQ](../../docs/faq.md)\n\n### License\n\n[MIT](./LICENSE)",
   "secretKnowledge": "",
   "seeAlso": [],
   "rawContent": "# @sveltejs/vite-plugin-svelte\n\nThe official [Svelte](https://svelte.dev) plugin for [Vite](https://vitejs.dev).\n\n## Usage\n\n```js\n// vite.config.js\nimport { defineConfig } from 'vite';\nimport { svelte } from '@sveltejs/vite-plugin-svelte';\n\nexport default defineConfig({\n  plugins: [\n    svelte({\n      /* plugin options */\n    })\n  ]\n});\n```\n\n## Documentation\n\n- [Plugin options](../../docs/config.md)\n- [FAQ](../../docs/faq.md)\n\n## License\n\n[MIT](./LICENSE)\n",

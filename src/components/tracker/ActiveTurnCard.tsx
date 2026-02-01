@@ -52,14 +52,14 @@ function ActionBlock({ title, actions }: { title: string; actions: Action[] }) {
 
   return (
     <div className="mb-4">
-      <h4 className="text-sm font-semibold text-amber-400 border-b border-slate-700 pb-1 mb-2">
+      <h4 className="text-sm font-semibold text-[var(--gold)] border-b border-[var(--gold-shadow)] pb-1 mb-2">
         {title}
       </h4>
       <div className="space-y-2">
         {actions.map((action, i) => (
           <div key={i}>
             <span className="font-semibold">{action.name}.</span>{" "}
-            <span className="text-slate-400">{action.description}</span>
+            <span className="text-[var(--parchment-aged)]">{action.description}</span>
           </div>
         ))}
       </div>
@@ -84,20 +84,20 @@ export function ActiveTurnCard({
   const hpColor = getHPColor(hp, maxHp);
 
   return (
-    <div className="bg-slate-800 rounded-lg border-2 border-amber-500 p-6 h-full overflow-y-auto">
+    <div className="bg-[var(--study-panel)] rounded border-2 border-[var(--gold)] p-6 h-full overflow-y-auto">
       {/* Header */}
       <div className="flex justify-between items-start mb-4">
         <div>
-          <h2 className="text-2xl font-bold text-amber-400">
+          <h2 className="text-2xl font-bold font-['Cinzel'] text-[var(--gold)]">
             {combatant.display_name || entity.name}
           </h2>
           {isPlayer(entity) && entity.character_class && (
-            <div className="text-slate-400">
+            <div className="text-[var(--parchment-aged)]">
               Level {entity.level} {entity.race} {entity.character_class}
             </div>
           )}
           {!isPlayer(entity) && (
-            <div className="text-slate-400">
+            <div className="text-[var(--parchment-aged)]">
               {entity.size} {entity.creature_type}
               {entity.challenge_rating && ` (CR ${entity.challenge_rating})`}
             </div>
@@ -111,25 +111,25 @@ export function ActiveTurnCard({
       </div>
 
       {/* Combat Stats Bar */}
-      <div className="grid grid-cols-4 gap-4 mb-4 p-3 bg-slate-700 rounded-lg">
+      <div className="grid grid-cols-4 gap-4 mb-4 p-3 bg-[var(--study-wood)] rounded">
         <div className="text-center">
-          <div className="text-xs text-slate-400">AC</div>
+          <div className="text-xs text-[var(--parchment-aged)]">AC</div>
           <div className="text-2xl font-bold">{entity.ac}</div>
         </div>
         <div className="text-center">
-          <div className="text-xs text-slate-400">HP</div>
+          <div className="text-xs text-[var(--parchment-aged)]">HP</div>
           <div className="text-2xl font-bold" style={{ color: hpColor }}>
             {formatHP(hp, maxHp)}
           </div>
         </div>
         <div className="text-center">
-          <div className="text-xs text-slate-400">Speed</div>
+          <div className="text-xs text-[var(--parchment-aged)]">Speed</div>
           <div className="text-2xl font-bold">
             {isPlayer(entity) ? entity.speed : entity.speed_walk} ft
           </div>
         </div>
         <div className="text-center">
-          <div className="text-xs text-slate-400">Initiative</div>
+          <div className="text-xs text-[var(--parchment-aged)]">Initiative</div>
           <div className="text-2xl font-bold">
             {formatModifier(
               isPlayer(entity)
@@ -141,7 +141,7 @@ export function ActiveTurnCard({
       </div>
 
       {/* HP Bar */}
-      <div className="h-3 bg-slate-700 rounded-full mb-4 overflow-hidden">
+      <div className="h-3 bg-[var(--study-wood)] rounded-full mb-4 overflow-hidden">
         <div
           className="h-full rounded-full transition-all"
           style={{ width: `${hpPct}%`, backgroundColor: hpColor }}
@@ -152,7 +152,7 @@ export function ActiveTurnCard({
       <div className="flex gap-2 mb-4">
         <button
           onClick={onDamage}
-          className="px-4 py-2 bg-red-600 hover:bg-red-500 rounded text-sm font-semibold transition-colors"
+          className="px-4 py-2 bg-[var(--vermillion-dark)] hover:bg-[var(--vermillion)] rounded text-sm font-semibold transition-colors"
         >
           Damage (D)
         </button>
@@ -164,7 +164,7 @@ export function ActiveTurnCard({
         </button>
         <button
           onClick={onCondition}
-          className="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded text-sm font-semibold transition-colors"
+          className="px-4 py-2 bg-[var(--study-wood)] hover:bg-[var(--study-wood)] rounded text-sm font-semibold transition-colors"
         >
           Condition (C)
         </button>
@@ -208,7 +208,7 @@ export function ActiveTurnCard({
       {/* Active Conditions */}
       {combatant.conditions.length > 0 && (
         <div className="mb-4">
-          <h4 className="text-sm font-semibold text-amber-400 mb-2">
+          <h4 className="text-sm font-semibold text-[var(--gold)] mb-2">
             Active Conditions
           </h4>
           <div className="flex flex-wrap gap-2">
@@ -232,11 +232,11 @@ export function ActiveTurnCard({
           return (
             <div
               key={ability}
-              className="text-center p-2 bg-slate-700 rounded"
+              className="text-center p-2 bg-[var(--study-wood)] rounded"
             >
-              <div className="text-xs text-slate-400">{ABILITY_ABBR[ability]}</div>
+              <div className="text-xs text-[var(--parchment-aged)]">{ABILITY_ABBR[ability]}</div>
               <div className="text-lg font-bold">{score}</div>
-              <div className="text-sm text-amber-400">{formatModifier(mod)}</div>
+              <div className="text-sm text-[var(--gold)]">{formatModifier(mod)}</div>
             </div>
           );
         })}
@@ -245,14 +245,14 @@ export function ActiveTurnCard({
       {/* Saving Throws */}
       {Object.keys(entity.saving_throws).length > 0 && (
         <div className="mb-4">
-          <h4 className="text-sm font-semibold text-amber-400 mb-2">
+          <h4 className="text-sm font-semibold text-[var(--gold)] mb-2">
             Saving Throws
           </h4>
           <div className="flex flex-wrap gap-2">
             {Object.entries(entity.saving_throws).map(([key, value]) => (
               <span
                 key={key}
-                className="bg-slate-700 px-2 py-1 rounded text-sm"
+                className="bg-[var(--study-wood)] px-2 py-1 rounded text-sm"
               >
                 {key.toUpperCase()} {formatModifier(value as number)}
               </span>
@@ -264,12 +264,12 @@ export function ActiveTurnCard({
       {/* Skills */}
       {Object.keys(entity.skills).length > 0 && (
         <div className="mb-4">
-          <h4 className="text-sm font-semibold text-amber-400 mb-2">Skills</h4>
+          <h4 className="text-sm font-semibold text-[var(--gold)] mb-2">Skills</h4>
           <div className="flex flex-wrap gap-2">
             {Object.entries(entity.skills).map(([key, value]) => (
               <span
                 key={key}
-                className="bg-slate-700 px-2 py-1 rounded text-sm"
+                className="bg-[var(--study-wood)] px-2 py-1 rounded text-sm"
               >
                 {key} {formatModifier(value as number)}
               </span>
@@ -327,7 +327,7 @@ export function ActiveTurnCard({
       {/* Player Features */}
       {isPlayer(entity) && entity.features.length > 0 && (
         <div className="mb-4">
-          <h4 className="text-sm font-semibold text-amber-400 border-b border-slate-700 pb-1 mb-2">
+          <h4 className="text-sm font-semibold text-[var(--gold)] border-b border-[var(--gold-shadow)] pb-1 mb-2">
             Features
           </h4>
           <ul className="list-disc list-inside text-sm space-y-1">

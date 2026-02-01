@@ -20,7 +20,7 @@ export function WikiLayout({
   const titleHref = variant === "player" ? "/player" : "/dm";
 
   return (
-    <div className="min-h-screen bg-stone-950">
+    <div className="min-h-screen bg-[var(--study-dark)]">
       <Header variant={variant} />
       <div className="flex">
         <Sidebar navigation={navigation} title={title} titleHref={titleHref} />

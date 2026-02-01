@@ -1,5 +1,6 @@
+import Link from "next/link";
 import { SearchWrapper } from "@/components/content/SearchWrapper";
-import { EyeIcon, KeyIcon, MasksIcon } from "@/components/ui/Icons";
+import { EyeIcon, KeyIcon, MasksIcon, GlobeIcon, HexagonIcon, HourglassIcon, SwordsIcon, SunIcon, CrownIcon } from "@/components/ui/Icons";
 
 export const metadata = {
   title: "DM Guide",
@@ -34,7 +35,7 @@ export default function DMHomePage() {
 
       <div className="prose max-w-none">
         <h2>Dungeon Master Content</h2>
-        <p className="drop-cap">
+        <p>
           This tome includes everything from the Player&apos;s Codex plus the hidden
           truths that shape this world:
         </p>
@@ -82,11 +83,50 @@ export default function DMHomePage() {
           </ul>
         </div>
 
-        <h2>Navigation</h2>
+        <h2>Browse the Archives</h2>
+        <div className="grid md:grid-cols-2 gap-4 not-prose my-8">
+          <DMCategoryCard
+            href="/dm/world"
+            title="World"
+            description="Core systems: religion, magic, distances"
+            icon={<GlobeIcon size={22} />}
+          />
+          <DMCategoryCard
+            href="/dm/geography"
+            title="Geography"
+            description="Locations by region with hidden details"
+            icon={<HexagonIcon size={22} />}
+          />
+          <DMCategoryCard
+            href="/dm/history"
+            title="History"
+            description="Timeline and the true causes behind events"
+            icon={<HourglassIcon size={22} />}
+          />
+          <DMCategoryCard
+            href="/dm/factions"
+            title="Factions"
+            description="Political powers, secret agendas, alliances"
+            icon={<SwordsIcon size={22} />}
+          />
+          <DMCategoryCard
+            href="/dm/peoples"
+            title="Peoples"
+            description="Cultures, races, and hidden truths"
+            icon={<SunIcon size={22} />}
+          />
+          <DMCategoryCard
+            href="/dm/npcs"
+            title="NPCs"
+            description="Characters with full motivations revealed"
+            icon={<CrownIcon size={22} />}
+          />
+        </div>
+
         <p>
-          Use the sidebar to explore. Content mirrors the Player Guide structure
-          but includes all tiers of information — the complete truth behind each
-          entry.
+          Use the sidebar or cards above to explore. Content mirrors the Player
+          Guide structure but includes all tiers of information — the complete
+          truth behind each entry.
         </p>
       </div>
     </div>
@@ -116,5 +156,43 @@ function SecretCard({
         </p>
       </div>
     </div>
+  );
+}
+
+function DMCategoryCard({
+  href,
+  title,
+  description,
+  icon,
+}: {
+  href: string;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      className="group flex items-start gap-4 p-4 rounded
+        bg-gradient-to-r from-[var(--study-panel)] to-[rgba(139,42,29,0.05)]
+        border border-[var(--vermillion-dark)]/20
+        transition-all duration-300 hover:border-[var(--vermillion-dark)]/50
+        hover:shadow-[0_0_20px_rgba(139,42,29,0.08)] hover:-translate-y-0.5"
+    >
+      <div className="text-[var(--vermillion-dark)] group-hover:text-[var(--vermillion)] transition-colors duration-300 mt-0.5 shrink-0">
+        {icon}
+      </div>
+      <div className="flex-1 min-w-0">
+        <h3 className="font-['Cinzel',serif] text-base text-[var(--gold)] group-hover:text-[var(--gold-bright)] transition-colors duration-300 mb-0.5">
+          {title}
+        </h3>
+        <p className="text-[var(--parchment-aged)] text-sm leading-relaxed">
+          {description}
+        </p>
+      </div>
+      <span className="text-[var(--vermillion-dark)] opacity-0 group-hover:opacity-60 transition-all duration-300 group-hover:translate-x-0.5 mt-1 shrink-0">
+        ›
+      </span>
+    </Link>
   );
 }

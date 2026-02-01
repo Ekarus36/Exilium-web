@@ -43,8 +43,8 @@
       "category": "world",
       "title": "Cultural Systems",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
+        "atAGlance": true,
+        "commonKnowledge": true,
         "secretKnowledge": false
       }
     },
@@ -53,8 +53,8 @@
       "category": "world",
       "title": "Exilium - World Geography",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
+        "atAGlance": true,
+        "commonKnowledge": true,
         "secretKnowledge": false
       }
     },
@@ -63,8 +63,8 @@
       "category": "world",
       "title": "Magic Items in Exilium",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
+        "atAGlance": true,
+        "commonKnowledge": true,
         "secretKnowledge": false
       }
     },
@@ -73,7 +73,7 @@
       "category": "world",
       "title": "Magic Users in Exilium",
       "hasSections": {
-        "atAGlance": false,
+        "atAGlance": true,
         "commonKnowledge": false,
         "secretKnowledge": false
       }
@@ -83,9 +83,9 @@
       "category": "world",
       "title": "Religion in Exilium - The One God, Many Names",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -93,8 +93,8 @@
       "category": "world",
       "title": "World Geography",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
+        "atAGlance": true,
+        "commonKnowledge": true,
         "secretKnowledge": false
       }
     },
@@ -103,8 +103,8 @@
       "category": "world",
       "title": "World Overview - Exilium",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
+        "atAGlance": true,
+        "commonKnowledge": true,
         "secretKnowledge": false
       }
     },
@@ -115,7 +115,7 @@
       "hasSections": {
         "atAGlance": true,
         "commonKnowledge": false,
-        "secretKnowledge": false
+        "secretKnowledge": true
       }
     },
     {
@@ -193,9 +193,9 @@
       "category": "geography",
       "title": "The Elven Enclaves",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -223,8 +223,8 @@
       "category": "geography",
       "title": "Veraheim - City Layout & Structure",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
+        "atAGlance": true,
+        "commonKnowledge": true,
         "secretKnowledge": false
       }
     },
@@ -233,8 +233,8 @@
       "category": "geography",
       "title": "Veraheim - Demographics & Racial Composition",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
+        "atAGlance": true,
+        "commonKnowledge": true,
         "secretKnowledge": false
       }
     },
@@ -283,8 +283,8 @@
       "category": "history",
       "title": "Timeline - Major Events",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
+        "atAGlance": true,
+        "commonKnowledge": true,
         "secretKnowledge": false
       }
     },
@@ -383,8 +383,8 @@
       "category": "npcs",
       "title": "Aloria - NPC Summary",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
+        "atAGlance": true,
+        "commonKnowledge": true,
         "secretKnowledge": false
       }
     },
@@ -523,9 +523,9 @@
       "category": "npcs",
       "title": "The Eleven Lords - Relationships and Alliances",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -563,7 +563,7 @@
       "category": "npcs",
       "title": "Broken Isles - NPC Summary",
       "hasSections": {
-        "atAGlance": false,
+        "atAGlance": true,
         "commonKnowledge": false,
         "secretKnowledge": false
       }
@@ -663,9 +663,9 @@
       "category": "npcs",
       "title": "Aelindir Graceborn",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -673,9 +673,9 @@
       "category": "npcs",
       "title": "Aelindra Songweaver",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -683,9 +683,9 @@
       "category": "npcs",
       "title": "Aerindel Silvarion",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -693,9 +693,9 @@
       "category": "npcs",
       "title": "Caelorin Silvervow",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -703,9 +703,9 @@
       "category": "npcs",
       "title": "Caelorn Sunblade",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -723,9 +723,9 @@
       "category": "npcs",
       "title": "Caladir Inkwell",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -733,9 +733,9 @@
       "category": "npcs",
       "title": "Faelindor Goldweave",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -753,9 +753,9 @@
       "category": "npcs",
       "title": "Galadhorn Coinward",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -763,9 +763,9 @@
       "category": "npcs",
       "title": "Galathorn the Elder",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -773,9 +773,9 @@
       "category": "npcs",
       "title": "Galdorin Sorrowbane",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -783,8 +783,8 @@
       "category": "npcs",
       "title": "Imperial Court of Aelindor - Overview",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
+        "atAGlance": true,
+        "commonKnowledge": true,
         "secretKnowledge": false
       }
     },
@@ -803,9 +803,9 @@
       "category": "npcs",
       "title": "Lady Ithilwen Thelindor",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -823,9 +823,9 @@
       "category": "npcs",
       "title": "Lord Caelindor Aeravel",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -833,9 +833,9 @@
       "category": "npcs",
       "title": "Lord Mythrandil Vaelindis",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -853,9 +853,9 @@
       "category": "npcs",
       "title": "Miravel Dawnseeker",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -873,9 +873,9 @@
       "category": "npcs",
       "title": "Orinvel Starwhisper",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -893,9 +893,9 @@
       "category": "npcs",
       "title": "Silindra Moonshadow",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -903,9 +903,9 @@
       "category": "npcs",
       "title": "Thaelindra Quillsong",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -933,8 +933,8 @@
       "category": "npcs",
       "title": "Thelassian - NPC Summary",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
+        "atAGlance": true,
+        "commonKnowledge": true,
         "secretKnowledge": false
       }
     },
@@ -953,9 +953,9 @@
       "category": "npcs",
       "title": "Thorindel Irongate",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -963,9 +963,9 @@
       "category": "npcs",
       "title": "Vaelandor Shieldsworn",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -973,9 +973,9 @@
       "category": "npcs",
       "title": "Vaelithra Farseer",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -983,9 +983,9 @@
       "category": "npcs",
       "title": "Vaelorin Spellward",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -993,9 +993,9 @@
       "category": "npcs",
       "title": "Vaelorn Steelwind",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
+        "atAGlance": true,
+        "commonKnowledge": true,
+        "secretKnowledge": true
       }
     },
     {
@@ -1103,848 +1103,8 @@
       "category": "npcs",
       "title": "Veraheim - NPC Summary",
       "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "sv",
-      "category": "misc",
-      "title": "sv",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "esbuild",
-      "category": "misc",
-      "title": "esbuild",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "jridgewellgen-mapping",
-      "category": "misc",
-      "title": "@jridgewell/gen-mapping",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "jridgewellremapping",
-      "category": "misc",
-      "title": "@jridgewell/remapping",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "jridgewellresolve-uri",
-      "category": "misc",
-      "title": "@jridgewell/resolve-uri",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "jridgewellsourcemap-codec",
-      "category": "misc",
-      "title": "@jridgewell/sourcemap-codec",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "jridgewelltrace-mapping",
-      "category": "misc",
-      "title": "@jridgewell/trace-mapping",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "skr-canvas",
-      "category": "misc",
-      "title": "`skr canvas`",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "napi-rscanvas-darwin-arm64",
-      "category": "misc",
-      "title": "`@napi-rs/canvas-darwin-arm64`",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "polkaurl-npmhttpsbadgennowshnpmvpolkaurlhttpsnpmjsorgpackagepolkaurl-licenseshttpslicensesdevbnpm40polka2furlhttpslicensesdevnpm40polka2furl",
-      "category": "misc",
-      "title": "@polka/url [![npm](https://badgen.now.sh/npm/v/@polka/url)](https://npmjs.org/package/@polka/url) [![licenses](https://licenses.dev/b/npm/%40polka%2Furl)](https://licenses.dev/npm/%40polka%2Furl)",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "rolluprollup-darwin-arm64",
-      "category": "misc",
-      "title": "`@rollup/rollup-darwin-arm64`",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "untitled",
-      "category": "misc",
-      "title": "Untitled",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "untitled",
-      "category": "misc",
-      "title": "Untitled",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "sveltejsacorn-typescript",
-      "category": "misc",
-      "title": "@sveltejs/acorn-typescript",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "adapter-auto",
-      "category": "misc",
-      "title": "adapter-auto",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "sveltejsadapter-static",
-      "category": "misc",
-      "title": "@sveltejs/adapter-static",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "the-fastest-way-to-build-svelte-apps",
-      "category": "misc",
-      "title": "The fastest way to build Svelte apps",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "untitled",
-      "category": "misc",
-      "title": "Untitled",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "untitled",
-      "category": "misc",
-      "title": "Untitled",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "untitled",
-      "category": "misc",
-      "title": "Untitled",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "untitled",
-      "category": "misc",
-      "title": "Untitled",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "untitled",
-      "category": "misc",
-      "title": "Untitled",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "sveltejsvite-plugin-svelte",
-      "category": "misc",
-      "title": "@sveltejs/vite-plugin-svelte",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "sveltejsvite-plugin-svelte-inspector",
-      "category": "misc",
-      "title": "@sveltejs/vite-plugin-svelte-inspector",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "changelog",
-      "category": "misc",
-      "title": "Changelog",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "tauri-appsapi",
-      "category": "misc",
-      "title": "@tauri-apps/api",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "changelog",
-      "category": "misc",
-      "title": "Changelog",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "tauri-appscli",
-      "category": "misc",
-      "title": "@tauri-apps/cli",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "tauri-appscli-darwin-arm64",
-      "category": "misc",
-      "title": "`@tauri-apps/cli-darwin-arm64`",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "alternatively-with-git",
-      "category": "misc",
-      "title": "alternatively with Git:",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "installation",
-      "category": "misc",
-      "title": "Installation",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "installation",
-      "category": "misc",
-      "title": "Installation",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "untitled",
-      "category": "misc",
-      "title": "Untitled",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "acorn",
-      "category": "misc",
-      "title": "Acorn",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "aria-query",
-      "category": "misc",
-      "title": "ARIA Query",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "axobject-query",
-      "category": "misc",
-      "title": "AXObject Query",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "chokidar-weekly-downloadshttpsimgshieldsionpmdwchokidarsvghttpsgithubcompaulmillrchokidar",
-      "category": "misc",
-      "title": "Chokidar [![Weekly downloads](https://img.shields.io/npm/dw/chokidar.svg)](https://github.com/paulmillr/chokidar)",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "clsx-cihttpsgithubcomlukeedclsxworkflowscibadgesvghttpsgithubcomlukeedclsxactionsqueryworkflow3aci-codecovhttpsbadgennetcodecovcgithublukeedclsxhttpscodecovioghlukeedclsx-licenseshttpslicensesdevbnpmclsxhttpslicensesdevnpmclsx",
-      "category": "misc",
-      "title": "clsx [![CI](https://github.com/lukeed/clsx/workflows/CI/badge.svg)](https://github.com/lukeed/clsx/actions?query=workflow%3ACI) [![codecov](https://badgen.net/codecov/c/github/lukeed/clsx)](https://codecov.io/gh/lukeed/clsx) [![licenses](https://licenses.dev/b/npm/clsx)](https://licenses.dev/npm/clsx)",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "untitled",
-      "category": "misc",
-      "title": "Untitled",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "cookie",
-      "category": "misc",
-      "title": "cookie",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "security-policies-and-procedures",
-      "category": "misc",
-      "title": "Security Policies and Procedures",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "431httpsgithubcomtehshrikedeepmergereleasestagv431",
-      "category": "misc",
-      "title": "[4.3.1](https://github.com/TehShrike/deepmerge/releases/tag/v4.3.1)",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "deepmerge",
-      "category": "misc",
-      "title": "deepmerge",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "devalue",
-      "category": "misc",
-      "title": "devalue",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "untitled",
-      "category": "misc",
-      "title": "Untitled",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "esbuild",
-      "category": "misc",
-      "title": "esbuild",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "esm-env",
-      "category": "misc",
-      "title": "esm-env",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "esm-env",
-      "category": "misc",
-      "title": "esm-env",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "esrap",
-      "category": "misc",
-      "title": "esrap",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "untitled",
-      "category": "misc",
-      "title": "Untitled",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "fsevents",
-      "category": "misc",
-      "title": "fsevents",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "is-reference",
-      "category": "misc",
-      "title": "is-reference",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "all-colors",
-      "category": "misc",
-      "title": "All Colors",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "locate-character",
-      "category": "misc",
-      "title": "locate-character",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "magic-string",
-      "category": "misc",
-      "title": "magic-string",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "untitled",
-      "category": "misc",
-      "title": "Untitled",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "mri-cihttpsgithubcomlukeedmriworkflowscibadgesvgbranchmastereventpushhttpsgithubcomlukeedmriactions",
-      "category": "misc",
-      "title": "mri [![CI](https://github.com/lukeed/mri/workflows/CI/badge.svg?branch=master&event=push)](https://github.com/lukeed/mri/actions)",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "untitled",
-      "category": "misc",
-      "title": "Untitled",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "nano-id",
-      "category": "misc",
-      "title": "Nano ID",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "obug",
-      "category": "misc",
-      "title": "obug",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "community-participation-guidelines",
-      "category": "misc",
-      "title": "Community Participation Guidelines",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "pdfjs",
-      "category": "misc",
-      "title": "PDF.js",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "picocolors",
-      "category": "misc",
-      "title": "picocolors",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "makere-star",
-      "category": "misc",
-      "title": ".makeRe star (*)",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "postcss",
-      "category": "misc",
-      "title": "PostCSS",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "readdirp-weekly-downloadshttpsimgshieldsionpmdwreaddirpsvghttpsgithubcompaulmillrreaddirp",
-      "category": "misc",
-      "title": "readdirp [![Weekly downloads](https://img.shields.io/npm/dw/readdirp.svg)](https://github.com/paulmillr/readdirp)",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "rollup-core-license",
-      "category": "misc",
-      "title": "Rollup core license",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "compile-to-a-script-containing-a-self-executing-function",
-      "category": "misc",
-      "title": "compile to a <script> containing a self-executing function",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "sade-build-statushttpstravis-ciorglukeedsadesvgbranchmasterhttpstravis-ciorglukeedsade",
-      "category": "misc",
-      "title": "sade [![Build Status](https://travis-ci.org/lukeed/sade.svg?branch=master)](https://travis-ci.org/lukeed/sade)",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "set-cookie-parser",
-      "category": "misc",
-      "title": "set-cookie-parser",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "sirv-cihttpsgithubcomlukeedsirvworkflowscibadgesvg",
-      "category": "misc",
-      "title": "sirv ![CI](https://github.com/lukeed/sirv/workflows/CI/badge.svg)",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "source-map-js",
-      "category": "misc",
-      "title": "Source Map JS",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "untitled",
-      "category": "misc",
-      "title": "Untitled",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "untitled",
-      "category": "misc",
-      "title": "Untitled",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "check-your-code-with-svelte-check",
-      "category": "misc",
-      "title": "Check your code with svelte-check",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "tinyglobby",
-      "category": "misc",
-      "title": "tinyglobby",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "totalist-build-statushttpsbadgennowshgithubstatuslukeedtotalisthttpsgithubcomlukeedtotalistactions-codecovhttpsbadgennowshcodecovcgithublukeedtotalisthttpscodecovioghlukeedtotalist",
-      "category": "misc",
-      "title": "totalist [![build status](https://badgen.now.sh/github/status/lukeed/totalist)](https://github.com/lukeed/totalist/actions) [![codecov](https://badgen.now.sh/codecov/c/github/lukeed/totalist)](https://codecov.io/gh/lukeed/totalist)",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "typescript",
-      "category": "misc",
-      "title": "TypeScript",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "untitled",
-      "category": "misc",
-      "title": "Untitled",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "vite-core-license",
-      "category": "misc",
-      "title": "Vite core license",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "vite",
-      "category": "misc",
-      "title": "Vite ⚡",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "vitefu",
-      "category": "misc",
-      "title": "vitefu",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "zimmerframe",
-      "category": "misc",
-      "title": "zimmerframe",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
-        "secretKnowledge": false
-      }
-    },
-    {
-      "slug": "use-rust_decimaldecimal",
-      "category": "misc",
-      "title": "use rust_decimal::Decimal;",
-      "hasSections": {
-        "atAGlance": false,
-        "commonKnowledge": false,
+        "atAGlance": true,
+        "commonKnowledge": true,
         "secretKnowledge": false
       }
     }
@@ -2162,5 +1322,5 @@
     "use rust_decimal::Decimal;": "/misc/use-rust_decimaldecimal",
     "README-lib": "/misc/use-rust_decimaldecimal"
   },
-  "generatedAt": "2026-01-29T16:56:19.157Z"
+  "generatedAt": "2026-02-01T06:37:46.801Z"
 }

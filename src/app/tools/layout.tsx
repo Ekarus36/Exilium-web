@@ -6,7 +6,7 @@ export default function ToolsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-stone-950">
+    <div className="min-h-screen bg-[var(--study-dark)]">
       <Header variant="tools" />
       <main>{children}</main>
     </div>

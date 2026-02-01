@@ -1,8 +1,8 @@
 {
   "title": "sv",
   "metadata": {},
-  "atAGlance": "",
-  "commonKnowledge": "",
+  "atAGlance": "If you're seeing this, you've probably already done this step. Congrats!\n\n```sh\n# create a new project\nnpx sv create my-app\n```\n\nTo recreate this project with the same configuration:\n\n```sh\n# recreate this project\nnpx sv create --template minimal --types ts --install npm .\n```",
+  "commonKnowledge": "### Developing\n\nOnce you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:\n\n```sh\nnpm run dev\n\n# or start the server and open the app in a new browser tab\nnpm run dev -- --open\n```\n\n### Building\n\nTo create a production version of your app:\n\n```sh\nnpm run build\n```\n\nYou can preview the production build with `npm run preview`.\n\n> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.",
   "secretKnowledge": "",
   "seeAlso": [],
   "rawContent": "# sv\n\nEverything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).\n\n## Creating a project\n\nIf you're seeing this, you've probably already done this step. Congrats!\n\n```sh\n# create a new project\nnpx sv create my-app\n```\n\nTo recreate this project with the same configuration:\n\n```sh\n# recreate this project\nnpx sv create --template minimal --types ts --install npm .\n```\n\n## Developing\n\nOnce you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:\n\n```sh\nnpm run dev\n\n# or start the server and open the app in a new browser tab\nnpm run dev -- --open\n```\n\n## Building\n\nTo create a production version of your app:\n\n```sh\nnpm run build\n```\n\nYou can preview the production build with `npm run preview`.\n\n> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.\n",

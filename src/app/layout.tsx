@@ -7,8 +7,21 @@ export const metadata: Metadata = {
     default: "Exilium",
     template: "%s | Exilium",
   },
-  description: "A D&D 5e campaign setting and DM toolkit",
-  keywords: ["D&D", "5e", "campaign setting", "DM tools", "initiative tracker"],
+  description: "A D&D 5e campaign setting and DM toolkit — explore the world of Exilium through an ancient cartographer's study",
+  keywords: ["D&D", "5e", "campaign setting", "DM tools", "initiative tracker", "Exilium", "TTRPG"],
+  openGraph: {
+    title: "Exilium",
+    description: "A D&D 5e campaign setting and DM toolkit",
+    type: "website",
+    locale: "en_US",
+    siteName: "Exilium",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Exilium",
+    description: "A D&D 5e campaign setting and DM toolkit",
+  },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://exilium.app"),
 };
 
 export default function RootLayout({

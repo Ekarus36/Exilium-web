@@ -117,18 +117,6 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: 0 2px 4px var(--shadow-deep);
 }
 
-/* Drop Cap for first paragraph */
-.prose p:first-of-type::first-letter,
-.drop-cap::first-letter {
-  font-family: 'IM Fell English', serif;
-  font-size: 3.5em;
-  float: left;
-  line-height: 0.8;
-  padding-right: 0.1em;
-  padding-top: 0.1em;
-  color: var(--gold);
-  text-shadow: 2px 2px 0 var(--gold-shadow);
-}
 
 /* Italic accent text */
 .accent-text {
@@ -509,11 +497,7 @@ label {
 }
 
 .card-warning::before {
-  content: '⚠';
-  display: block;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: var(--vermillion);
+  content: none;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
