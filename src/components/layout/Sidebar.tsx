@@ -10,9 +10,11 @@ interface SidebarProps {
   navigation: NavigationConfig;
   title: string;
   titleHref: string;
+  isOpen?: boolean;
+  onClose?: () => void;
 }
 
-export function Sidebar({ navigation, title, titleHref }: SidebarProps) {
+export function Sidebar({ navigation, title, titleHref, isOpen = false, onClose }: SidebarProps) {
   const pathname = usePathname();
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
 
@@ -59,8 +61,23 @@ export function Sidebar({ navigation, title, titleHref }: SidebarProps) {
     });
   };
 
+  const handleNavClick = () => {
+    // Close sidebar on mobile when a nav link is clicked
+    if (onClose) onClose();
+  };
+
   return (
-    <aside className="sidebar-container">
+    <aside className={`sidebar-container ${isOpen ? "sidebar-open" : ""}`}>
+      {/* Close button for mobile */}
+      {onClose && (
+        <button
+          onClick={onClose}
+          className="sidebar-close-btn"
+          aria-label="Close sidebar"
+        >
+          ✕
+        </button>
+      )}
       {/* Decorative top border */}
       <div className="sidebar-top-border" />
 
@@ -98,6 +115,7 @@ export function Sidebar({ navigation, title, titleHref }: SidebarProps) {
               toggleSection={toggleSection}
               path={[section.label]}
               depth={0}
+              onNavClick={handleNavClick}
             />
           ))}
         </ul>
@@ -112,8 +130,6 @@ export function Sidebar({ navigation, title, titleHref }: SidebarProps) {
         .sidebar-container {
           width: 18rem;
           height: 100vh;
-          position: sticky;
-          top: 0;
           overflow-y: auto;
           display: flex;
           flex-direction: column;
@@ -128,6 +144,56 @@ export function Sidebar({ navigation, title, titleHref }: SidebarProps) {
               rgba(255, 255, 255, 0.008) 2px,
               rgba(255, 255, 255, 0.008) 4px
             );
+          /* Mobile: fixed off-screen, slide in */
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 40;
+          transform: translateX(-100%);
+          transition: transform 0.3s ease;
+        }
+
+        .sidebar-container.sidebar-open {
+          transform: translateX(0);
+        }
+
+        /* Desktop: always visible, sticky */
+        @media (min-width: 1024px) {
+          .sidebar-container {
+            position: sticky;
+            transform: translateX(0);
+            z-index: auto;
+          }
+        }
+
+        .sidebar-close-btn {
+          position: absolute;
+          top: 0.75rem;
+          right: 0.75rem;
+          z-index: 10;
+          width: 2rem;
+          height: 2rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: none;
+          background: transparent;
+          color: var(--gold-dark);
+          font-size: 1rem;
+          cursor: pointer;
+          border-radius: 4px;
+          transition: all 0.25s ease;
+        }
+
+        .sidebar-close-btn:hover {
+          color: var(--gold);
+          background: rgba(184, 148, 61, 0.1);
+        }
+
+        @media (min-width: 1024px) {
+          .sidebar-close-btn {
+            display: none;
+          }
         }
 
         .sidebar-top-border {
@@ -286,6 +352,7 @@ interface NavSectionProps {
   toggleSection: (key: string) => void;
   path: string[];
   depth: number;
+  onNavClick?: () => void;
 }
 
 function NavSection({
@@ -295,6 +362,7 @@ function NavSection({
   toggleSection,
   path,
   depth,
+  onNavClick,
 }: NavSectionProps) {
   const pathKey = path.join("/");
   const isExpanded = expandedSections.has(pathKey);
@@ -314,6 +382,7 @@ function NavSection({
           href={item.href}
           className={`nav-link ${isActive ? "nav-link-active" : ""}`}
           style={{ paddingLeft: `${paddingLeft}px` }}
+          onClick={onNavClick}
         >
           {IconComponent && (
             <span className="nav-icon">
@@ -425,6 +494,7 @@ function NavSection({
               toggleSection={toggleSection}
               path={[...path, child.label]}
               depth={depth + 1}
+              onNavClick={onNavClick}
             />
           ))}
         </ul>

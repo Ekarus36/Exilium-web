@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { useAuth } from "@/lib/supabase/auth-context";
-import { HomeIcon, MoonIcon } from "@/components/ui/Icons";
+import { HomeIcon, MoonIcon, MenuIcon } from "@/components/ui/Icons";
 
 interface HeaderProps {
   variant: "player" | "dm" | "tools";
+  onMenuToggle?: () => void;
 }
 
-export function Header({ variant }: HeaderProps) {
+export function Header({ variant, onMenuToggle }: HeaderProps) {
   const { user, signOut, isLoading } = useAuth();
 
   return (
@@ -17,8 +18,18 @@ export function Header({ variant }: HeaderProps) {
       <div className="header-accent" />
 
       <div className="header-inner">
-        {/* Left - Home + Section switcher */}
+        {/* Left - Menu + Home + Section switcher */}
         <div className="header-nav">
+          {onMenuToggle && (
+            <button
+              onClick={onMenuToggle}
+              className="header-menu-btn"
+              title="Toggle sidebar"
+              aria-label="Toggle sidebar"
+            >
+              <MenuIcon size={20} />
+            </button>
+          )}
           <Link
             href="/"
             className="header-home"
@@ -146,6 +157,35 @@ export function Header({ variant }: HeaderProps) {
         .header-home:hover {
           color: var(--gold);
           background: rgba(184, 148, 61, 0.1);
+        }
+
+        .header-menu-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 2.25rem;
+          height: 2.25rem;
+          border-radius: 4px;
+          color: var(--gold-dark);
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          transition: all 0.25s ease;
+        }
+
+        .header-menu-btn :global(svg) {
+          stroke: currentColor;
+        }
+
+        .header-menu-btn:hover {
+          color: var(--gold);
+          background: rgba(184, 148, 61, 0.1);
+        }
+
+        @media (min-width: 1024px) {
+          .header-menu-btn {
+            display: none;
+          }
         }
 
         .header-divider {
