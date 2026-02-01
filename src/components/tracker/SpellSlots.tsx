@@ -40,8 +40,8 @@ export function SpellSlots({ combatantId, player, slotsUsed }: SpellSlotsProps) 
                     key={i}
                     className={`w-3 h-3 rounded-full border ${
                       i < remaining
-                        ? "bg-blue-500 border-blue-500"
-                        : "border-blue-500/50"
+                        ? "bg-[var(--gold)] border-[var(--gold)]"
+                        : "border-[var(--gold-dark)]/50"
                     }`}
                   />
                 ))}
@@ -50,14 +50,14 @@ export function SpellSlots({ combatantId, player, slotsUsed }: SpellSlotsProps) 
                 <button
                   onClick={() => useSpellSlot(combatantId, parseInt(level))}
                   disabled={remaining <= 0}
-                  className="text-xs px-1.5 py-0.5 bg-red-600 hover:bg-red-500 disabled:bg-gray-600 disabled:cursor-not-allowed rounded transition-colors"
+                  className="text-xs px-1.5 py-0.5 bg-[var(--vermillion-dark)] hover:bg-[var(--vermillion)] disabled:bg-[var(--study-panel)] disabled:text-[var(--parchment-aged)]/40 disabled:cursor-not-allowed rounded transition-colors"
                 >
                   -
                 </button>
                 <button
                   onClick={() => restoreSpellSlot(combatantId, parseInt(level))}
                   disabled={used <= 0}
-                  className="text-xs px-1.5 py-0.5 bg-green-600 hover:bg-green-500 disabled:bg-gray-600 disabled:cursor-not-allowed rounded transition-colors"
+                  className="text-xs px-1.5 py-0.5 bg-[var(--gold-dark)] hover:bg-[var(--gold)] disabled:bg-[var(--study-panel)] disabled:text-[var(--parchment-aged)]/40 disabled:cursor-not-allowed rounded transition-colors"
                 >
                   +
                 </button>

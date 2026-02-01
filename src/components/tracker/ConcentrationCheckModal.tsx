@@ -25,13 +25,13 @@ export function ConcentrationCheckModal() {
         <div className="flex gap-3">
           <button
             onClick={passConcentrationCheck}
-            className="flex-1 px-4 py-2 bg-green-600 hover:bg-green-500 rounded font-semibold transition-colors"
+            className="flex-1 px-4 py-2 bg-[var(--gold-dark)] hover:bg-[var(--gold)] rounded font-semibold transition-colors"
           >
             Passed
           </button>
           <button
             onClick={failConcentrationCheck}
-            className="flex-1 px-4 py-2 bg-red-600 hover:bg-red-500 rounded font-semibold transition-colors"
+            className="flex-1 px-4 py-2 bg-[var(--vermillion-dark)] hover:bg-[var(--vermillion)] rounded font-semibold transition-colors"
           >
             Failed
           </button>

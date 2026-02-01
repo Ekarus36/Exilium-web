@@ -122,8 +122,8 @@ export function CombatantCard({
                 key={`s-${i}`}
                 className={`w-2.5 h-2.5 rounded-full border ${
                   i < combatant.death_save_successes
-                    ? "bg-green-500 border-green-500"
-                    : "border-green-500/50"
+                    ? "bg-[var(--gold)] border-[var(--gold)]"
+                    : "border-[var(--gold-dark)]/50"
                 }`}
               />
             ))}
@@ -135,8 +135,8 @@ export function CombatantCard({
                 key={`f-${i}`}
                 className={`w-2.5 h-2.5 rounded-full border ${
                   i < combatant.death_save_failures
-                    ? "bg-red-500 border-red-500"
-                    : "border-red-500/50"
+                    ? "bg-[var(--vermillion)] border-[var(--vermillion)]"
+                    : "border-[var(--vermillion-dark)]/50"
                 }`}
               />
             ))}
@@ -183,7 +183,7 @@ export function CombatantCard({
 
       {/* Creature: Legendary Actions remaining */}
       {!isPlayer(entity) && entity.legendary_action_count > 0 && (
-        <div className="text-xs text-yellow-400 mb-1">
+        <div className="text-xs text-[var(--gold)] mb-1">
           Legendary:{" "}
           {entity.legendary_action_count - combatant.legendary_actions_used}/
           {entity.legendary_action_count}

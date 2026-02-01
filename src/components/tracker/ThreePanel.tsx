@@ -251,7 +251,7 @@ export function ThreePanel({ encounterId }: ThreePanelProps) {
             {encounter.lair_owner_id && (
               <span
                 className={`text-sm hidden sm:inline ${
-                  encounter.lair_action_used ? "text-gray-500" : "text-pink-400"
+                  encounter.lair_action_used ? "text-[var(--parchment-aged)]/40" : "text-[var(--vermillion)]"
                 }`}
               >
                 {encounter.lair_action_used ? "Lair Used" : "Lair Ready"}
@@ -266,7 +266,7 @@ export function ThreePanel({ encounterId }: ThreePanelProps) {
                 className={`px-2 py-1 rounded text-sm ${
                   encounter.can_undo
                     ? "bg-[var(--study-wood)] hover:bg-[var(--gold)]/20"
-                    : "bg-gray-800 text-gray-600 cursor-not-allowed"
+                    : "bg-[var(--study-panel)] text-[var(--parchment-aged)]/30 cursor-not-allowed"
                 }`}
                 title="Undo (Ctrl+Z)"
               >
@@ -278,7 +278,7 @@ export function ThreePanel({ encounterId }: ThreePanelProps) {
                 className={`px-2 py-1 rounded text-sm ${
                   encounter.can_redo
                     ? "bg-[var(--study-wood)] hover:bg-[var(--gold)]/20"
-                    : "bg-gray-800 text-gray-600 cursor-not-allowed"
+                    : "bg-[var(--study-panel)] text-[var(--parchment-aged)]/30 cursor-not-allowed"
                 }`}
                 title="Redo (Ctrl+Shift+Z)"
               >
@@ -391,7 +391,7 @@ export function ThreePanel({ encounterId }: ThreePanelProps) {
                     className={`px-4 py-2 rounded font-semibold ${
                       damageMode
                         ? "bg-[var(--vermillion-dark)] hover:bg-[var(--vermillion)]"
-                        : "bg-green-600 hover:bg-green-500"
+                        : "bg-[var(--gold-dark)] hover:bg-[var(--gold)]"
                     }`}
                   >
                     Apply

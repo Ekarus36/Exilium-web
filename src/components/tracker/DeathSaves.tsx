@@ -21,15 +21,15 @@ export function DeathSaves({
       <div className="flex items-center gap-4">
         {/* Successes */}
         <div className="flex items-center gap-2">
-          <span className="text-sm text-green-400">Success:</span>
+          <span className="text-sm text-[var(--gold)]">Success:</span>
           <div className="flex gap-1">
             {[0, 1, 2].map((i) => (
               <div
                 key={`s-${i}`}
                 className={`w-4 h-4 rounded-full border-2 ${
                   i < successes
-                    ? "bg-green-500 border-green-500"
-                    : "border-green-500/50"
+                    ? "bg-[var(--gold)] border-[var(--gold)]"
+                    : "border-[var(--gold-dark)]/50"
                 }`}
               />
             ))}
@@ -38,15 +38,15 @@ export function DeathSaves({
 
         {/* Failures */}
         <div className="flex items-center gap-2">
-          <span className="text-sm text-red-400">Fail:</span>
+          <span className="text-sm text-[var(--vermillion)]">Fail:</span>
           <div className="flex gap-1">
             {[0, 1, 2].map((i) => (
               <div
                 key={`f-${i}`}
                 className={`w-4 h-4 rounded-full border-2 ${
                   i < failures
-                    ? "bg-red-500 border-red-500"
-                    : "border-red-500/50"
+                    ? "bg-[var(--vermillion)] border-[var(--vermillion)]"
+                    : "border-[var(--vermillion-dark)]/50"
                 }`}
               />
             ))}
@@ -59,21 +59,21 @@ export function DeathSaves({
         <button
           onClick={() => recordDeathSave(combatantId, true)}
           disabled={successes >= 3}
-          className="px-3 py-1 bg-green-600 hover:bg-green-500 disabled:bg-gray-600 disabled:cursor-not-allowed rounded text-sm transition-colors"
+          className="px-3 py-1 bg-[var(--gold-dark)] hover:bg-[var(--gold)] disabled:bg-[var(--study-panel)] disabled:text-[var(--parchment-aged)]/40 disabled:cursor-not-allowed rounded text-sm transition-colors"
         >
           Save
         </button>
         <button
           onClick={() => recordDeathSave(combatantId, false)}
           disabled={failures >= 3}
-          className="px-3 py-1 bg-red-600 hover:bg-red-500 disabled:bg-gray-600 disabled:cursor-not-allowed rounded text-sm transition-colors"
+          className="px-3 py-1 bg-[var(--vermillion-dark)] hover:bg-[var(--vermillion)] disabled:bg-[var(--study-panel)] disabled:text-[var(--parchment-aged)]/40 disabled:cursor-not-allowed rounded text-sm transition-colors"
         >
           Fail
         </button>
         <button
           onClick={() => recordDeathSave(combatantId, true, true)}
           disabled={successes >= 3}
-          className="px-3 py-1 bg-yellow-600 hover:bg-yellow-500 disabled:bg-gray-600 disabled:cursor-not-allowed rounded text-sm transition-colors"
+          className="px-3 py-1 bg-[var(--gold-dark)] hover:bg-[var(--gold)] disabled:bg-[var(--study-panel)] disabled:text-[var(--parchment-aged)]/40 disabled:cursor-not-allowed rounded text-sm transition-colors"
           title="Natural 20 - Regain 1 HP"
         >
           Nat 20
@@ -81,7 +81,7 @@ export function DeathSaves({
         <button
           onClick={() => recordDeathSave(combatantId, false, false, true)}
           disabled={failures >= 3}
-          className="px-3 py-1 bg-purple-600 hover:bg-purple-500 disabled:bg-gray-600 disabled:cursor-not-allowed rounded text-sm transition-colors"
+          className="px-3 py-1 bg-[var(--vermillion)] hover:bg-[var(--vermillion-dark)] disabled:bg-[var(--study-panel)] disabled:text-[var(--parchment-aged)]/40 disabled:cursor-not-allowed rounded text-sm transition-colors"
           title="Natural 1 - Two failures"
         >
           Nat 1

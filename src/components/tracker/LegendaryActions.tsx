@@ -29,8 +29,8 @@ export function LegendaryActions({
             key={i}
             className={`w-4 h-4 rounded-full border-2 ${
               i < remaining
-                ? "bg-yellow-500 border-yellow-500"
-                : "border-yellow-500/50"
+                ? "bg-[var(--gold)] border-[var(--gold)]"
+                : "border-[var(--gold-dark)]/50"
             }`}
           />
         ))}
@@ -40,21 +40,21 @@ export function LegendaryActions({
         <button
           onClick={() => useLegendaryAction(combatantId, 1)}
           disabled={remaining < 1}
-          className="px-3 py-1 bg-yellow-600 hover:bg-yellow-500 disabled:bg-gray-600 disabled:cursor-not-allowed rounded text-sm transition-colors"
+          className="px-3 py-1 bg-[var(--gold-dark)] hover:bg-[var(--gold)] disabled:bg-[var(--study-panel)] disabled:text-[var(--parchment-aged)]/40 disabled:cursor-not-allowed rounded text-sm transition-colors"
         >
           Use 1
         </button>
         <button
           onClick={() => useLegendaryAction(combatantId, 2)}
           disabled={remaining < 2}
-          className="px-3 py-1 bg-yellow-600 hover:bg-yellow-500 disabled:bg-gray-600 disabled:cursor-not-allowed rounded text-sm transition-colors"
+          className="px-3 py-1 bg-[var(--gold-dark)] hover:bg-[var(--gold)] disabled:bg-[var(--study-panel)] disabled:text-[var(--parchment-aged)]/40 disabled:cursor-not-allowed rounded text-sm transition-colors"
         >
           Use 2
         </button>
         <button
           onClick={() => useLegendaryAction(combatantId, 3)}
           disabled={remaining < 3}
-          className="px-3 py-1 bg-yellow-600 hover:bg-yellow-500 disabled:bg-gray-600 disabled:cursor-not-allowed rounded text-sm transition-colors"
+          className="px-3 py-1 bg-[var(--gold-dark)] hover:bg-[var(--gold)] disabled:bg-[var(--study-panel)] disabled:text-[var(--parchment-aged)]/40 disabled:cursor-not-allowed rounded text-sm transition-colors"
         >
           Use 3
         </button>

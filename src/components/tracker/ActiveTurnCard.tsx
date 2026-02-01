@@ -158,7 +158,7 @@ export function ActiveTurnCard({
         </button>
         <button
           onClick={onHeal}
-          className="px-4 py-2 bg-green-600 hover:bg-green-500 rounded text-sm font-semibold transition-colors"
+          className="px-4 py-2 bg-[var(--gold-dark)] hover:bg-[var(--gold)] rounded text-sm font-semibold transition-colors"
         >
           Heal (H)
         </button>
@@ -215,7 +215,7 @@ export function ActiveTurnCard({
             {combatant.conditions.map((cond) => (
               <span
                 key={cond}
-                className="bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded text-sm"
+                className="bg-[var(--gold)]/20 text-[var(--gold)] px-2 py-1 rounded text-sm"
               >
                 {CONDITION_ICONS[cond as Condition] || "?"} {cond}
               </span>
