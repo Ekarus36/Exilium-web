@@ -8,6 +8,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 
+// Force Node.js runtime — Edge runtime has issues with cookies() on POST/DELETE
+export const runtime = "nodejs";
+
 const TRACKER_API_URL = process.env.TRACKER_API_URL || "http://localhost:8000";
 
 async function proxyRequest(
@@ -25,7 +28,6 @@ async function proxyRequest(
   });
 
   // Prepare headers
-  const contentType = request.headers.get("Content-Type") || "application/json";
   const headers: HeadersInit = {};
 
   // Get auth token if user is logged in
@@ -43,54 +45,65 @@ async function proxyRequest(
   let body: BodyInit | undefined;
   if (request.method !== "GET" && request.method !== "HEAD") {
     try {
-      // For multipart/form-data (file uploads), forward the body as-is
-      // Don't set Content-Type header - let fetch set it with the boundary
+      const contentType = request.headers.get("Content-Type") || "";
       if (contentType.includes("multipart/form-data")) {
         body = await request.arrayBuffer();
-        headers["Content-Type"] = contentType; // Include boundary
+        headers["Content-Type"] = contentType;
       } else {
         const text = await request.text();
         if (text) {
-          headers["Content-Type"] = contentType;
+          headers["Content-Type"] = contentType || "application/json";
           body = text;
         }
       }
     } catch {
       // No body
     }
-  } else {
-    headers["Content-Type"] = contentType;
   }
 
   try {
-    // Forward the request to the backend
     const response = await fetch(backendUrl.toString(), {
       method: request.method,
       headers,
       body,
     });
 
-    // Get response data
-    const contentType = response.headers.get("Content-Type") || "";
-    let responseData: unknown;
-
-    if (contentType.includes("application/json")) {
-      responseData = await response.json();
-    } else {
-      responseData = await response.text();
+    // Handle empty responses (204 No Content, etc.)
+    if (response.status === 204 || response.headers.get("Content-Length") === "0") {
+      return new NextResponse(null, { status: response.status });
     }
 
-    // Return the response
-    return NextResponse.json(responseData, {
+    // Read response body as text first to avoid JSON parse errors on empty bodies
+    const responseText = await response.text();
+
+    if (!responseText) {
+      return new NextResponse(null, { status: response.status });
+    }
+
+    // Try to parse as JSON, fall back to text
+    const respContentType = response.headers.get("Content-Type") || "";
+    if (respContentType.includes("application/json")) {
+      try {
+        const responseData = JSON.parse(responseText);
+        return NextResponse.json(responseData, { status: response.status });
+      } catch {
+        // JSON parse failed — return as text
+        return new NextResponse(responseText, {
+          status: response.status,
+          headers: { "Content-Type": "text/plain" },
+        });
+      }
+    }
+
+    return new NextResponse(responseText, {
       status: response.status,
-      headers: {
-        "Content-Type": contentType,
-      },
+      headers: { "Content-Type": respContentType || "text/plain" },
     });
   } catch (error) {
-    console.error("Proxy error:", error);
+    const errMsg = error instanceof Error ? error.message : String(error);
+    console.error(`[proxy] FAILED ${request.method} ${backendUrl}:`, errMsg);
     return NextResponse.json(
-      { error: "Failed to connect to backend" },
+      { error: "Failed to connect to backend", detail: errMsg },
       { status: 502 }
     );
   }
