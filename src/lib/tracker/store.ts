@@ -164,7 +164,7 @@ export const useEncounterStore = create<EncounterState>((set, get) => ({
       set({ encounter, enrichedCombatants: enriched, isLoading: false });
 
       // Check if we need to show lair owner selection
-      if (encounter.lair_candidates.length > 1 && !encounter.lair_owner_id) {
+      if (encounter.lair_candidates?.length > 1 && !encounter.lair_owner_id) {
         set({ showLairOwnerSelect: true });
       }
     } catch (err) {
