@@ -115,7 +115,7 @@ function NavigationCard({
     >
       {/* Card container */}
       <div className={`
-        relative p-8 rounded
+        relative p-8 rounded h-full
         ${isForbidden
           ? 'bg-gradient-to-b from-[var(--study-panel)] to-[rgba(139,42,29,0.15)] border border-[var(--vermillion-dark)]/50'
           : 'bg-[var(--study-panel)] border border-[var(--gold-shadow)]/50'
