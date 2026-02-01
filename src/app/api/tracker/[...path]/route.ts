@@ -47,8 +47,11 @@ async function proxyRequest(
         body = await request.arrayBuffer();
         headers["Content-Type"] = contentType; // Include boundary
       } else {
-        headers["Content-Type"] = contentType;
-        body = await request.text();
+        const text = await request.text();
+        if (text) {
+          headers["Content-Type"] = contentType;
+          body = text;
+        }
       }
     } catch {
       // No body
