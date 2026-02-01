@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2218"/>
+      <stop offset="100%" stop-color="#1a1610"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d4a853"/>
+      <stop offset="50%" stop-color="#b8943d"/>
+      <stop offset="100%" stop-color="#8b6f2f"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="6" fill="url(#bg)"/>
+  <rect x="1" y="1" width="30" height="30" rx="5" fill="none" stroke="url(#gold)" stroke-width="0.75" opacity="0.5"/>
+  <!-- Stylized E in serif/Cinzel style -->
+  <text x="16" y="24" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="22" fill="url(#gold)">E</text>
+</svg>

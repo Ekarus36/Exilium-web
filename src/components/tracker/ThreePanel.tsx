@@ -308,7 +308,7 @@ export function ThreePanel({ encounterId }: ThreePanelProps) {
               onClick={() => setMobileTab(tab.id)}
               className={`flex-1 py-2 text-sm font-medium transition-colors ${
                 mobileTab === tab.id
-                  ? "text-[var(--gold)] border-b-2 border-amber-400"
+                  ? "text-[var(--gold)] border-b-2 border-[var(--gold)]"
                   : "text-[var(--parchment-aged)] hover:text-[var(--parchment-dark)]"
               }`}
             >

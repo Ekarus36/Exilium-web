@@ -533,7 +533,7 @@ function OCRImportModal({
               onChange={handleFileChange}
               className="hidden"
             />
-            <div className="w-full px-4 py-8 border-2 border-dashed border-[var(--gold-dark)] rounded text-center cursor-pointer hover:border-amber-500 transition-colors">
+            <div className="w-full px-4 py-8 border-2 border-dashed border-[var(--gold-dark)] rounded text-center cursor-pointer hover:border-[var(--gold)] transition-colors">
               {file ? (
                 <div>
                   <div className="text-[var(--parchment-light)] font-medium">{file.name}</div>
@@ -717,7 +717,7 @@ function PDFImportModal({
               onChange={handleFileChange}
               className="hidden"
             />
-            <div className="w-full px-4 py-8 border-2 border-dashed border-[var(--gold-dark)] rounded text-center cursor-pointer hover:border-amber-500 transition-colors">
+            <div className="w-full px-4 py-8 border-2 border-dashed border-[var(--gold-dark)] rounded text-center cursor-pointer hover:border-[var(--gold)] transition-colors">
               {file ? (
                 <div>
                   <div className="text-[var(--parchment-light)] font-medium">{file.name}</div>
@@ -2497,7 +2497,7 @@ export default function TrackerPage() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`py-4 px-2 border-b-2 transition-colors ${
                   activeTab === tab.id
-                    ? "border-amber-500 text-[var(--gold)]"
+                    ? "border-[var(--gold)] text-[var(--gold)]"
                     : "border-transparent text-[var(--parchment-aged)] hover:text-[var(--parchment-dark)]"
                 }`}
               >
@@ -2940,7 +2940,7 @@ export default function TrackerPage() {
                       <div
                         key={player.id}
                         onClick={() => setViewingPlayer(player)}
-                        className="bg-[var(--study-panel)] rounded p-4 border border-[var(--gold-shadow)] group cursor-pointer hover:border-amber-500/50 transition-colors"
+                        className="bg-[var(--study-panel)] rounded p-4 border border-[var(--gold-shadow)] group cursor-pointer hover:border-[var(--gold-dark)] transition-colors"
                       >
                         <div className="flex justify-between items-start">
                           <h3 className="font-bold text-[var(--parchment-light)]">{player.name}</h3>
