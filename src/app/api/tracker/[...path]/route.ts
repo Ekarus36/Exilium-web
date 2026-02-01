@@ -24,17 +24,19 @@ async function proxyRequest(
     backendUrl.searchParams.append(key, value);
   });
 
-  // Get auth token if user is logged in
-  const supabase = await createClient();
-  const { data: { session } } = await supabase.auth.getSession();
-
   // Prepare headers
   const contentType = request.headers.get("Content-Type") || "application/json";
   const headers: HeadersInit = {};
 
-  // Add auth header if we have a session
-  if (session?.access_token) {
-    headers["Authorization"] = `Bearer ${session.access_token}`;
+  // Get auth token if user is logged in
+  try {
+    const supabase = await createClient();
+    const { data: { session } } = await supabase.auth.getSession();
+    if (session?.access_token) {
+      headers["Authorization"] = `Bearer ${session.access_token}`;
+    }
+  } catch {
+    // No auth session available - continue without auth header
   }
 
   // Get request body for non-GET requests
