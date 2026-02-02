@@ -5,7 +5,7 @@ import { cookies } from "next/headers";
 export async function verifyGatePassword(
   password: string
 ): Promise<{ success: boolean; error?: string }> {
-  const sitePassword = process.env.SITE_PASSWORD;
+  const sitePassword = process.env.SITE_PASSWORD?.trim();
 
   if (!sitePassword) {
     return { success: true };

@@ -3,7 +3,7 @@ import { updateSession } from "@/lib/supabase/middleware";
 
 export async function middleware(request: NextRequest) {
   // Site-wide password gate
-  const sitePassword = process.env.SITE_PASSWORD;
+  const sitePassword = process.env.SITE_PASSWORD?.trim();
   if (sitePassword) {
     const authCookie = request.cookies.get("site-auth")?.value;
     if (authCookie !== sitePassword && !request.nextUrl.pathname.startsWith("/gate")) {
