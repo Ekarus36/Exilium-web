@@ -5,7 +5,7 @@ import type { ContentDocument, ContentManifest } from "./types";
 const CONTENT_DIR = path.join(process.cwd(), "src/content");
 
 // Categories to exclude from display
-const EXCLUDED_CATEGORIES = ["misc"];
+const EXCLUDED_CATEGORIES: string[] = [];
 
 /**
  * Load content manifest (filtered)
