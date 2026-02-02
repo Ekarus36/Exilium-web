@@ -2,6 +2,15 @@ import { type NextRequest, NextResponse } from "next/server";
 import { updateSession } from "@/lib/supabase/middleware";
 
 export async function middleware(request: NextRequest) {
+  // Site-wide password gate
+  const sitePassword = process.env.SITE_PASSWORD;
+  if (sitePassword) {
+    const authCookie = request.cookies.get("site-auth")?.value;
+    if (authCookie !== sitePassword && !request.nextUrl.pathname.startsWith("/gate")) {
+      return NextResponse.redirect(new URL("/gate", request.url));
+    }
+  }
+
   const { supabaseResponse, user } = await updateSession(request);
 
   // All routes are accessible without login
