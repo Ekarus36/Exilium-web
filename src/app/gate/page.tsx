@@ -1,14 +1,12 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { useRouter } from "next/navigation";
 import { verifyGatePassword } from "./action";
 
 export default function GatePage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isPending, startTransition] = useTransition();
-  const router = useRouter();
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -17,8 +15,7 @@ export default function GatePage() {
     startTransition(async () => {
       const result = await verifyGatePassword(password);
       if (result.success) {
-        router.push("/");
-        router.refresh();
+        window.location.href = "/";
       } else {
         setError(result.error || "Wrong password");
       }
