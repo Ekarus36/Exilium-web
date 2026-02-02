@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { ContentDocument } from "@/lib/content/types";
 import { MarkdownContent } from "./MarkdownContent";
+import { MermaidDiagram } from "./MermaidDiagram";
 import { ChevronDownIcon } from "@/components/ui/Icons";
 
 interface ContentPageProps {
@@ -103,12 +104,7 @@ export function ContentPage({ document, accessLevel }: ContentPageProps) {
             Connections
           </h2>
           <div className="mermaid-container overflow-auto">
-            <pre className="text-xs text-[var(--ink-faded)]">
-              {document.connections}
-            </pre>
-            <p className="text-[var(--ink-faded)] text-sm mt-2 italic font-['IM_Fell_English']">
-              (Mermaid diagram - will be rendered in production)
-            </p>
+            <MermaidDiagram chart={document.connections} />
           </div>
         </div>
       )}
