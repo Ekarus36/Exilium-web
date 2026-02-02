@@ -1,25 +1,35 @@
 "use client";
 
-import { useState, useTransition } from "react";
-import { verifyGatePassword } from "./action";
+import { useState } from "react";
 
 export default function GatePage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [isPending, startTransition] = useTransition();
+  const [isPending, setIsPending] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
+    setIsPending(true);
 
-    startTransition(async () => {
-      const result = await verifyGatePassword(password);
-      if (result.success) {
+    try {
+      const res = await fetch("/gate/api", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password }),
+      });
+
+      if (res.ok) {
         window.location.href = "/";
       } else {
-        setError(result.error || "Wrong password");
+        const data = await res.json();
+        setError(data.error || "Wrong password");
+        setIsPending(false);
       }
-    });
+    } catch {
+      setError("Something went wrong");
+      setIsPending(false);
+    }
   }
 
   return (
