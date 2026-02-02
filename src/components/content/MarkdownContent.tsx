@@ -14,7 +14,7 @@ interface MarkdownContentProps {
 const processor = unified()
   .use(remarkParse)
   .use(remarkGfm)
-  .use(remarkHtml, { sanitize: false });
+  .use(remarkHtml, { sanitize: true });
 
 /**
  * Render markdown content as HTML using remark
