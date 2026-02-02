@@ -20,14 +20,51 @@ export function MermaidDiagram({ chart }: MermaidDiagramProps) {
         const mermaid = (await import("mermaid")).default;
         mermaid.initialize({
           startOnLoad: false,
-          theme: "dark",
+          theme: "base",
           themeVariables: {
-            primaryColor: "#2a1f14",
-            primaryTextColor: "#c4a882",
-            primaryBorderColor: "#8b6914",
-            lineColor: "#8b6914",
-            secondaryColor: "#1a1209",
-            tertiaryColor: "#2a1f14",
+            // Background & surfaces
+            background: "#1a1611",
+            mainBkg: "#2d2519",
+            secondBkg: "#241f18",
+            tertiaryColor: "#1a1611",
+
+            // Text
+            primaryTextColor: "#e8d9b8",
+            secondaryTextColor: "#c9b896",
+            tertiaryTextColor: "#c9b896",
+
+            // Borders & lines
+            primaryBorderColor: "#5c4a1f",
+            secondaryBorderColor: "#5c4a1f",
+            tertiaryBorderColor: "#5c4a1f",
+            lineColor: "#8b6f2f",
+            textColor: "#e8d9b8",
+
+            // Node colors
+            primaryColor: "#2d2519",
+            secondaryColor: "#241f18",
+
+            // Accent
+            pie1: "#b8943d",
+            pie2: "#8b6f2f",
+            pie3: "#5c4a1f",
+            pie4: "#d4a853",
+
+            // Labels & notes
+            noteBkgColor: "#241f18",
+            noteTextColor: "#c9b896",
+            noteBorderColor: "#5c4a1f",
+            labelBoxBkgColor: "#2d2519",
+            labelBoxBorderColor: "#5c4a1f",
+            labelTextColor: "#e8d9b8",
+
+            // Arrows & edges
+            edgeLabelBackground: "#1a1611",
+            clusterBkg: "#241f18",
+            clusterBorder: "#5c4a1f",
+            titleColor: "#b8943d",
+
+            // Typography
             fontFamily: "'Crimson Pro', serif",
             fontSize: "14px",
           },
