@@ -83,6 +83,28 @@ export default function DMHomePage() {
           </ul>
         </div>
 
+        {/* Oracle link */}
+        <div className="not-prose my-8">
+          <Link
+            href="/dm/oracle"
+            className="block bg-gradient-to-r from-[var(--study-panel)] via-[rgba(139,42,29,0.15)] to-[var(--study-panel)] border border-[var(--vermillion-dark)]/40 rounded p-6 group hover:border-[var(--vermillion)]/60 transition-all duration-300"
+          >
+            <div className="flex items-center gap-4">
+              <div className="text-[var(--vermillion)] opacity-80 group-hover:opacity-100 transition-opacity">
+                <EyeIcon size={28} />
+              </div>
+              <div>
+                <h3 className="font-['Cinzel',serif] text-lg text-[var(--gold)] group-hover:text-[var(--gold-bright)] transition-colors">
+                  The Oracle
+                </h3>
+                <p className="text-sm text-[var(--parchment-aged)]">
+                  Ask questions about Exilium lore — the Oracle searches the full archives and answers with citations
+                </p>
+              </div>
+            </div>
+          </Link>
+        </div>
+
         <h2>Browse the Archives</h2>
         <div className="grid md:grid-cols-2 gap-4 not-prose my-8">
           <DMCategoryCard
