@@ -146,11 +146,17 @@ export const playerNavigation: NavigationConfig = {
   ],
 };
 
-// DM navigation - same structure but links to /dm/...
+// DM navigation - same structure but links to /dm/... plus Oracle
 export const dmNavigation: NavigationConfig = {
-  sections: playerNavigation.sections.map((section) =>
-    transformNavForDM(section)
-  ),
+  sections: [
+    {
+      label: "Oracle",
+      href: "/dm/oracle",
+    },
+    ...playerNavigation.sections.map((section) =>
+      transformNavForDM(section)
+    ),
+  ],
 };
 
 function transformNavForDM(item: NavItem): NavItem {

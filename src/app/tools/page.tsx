@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LightningIcon, ClipboardIcon, MapPinIcon, SlidersIcon } from "@/components/ui/Icons";
+import { LightningIcon, ClipboardIcon, MapPinIcon, SlidersIcon, EyeIcon } from "@/components/ui/Icons";
 
 export const metadata = {
   title: "DM Tools",
@@ -30,6 +30,37 @@ export default function ToolsPage() {
       </header>
 
       <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+        <Link
+          href="/dm/oracle"
+          className="group block"
+        >
+          <div className="bg-[var(--study-panel)] border border-[var(--gold-shadow)]/50 rounded p-6 transition-all duration-300 group-hover:border-[var(--gold)]/70 group-hover:shadow-[0_0_30px_rgba(184,148,61,0.1)]">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="text-[var(--gold)] opacity-70 group-hover:opacity-100 transition-opacity">
+                <EyeIcon size={28} />
+              </div>
+              <h2 className="font-['Cinzel',serif] text-xl text-[var(--gold)] group-hover:text-[var(--gold-bright)] transition-colors">
+                The Oracle
+              </h2>
+            </div>
+            <p className="font-['Crimson_Pro',serif] text-[var(--parchment-aged)] text-sm mb-4">
+              Ask questions about the world of Exilium. The Oracle searches lore
+              documents and answers with cited sources.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <span className="text-xs border border-[var(--gold-shadow)]/30 text-[var(--gold-dark)] px-2 py-1 rounded">
+                Lore search
+              </span>
+              <span className="text-xs border border-[var(--gold-shadow)]/30 text-[var(--gold-dark)] px-2 py-1 rounded">
+                AI-powered
+              </span>
+              <span className="text-xs border border-[var(--gold-shadow)]/30 text-[var(--gold-dark)] px-2 py-1 rounded">
+                Cited answers
+              </span>
+            </div>
+          </div>
+        </Link>
+
         <Link
           href="/tools/tracker"
           className="group block"
