@@ -1,5 +1,7 @@
 // Navigation structure matching actual content
 
+import { getDmNavTools } from "@/tools/registry";
+
 export interface NavItem {
   label: string;
   href?: string;
@@ -146,13 +148,13 @@ export const playerNavigation: NavigationConfig = {
   ],
 };
 
-// DM navigation - same structure but links to /dm/... plus Oracle
+// DM navigation - same structure but links to /dm/... plus tool nav items from registry
 export const dmNavigation: NavigationConfig = {
   sections: [
-    {
-      label: "Oracle",
-      href: "/dm/oracle",
-    },
+    ...getDmNavTools().map((tool) => ({
+      label: tool.navLabel ?? tool.name,
+      href: tool.route,
+    })),
     ...playerNavigation.sections.map((section) =>
       transformNavForDM(section)
     ),
