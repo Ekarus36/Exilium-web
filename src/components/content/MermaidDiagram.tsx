@@ -20,6 +20,7 @@ export function MermaidDiagram({ chart }: MermaidDiagramProps) {
         const mermaid = (await import("mermaid")).default;
         mermaid.initialize({
           startOnLoad: false,
+          securityLevel: "loose",
           theme: "base",
           themeVariables: {
             // Background & surfaces
@@ -49,6 +50,9 @@ export function MermaidDiagram({ chart }: MermaidDiagramProps) {
             pie2: "#8b6f2f",
             pie3: "#5c4a1f",
             pie4: "#d4a853",
+            pie5: "#967b32",
+            pie6: "#6b5623",
+            pie7: "#c4a24a",
 
             // Labels & notes
             noteBkgColor: "#241f18",
@@ -68,11 +72,14 @@ export function MermaidDiagram({ chart }: MermaidDiagramProps) {
             fontFamily: "'Crimson Pro', serif",
             fontSize: "14px",
           },
-          flowchart: { curve: "basis" },
+          flowchart: { curve: "basis", htmlLabels: true },
         });
 
+        // Strip inline style directives designed for light backgrounds
+        const cleaned = chart.replace(/^\s*style\s+\S+\s+fill:#[^,\n]+.*$/gm, "");
+
         const id = `mermaid-${Math.random().toString(36).slice(2, 9)}`;
-        const { svg } = await mermaid.render(id, chart);
+        const { svg } = await mermaid.render(id, cleaned);
 
         if (!cancelled && containerRef.current) {
           containerRef.current.innerHTML = svg;
