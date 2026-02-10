@@ -19,13 +19,13 @@ import {
   pathToCategory,
   convertWikiLinks,
   markdownToHtml,
-} from "../src/lib/content/parser";
+} from "../src/tools/wiki/lib/parser";
 import type {
   ContentDocument,
   ContentManifest,
   SearchIndexEntry,
   Category,
-} from "../src/lib/content/types";
+} from "../src/tools/wiki/lib/types";
 
 // Configuration
 const VAULT_PATH =

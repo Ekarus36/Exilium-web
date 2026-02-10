@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
-import { getDocument, getAllDocumentPaths } from "@/lib/content/loader";
-import { ContentPage } from "@/components/content/ContentPage";
+import { getDocument, getAllDocumentPaths } from "@/tools/wiki/lib/loader";
+import { ContentPage } from "@/tools/wiki/components/ContentPage";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { RelationshipPanel } from "@/components/content/RelationshipPanel";
-import { getBreadcrumbs, dmNavigation } from "@/lib/content/navigation";
+import { RelationshipPanel } from "@/tools/wiki/components/RelationshipPanel";
+import { getBreadcrumbs, dmNavigation } from "@/tools/wiki/lib/navigation";
 
 interface PageProps {
   params: Promise<{

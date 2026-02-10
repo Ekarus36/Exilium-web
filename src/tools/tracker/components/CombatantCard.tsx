@@ -1,12 +1,12 @@
 "use client";
 
-import type { EnrichedCombatant, Player, Creature } from "@/lib/tracker/types";
-import { CONDITION_ICONS, type Condition } from "@/lib/tracker/types";
+import type { EnrichedCombatant, Player, Creature } from "@/tools/tracker/lib/types";
+import { CONDITION_ICONS, type Condition } from "@/tools/tracker/lib/types";
 import {
   formatHP,
   getHPPercentage,
   getHPColor,
-} from "@/lib/tracker/utils";
+} from "@/tools/tracker/lib/utils";
 
 interface CombatantCardProps {
   combatant: EnrichedCombatant;

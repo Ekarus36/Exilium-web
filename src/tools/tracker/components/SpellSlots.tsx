@@ -1,7 +1,7 @@
 "use client";
 
-import type { Player } from "@/lib/tracker/types";
-import { useEncounterStore } from "@/lib/tracker/store";
+import type { Player } from "@/tools/tracker/lib/types";
+import { useEncounterStore } from "@/tools/tracker/lib/store";
 
 interface SpellSlotsProps {
   combatantId: string;

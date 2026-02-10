@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SearchWrapper } from "@/components/content/SearchWrapper";
+import { SearchWrapper } from "@/tools/wiki/components/SearchWrapper";
 import { GlobeIcon, HexagonIcon, HourglassIcon, SwordsIcon, SunIcon, CrownIcon } from "@/components/ui/Icons";
 
 export const metadata = {

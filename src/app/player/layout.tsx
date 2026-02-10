@@ -1,5 +1,5 @@
 import { WikiLayout } from "@/components/layout/WikiLayout";
-import { playerNavigation } from "@/lib/content/navigation";
+import { playerNavigation } from "@/tools/wiki/lib/navigation";
 
 export default function PlayerLayout({
   children,

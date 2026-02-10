@@ -1,7 +1,7 @@
 "use client";
 
-import { CONDITIONS, CONDITION_ICONS, type Condition } from "@/lib/tracker/types";
-import { useEncounterStore } from "@/lib/tracker/store";
+import { CONDITIONS, CONDITION_ICONS, type Condition } from "@/tools/tracker/lib/types";
+import { useEncounterStore } from "@/tools/tracker/lib/store";
 
 interface ConditionPickerProps {
   combatantId: string;

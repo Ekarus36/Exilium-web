@@ -1,6 +1,6 @@
 "use client";
 
-import { useEncounterStore } from "@/lib/tracker/store";
+import { useEncounterStore } from "@/tools/tracker/lib/store";
 
 interface DeathSavesProps {
   combatantId: string;

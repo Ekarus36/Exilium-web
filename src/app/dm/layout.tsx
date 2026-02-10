@@ -1,5 +1,5 @@
 import { WikiLayout } from "@/components/layout/WikiLayout";
-import { dmNavigation } from "@/lib/content/navigation";
+import { dmNavigation } from "@/tools/wiki/lib/navigation";
 
 export default function DMLayout({
   children,

@@ -3,7 +3,7 @@
 import { useState, useCallback } from "react";
 import { Sidebar } from "./Sidebar";
 import { Header } from "./Header";
-import type { NavigationConfig } from "@/lib/content/navigation";
+import type { NavigationConfig } from "@/tools/wiki/lib/navigation";
 
 interface WikiLayoutProps {
   children: React.ReactNode;

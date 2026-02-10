@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { useEncounterStore } from "@/lib/tracker/store";
+import { useEncounterStore } from "@/tools/tracker/lib/store";
 import { CombatantCard } from "./CombatantCard";
 import { ActiveTurnCard } from "./ActiveTurnCard";
 import { TurnControls } from "./TurnControls";

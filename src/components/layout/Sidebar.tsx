@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { NavItem, NavigationConfig } from "@/lib/content/navigation";
+import type { NavItem, NavigationConfig } from "@/tools/wiki/lib/navigation";
 import { getNavIcon, ChevronRightIcon, SearchIcon } from "@/components/ui/Icons";
 
 interface SidebarProps {

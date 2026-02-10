@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Fuse from "fuse.js";
-import type { SearchIndexEntry } from "@/lib/content/types";
+import type { SearchIndexEntry } from "@/tools/wiki/lib/types";
 import { SearchIcon } from "@/components/ui/Icons";
 
 interface SearchProps {

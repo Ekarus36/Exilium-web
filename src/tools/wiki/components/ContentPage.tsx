@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { ContentDocument } from "@/lib/content/types";
+import type { ContentDocument } from "@/tools/wiki/lib/types";
 import { MarkdownContent } from "./MarkdownContent";
 import { MermaidDiagram } from "./MermaidDiagram";
 import { ChevronDownIcon } from "@/components/ui/Icons";

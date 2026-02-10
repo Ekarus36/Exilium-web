@@ -1,7 +1,7 @@
 "use client";
 
-import type { Creature } from "@/lib/tracker/types";
-import { useEncounterStore } from "@/lib/tracker/store";
+import type { Creature } from "@/tools/tracker/lib/types";
+import { useEncounterStore } from "@/tools/tracker/lib/store";
 
 interface LegendaryActionsProps {
   combatantId: string;

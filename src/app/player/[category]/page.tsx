@@ -4,7 +4,7 @@ import {
   getDocumentsByCategory,
   getAllCategories,
   getCategory,
-} from "@/lib/content/loader";
+} from "@/tools/wiki/lib/loader";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
 interface PageProps {

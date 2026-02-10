@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllDocumentPaths, getAllCategories } from "@/lib/content/loader";
+import { getAllDocumentPaths, getAllCategories } from "@/tools/wiki/lib/loader";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://exilium.app";
 

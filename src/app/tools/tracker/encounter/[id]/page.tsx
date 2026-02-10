@@ -1,7 +1,7 @@
 "use client";
 
 import { use } from "react";
-import { ThreePanel } from "@/components/tracker/ThreePanel";
+import { ThreePanel } from "@/tools/tracker/components/ThreePanel";
 
 interface EncounterPageProps {
   params: Promise<{ id: string }>;

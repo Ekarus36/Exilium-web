@@ -12,14 +12,14 @@ import {
   importApi,
   type SrdMonsterListItem,
   type OcrPreviewResult,
-} from "@/lib/tracker/api";
+} from "@/tools/tracker/lib/api";
 import type {
   Campaign,
   CampaignDetail,
   Encounter,
   Player,
   Creature,
-} from "@/lib/tracker/types";
+} from "@/tools/tracker/lib/types";
 
 // QuickAddModal for creating players and creatures
 function QuickAddModal({
@@ -1967,7 +1967,7 @@ function EncounterHistoryModal({
   encounter: Encounter;
   onClose: () => void;
 }) {
-  const [combatLog, setCombatLog] = useState<import("@/lib/tracker/types").CombatLogEntry[]>([]);
+  const [combatLog, setCombatLog] = useState<import("@/tools/tracker/lib/types").CombatLogEntry[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

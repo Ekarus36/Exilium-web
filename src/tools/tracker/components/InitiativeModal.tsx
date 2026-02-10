@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { EnrichedCombatant } from "@/lib/tracker/types";
+import type { EnrichedCombatant } from "@/tools/tracker/lib/types";
 
 interface InitiativeModalProps {
   combatants: EnrichedCombatant[];

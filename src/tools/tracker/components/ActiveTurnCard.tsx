@@ -5,15 +5,15 @@ import type {
   Player,
   Creature,
   Action,
-} from "@/lib/tracker/types";
-import { CONDITION_ICONS, type Condition } from "@/lib/tracker/types";
+} from "@/tools/tracker/lib/types";
+import { CONDITION_ICONS, type Condition } from "@/tools/tracker/lib/types";
 import {
   formatHP,
   getHPPercentage,
   getHPColor,
   getModifier,
   formatModifier,
-} from "@/lib/tracker/utils";
+} from "@/tools/tracker/lib/utils";
 import { DeathSaves } from "./DeathSaves";
 import { SpellSlots } from "./SpellSlots";
 import { LegendaryActions } from "./LegendaryActions";
