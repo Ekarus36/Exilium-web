@@ -62,11 +62,21 @@ async function proxyRequest(
   }
 
   try {
-    const response = await fetch(backendUrl.toString(), {
+    let response = await fetch(backendUrl.toString(), {
       method: request.method,
       headers,
       body,
     });
+
+    // If backend rejects the auth token, retry without it
+    if (response.status === 401 && headers["Authorization"]) {
+      const { Authorization: _, ...headersWithoutAuth } = headers as Record<string, string>;
+      response = await fetch(backendUrl.toString(), {
+        method: request.method,
+        headers: headersWithoutAuth,
+        body,
+      });
+    }
 
     // Handle empty responses (204 No Content, etc.)
     if (response.status === 204 || response.headers.get("Content-Length") === "0") {
