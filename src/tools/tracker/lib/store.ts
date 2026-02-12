@@ -215,20 +215,40 @@ export const useEncounterStore = create<EncounterState>((set, get) => ({
   },
 
   nextTurn: async () => {
-    const { encounter } = get();
+    const { encounter, players, creatures } = get();
     if (!encounter) return;
 
     const updated = await encountersApi.nextTurn(encounter.id);
-    await get().loadEncounter(updated.id);
+    const sorted = [...updated.combatants].sort(
+      (a, b) => a.sort_order - b.sort_order
+    );
+    const enriched: EnrichedCombatant[] = sorted.map((c) => ({
+      ...c,
+      entity:
+        c.entity_type === "player"
+          ? players[c.entity_id]
+          : creatures[c.entity_id],
+    }));
+    set({ encounter: updated, enrichedCombatants: enriched });
     await get().loadCombatLog();
   },
 
   prevTurn: async () => {
-    const { encounter } = get();
+    const { encounter, players, creatures } = get();
     if (!encounter) return;
 
     const updated = await encountersApi.prevTurn(encounter.id);
-    await get().loadEncounter(updated.id);
+    const sorted = [...updated.combatants].sort(
+      (a, b) => a.sort_order - b.sort_order
+    );
+    const enriched: EnrichedCombatant[] = sorted.map((c) => ({
+      ...c,
+      entity:
+        c.entity_type === "player"
+          ? players[c.entity_id]
+          : creatures[c.entity_id],
+    }));
+    set({ encounter: updated, enrichedCombatants: enriched });
     await get().loadCombatLog();
   },
 
